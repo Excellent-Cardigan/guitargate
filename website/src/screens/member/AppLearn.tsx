@@ -4,9 +4,10 @@ import { BottomTabBar } from '../../components/BottomTabBar';
 import { Stagger, StaggerItem, DragScrollRow } from '../../components/motion';
 import { ChipFilter } from '../../components/Segmented';
 import { PatternThumb } from '../../components/PatternThumb';
+import { GuestBanner } from '../../components/GuestBanner';
 import type { AppNav } from '../../types';
 
-interface Props { nav: AppNav }
+interface Props { nav: AppNav; isGuest?: boolean }
 
 type Category = 'all' | 'paths' | 'songs' | 'techniques' | 'live';
 
@@ -38,7 +39,7 @@ const LIVE_SESSIONS = [
   { title: 'Official Lesson — replay', artist: 'Michael P.', level: 'Replay', mins: 35 },
 ];
 
-export function AppLearn({ nav }: Props) {
+export function AppLearn({ nav, isGuest }: Props) {
   const [activeLabel, setActiveLabel] = useState('All');
   const category = PILLS.find(p => p.label === activeLabel)?.value ?? 'all';
 
@@ -51,18 +52,20 @@ export function AppLearn({ nav }: Props) {
     <Stagger className="phone-scroll">
       <StaggerItem className="app-header">
         <span className="app-header__title">Learn</span>
-        <button className="app-header__avatar" onClick={() => nav.navigate('app-account')}>
+        <button className="app-header__avatar" onClick={() => nav.navigate(isGuest ? 'app-signin' : 'app-account')}>
           <RiUser3Line size={16} color="var(--muted)" />
         </button>
       </StaggerItem>
+
+      {isGuest && <GuestBanner onCreateAccount={() => nav.navigate('signup')} />}
 
       {/* Filter pills */}
       <StaggerItem style={{ padding: '10px 20px', borderBottom: '1px solid var(--line)', flexShrink: 0 }}>
         <ChipFilter options={PILLS.map(p => p.label)} value={activeLabel} onChange={setActiveLabel} layoutId="chip-learn" collapseToActive />
       </StaggerItem>
 
-      {/* My path */}
-      {showPaths && (
+      {/* My path — assumes an enrolled member, hidden for guests */}
+      {showPaths && !isGuest && (
         <StaggerItem className="app-section">
           <div className="app-section__label">My path</div>
           <div
@@ -201,7 +204,7 @@ export function AppLearn({ nav }: Props) {
         </div>
       </StaggerItem>
 
-      <BottomTabBar active="learn" nav={nav} />
+      <BottomTabBar active="learn" nav={nav} isGuest={isGuest} />
     </Stagger>
   );
 }

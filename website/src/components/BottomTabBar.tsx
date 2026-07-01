@@ -12,6 +12,8 @@ type TabId = 'home' | 'learn' | 'play' | 'pedals';
 interface BottomTabBarProps {
   active: TabId;
   nav: AppNav;
+  /** While true, tapping any tab besides Learn redirects to sign-in instead of navigating. */
+  isGuest?: boolean;
 }
 
 const TABS: {
@@ -27,17 +29,18 @@ const TABS: {
   { id: 'pedals', label: 'Pedals', screen: 'app-pedals', Line: RiBox3Line,      Fill: RiBox3Fill },
 ];
 
-export function BottomTabBar({ active, nav }: BottomTabBarProps) {
+export function BottomTabBar({ active, nav, isGuest }: BottomTabBarProps) {
   return (
     <div className="tab-bar">
       {TABS.map(tab => {
         const isActive = tab.id === active;
         const Icon = isActive ? tab.Fill : tab.Line;
+        const gated = isGuest && tab.id !== 'learn';
         return (
           <motion.button
             key={tab.id}
             className="tab-item"
-            onClick={() => nav.navigate(tab.screen)}
+            onClick={() => nav.navigate(gated ? 'app-signin' : tab.screen)}
             whileTap={{ scale: 0.86 }}
             transition={{ type: 'spring', stiffness: 600, damping: 26 }}
           >

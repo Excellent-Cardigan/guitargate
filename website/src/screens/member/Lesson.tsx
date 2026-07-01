@@ -8,12 +8,12 @@ import { Stagger, StaggerItem } from '../../components/motion';
 import { SegmentedControl } from '../../components/Segmented';
 import type { AppNav } from '../../types';
 
-interface Props { nav: AppNav }
+interface Props { nav: AppNav; isGuest?: boolean }
 
 const LESSON_TABS = ['Tab', 'Chords', 'Notes'] as const;
 type LessonTab = typeof LESSON_TABS[number];
 
-export function Lesson({ nav }: Props) {
+export function Lesson({ nav, isGuest }: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [activeTab, setActiveTab] = useState<LessonTab>('Tab');
 
@@ -27,7 +27,7 @@ export function Lesson({ nav }: Props) {
           <RiArrowLeftSLine size={22} />
           <span className="app-header__title" style={{ fontSize: 18 }}>Lesson</span>
         </button>
-        <button className="app-header__avatar" onClick={() => nav.navigate('app-account')}>
+        <button className="app-header__avatar" onClick={() => nav.navigate(isGuest ? 'app-signin' : 'app-account')}>
           <RiUser3Line size={16} color="var(--muted)" />
         </button>
       </StaggerItem>
@@ -90,13 +90,23 @@ export function Lesson({ nav }: Props) {
 
       {/* Complete */}
       <StaggerItem style={{ padding: '16px 20px' }}>
-        <button
-          className="btn btn-primary"
-          style={{ width: '100%', justifyContent: 'center' }}
-          onClick={() => nav.navigate('app-learn')}
-        >
-          Mark lesson complete →
-        </button>
+        {isGuest ? (
+          <button
+            className="btn btn-primary"
+            style={{ width: '100%', justifyContent: 'center' }}
+            onClick={() => nav.navigate('signup')}
+          >
+            Create an account to save your progress →
+          </button>
+        ) : (
+          <button
+            className="btn btn-primary"
+            style={{ width: '100%', justifyContent: 'center' }}
+            onClick={() => nav.navigate('app-learn')}
+          >
+            Mark lesson complete →
+          </button>
+        )}
       </StaggerItem>
 
       <BottomTabBar active="learn" nav={nav} />

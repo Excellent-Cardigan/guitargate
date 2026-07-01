@@ -9,6 +9,9 @@ import { AppPlay } from './screens/member/AppPlay';
 import { AppPedals } from './screens/member/AppPedals';
 import { AppAccount } from './screens/member/AppAccount';
 import { AppSignIn } from './screens/member/AppSignIn';
+import { SignupWizard } from './screens/member/SignupWizard';
+import { Login } from './screens/member/Login';
+import { ForgotPassword } from './screens/member/ForgotPassword';
 import { Lesson } from './screens/member/Lesson';
 import { Library } from './screens/member/Library';
 import { Billing } from './screens/member/Billing';
@@ -25,8 +28,9 @@ import { Notifications } from './screens/member/Notifications';
  * bundled. This is the entry mounted at `/` for the dedicated app URL.
  */
 export default function AppOnly() {
-  const [screen, setScreen] = useState<Screen>('app-home');
+  const [screen, setScreen] = useState<Screen>('app-signin');
   const [params, setParams] = useState<NavParams>({});
+  const [isGuest, setIsGuest] = useState(false);
   const feed = useFeedStore();
 
   const navigate = (next: Screen, nextParams: NavParams = {}) => {
@@ -39,13 +43,16 @@ export default function AppOnly() {
 
   function renderContent() {
     switch (screen) {
-      case 'app-learn':   return <AppLearn nav={nav} />;
+      case 'app-learn':   return <AppLearn nav={nav} isGuest={isGuest} />;
       case 'app-play':    return <AppPlay nav={nav} feed={feed} />;
       case 'app-pedals':  return <AppPedals nav={nav} />;
       case 'app-account': return <AppAccount nav={nav} />;
-      case 'app-signin':  return <AppSignIn nav={nav} />;
-      case 'lesson':      return <Lesson nav={nav} />;
-      case 'library':     return <Library nav={nav} />;
+      case 'app-signin':  return <AppSignIn nav={nav} onGuest={() => setIsGuest(true)} />;
+      case 'signup':      return <SignupWizard nav={nav} />;
+      case 'login':       return <Login nav={nav} />;
+      case 'forgot-password': return <ForgotPassword nav={nav} />;
+      case 'lesson':      return <Lesson nav={nav} isGuest={isGuest} />;
+      case 'library':     return <Library nav={nav} isGuest={isGuest} />;
       case 'billing':     return <Billing nav={nav} />;
       case 'loop-detail': return <LoopDetail nav={nav} feed={feed} />;
       case 'share-preview': return <SharePreview nav={nav} feed={feed} />;

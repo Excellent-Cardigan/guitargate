@@ -6,7 +6,7 @@ import { ChipFilter } from '../../components/Segmented';
 import { PatternThumb } from '../../components/PatternThumb';
 import type { AppNav } from '../../types';
 
-interface Props { nav: AppNav }
+interface Props { nav: AppNav; isGuest?: boolean }
 
 type Category = 'all' | 'paths' | 'songs' | 'techniques' | 'live';
 
@@ -34,7 +34,7 @@ const LIBRARY_LESSONS: Array<{ title: string; category: Exclude<Category, 'all'>
   { title: 'Official Lesson — replay', category: 'live', meta: 'Live replay · Michael P. · 35 min' },
 ];
 
-export function Library({ nav }: Props) {
+export function Library({ nav, isGuest }: Props) {
   const [activeLabel, setActiveLabel] = useState('All');
   const activeCategory = PILLS.find(p => p.label === activeLabel)?.value ?? 'all';
 
@@ -52,7 +52,7 @@ export function Library({ nav }: Props) {
           <RiArrowLeftSLine size={22} />
           <span className="app-header__title" style={{ fontSize: 18 }}>Library</span>
         </button>
-        <button className="app-header__avatar" onClick={() => nav.navigate('app-account')}>
+        <button className="app-header__avatar" onClick={() => nav.navigate(isGuest ? 'app-signin' : 'app-account')}>
           <RiUser3Line size={16} color="var(--muted)" />
         </button>
       </StaggerItem>
@@ -104,7 +104,7 @@ export function Library({ nav }: Props) {
         )}
       </StaggerItem>
 
-      <BottomTabBar active="learn" nav={nav} />
+      <BottomTabBar active="learn" nav={nav} isGuest={isGuest} />
     </Stagger>
   );
 }

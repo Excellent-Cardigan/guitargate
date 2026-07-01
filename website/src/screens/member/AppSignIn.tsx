@@ -1,59 +1,49 @@
-import { RiMailLine, RiLockPasswordLine } from '@remixicon/react';
 import { Stagger, StaggerItem } from '../../components/motion';
 import type { AppNav } from '../../types';
 
-interface Props { nav: AppNav }
+interface Props { nav: AppNav; onGuest: () => void }
 
-export function AppSignIn({ nav }: Props) {
+export function AppSignIn({ nav, onGuest }: Props) {
+  const browseAsGuest = () => {
+    onGuest();
+    nav.navigate('app-learn');
+  };
+
   return (
     <Stagger className="phone-scroll">
-      <StaggerItem group style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 28px 40px', gap: 8 }}>
-        <StaggerItem style={{ textAlign: 'center', marginBottom: 24 }}>
-          <div className="app-header__wordmark" style={{ fontSize: 26 }}>GUITARGATE</div>
-          <div className="t-caption t-muted" style={{ marginTop: 8 }}>Signed out · Welcome back</div>
-        </StaggerItem>
-
-        <StaggerItem className="form-field">
-          <label>Email</label>
-          <div className="form-field__input" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <RiMailLine size={15} color="var(--muted)" />
-            you@example.com
-          </div>
-        </StaggerItem>
-        <StaggerItem className="form-field">
-          <label>Password</label>
-          <div className="form-field__input" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <RiLockPasswordLine size={15} color="var(--muted)" />
-            ••••••••
-          </div>
+      <StaggerItem group style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 28px 40px', gap: 12 }}>
+        <StaggerItem style={{ textAlign: 'center', marginBottom: 40 }}>
+          <div className="app-header__wordmark" style={{ fontSize: 28 }}>GUITARGATE</div>
+          <div className="t-caption t-muted" style={{ marginTop: 10 }}>Keep it in your hands.</div>
         </StaggerItem>
 
         <StaggerItem>
           <button
             className="btn btn-primary"
-            style={{ width: '100%', justifyContent: 'center', marginTop: 8 }}
-            onClick={() => nav.navigate('app-home')}
+            style={{ width: '100%', justifyContent: 'center' }}
+            onClick={() => nav.navigate('signup')}
           >
-            Sign in
+            Create account
           </button>
         </StaggerItem>
         <StaggerItem>
           <button
             className="btn btn-secondary"
             style={{ width: '100%', justifyContent: 'center' }}
-            onClick={() => nav.navigate('app-home')}
+            onClick={() => nav.navigate('login')}
           >
-            Create account
+            Sign in
           </button>
         </StaggerItem>
 
-        <StaggerItem>
+        <StaggerItem style={{ textAlign: 'center', marginTop: 16 }}>
           <button
-            className="btn btn-ghost t-caption"
-            style={{ width: '100%', justifyContent: 'center', color: 'var(--muted)' }}
-            onClick={() => {/* forgot password — terminal */}}
+            type="button"
+            className="t-caption t-muted"
+            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+            onClick={browseAsGuest}
           >
-            Forgot password?
+            Browse Learn without an account →
           </button>
         </StaggerItem>
       </StaggerItem>

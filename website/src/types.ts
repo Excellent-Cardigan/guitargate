@@ -20,7 +20,10 @@ export type Screen =
   | 'share-preview'
   | 'loop-someone-in'
   | 'live-view'
-  | 'notifications';
+  | 'notifications'
+  | 'signup'
+  | 'login'
+  | 'forgot-password';
 
 export interface NavParams {
   loopId?: string;
