@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typography Specimen — Guitargate Brand System v0.5</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    body {
+      background: var(--neutral-50);
+      padding: 0;
+    }
+
+    .specimen-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: var(--sp-64) var(--sp-48);
+    }
+
+    .specimen-header {
+      background: var(--neutral-900);
+      padding: var(--sp-64) var(--sp-48);
+      margin-bottom: var(--sp-64);
+    }
+
+    .specimen-header h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--neutral-50);
+      margin-bottom: var(--sp-8);
+    }
+
+    .specimen-header p {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--neutral-600);
+      letter-spacing: 0.06em;
+    }
+
+    .typeface-block {
+      margin-bottom: var(--sp-96);
+    }
+
+    .typeface-block + .typeface-block {
+      padding-top: var(--sp-96);
+      border-top: 2px solid var(--neutral-900);
+    }
+
+    .typeface-meta {
+      display: flex;
+      gap: var(--sp-48);
+      align-items: flex-end;
+      margin-bottom: var(--sp-48);
+      padding-bottom: var(--sp-24);
+      border-bottom: 1px solid var(--neutral-100);
+    }
+
+    .typeface-name {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--neutral-600);
+    }
+
+    .typeface-role {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--neutral-500);
+    }
+
+    .typeface-kit {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--neutral-500);
+      margin-left: auto;
+    }
+
+    .specimen-sizes {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-32);
+    }
+
+    .specimen-row {
+      display: flex;
+      gap: var(--sp-24);
+      align-items: baseline;
+      padding-bottom: var(--sp-24);
+      border-bottom: 1px solid var(--neutral-100);
+    }
+
+    .specimen-row:last-child { border-bottom: none; }
+
+    .specimen-size-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--neutral-500);
+      width: 100px;
+      flex-shrink: 0;
+      letter-spacing: 0.06em;
+    }
+
+    .specimen-text { flex: 1; }
+
+    /* — Transducer Extended Bold specimen rows — */
+    .s-display-128 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 128px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--neutral-900);
+      line-height: 1;
+    }
+
+    .s-display-64 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 64px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neutral-900);
+      line-height: 1;
+    }
+
+    .s-display-48 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 48px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neutral-900);
+      line-height: 1.1;
+    }
+
+    .s-display-32 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 32px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--neutral-900);
+      line-height: 1.2;
+    }
+
+    .s-display-24 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--neutral-900);
+      line-height: 1.3;
+    }
+
+    .s-display-16 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--neutral-900);
+      line-height: 1.4;
+    }
+
+    .s-display-13 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--neutral-600);
+      line-height: 1.4;
+    }
+
+    /* — Articulat CF specimen rows — */
+    .s-body-24 {
+      font-family: var(--font-body);
+      font-size: 24px;
+      line-height: 1.5;
+      color: var(--neutral-700);
+    }
+
+    .s-body-20 {
+      font-family: var(--font-body);
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--neutral-700);
+    }
+
+    .s-body-17 {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--neutral-700);
+    }
+
+    .s-body-15 {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--neutral-700);
+    }
+
+    .s-body-13 {
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--neutral-600);
+    }
+
+    .s-body-italic {
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--neutral-700);
+    }
+
+    /* — CoFo Sans specimen rows — */
+    .s-mono-16 {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--neutral-700);
+      letter-spacing: 0.04em;
+    }
+
+    .s-mono-13 {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--neutral-600);
+      letter-spacing: 0.04em;
+    }
+
+    .s-mono-11 {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.5;
+      color: var(--neutral-500);
+      letter-spacing: 0.08em;
+    }
+
+    /* — Alphabet sample — */
+    .alphabet-row {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--neutral-900);
+      line-height: 1.4;
+      margin-top: var(--sp-32);
+    }
+
+    .alphabet-row--body {
+      font-family: var(--font-body);
+      font-size: 20px;
+      color: var(--neutral-700);
+      line-height: 1.5;
+    }
+
+    .alphabet-row--mono {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      color: var(--neutral-600);
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+    }
+
+    /* — On-dark panel — */
+    .specimen-dark {
+      background: var(--neutral-900);
+      padding: var(--sp-48);
+      margin: var(--sp-64) 0;
+      border-radius: var(--radius-lg);
+    }
+
+    .specimen-dark .s-display-64 { color: var(--neutral-50); }
+    .specimen-dark .s-display-48 { color: var(--neutral-50); }
+    .specimen-dark .s-body-17 { color: var(--neutral-500); }
+    .specimen-dark .s-mono-11 { color: var(--neutral-600); }
+
+    .specimen-dark-inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-24);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="specimen-header">
+    <h1>Typography Specimen</h1>
+    <p>Guitargate Brand System v0.5 · Three typefaces, one system · Adobe Fonts kit: nem7lpy</p>
+  </header>
+
+  <div class="specimen-page">
+
+    <!-- ══════════════════════════════
+         TRANSDUCER EXTENDED BOLD
+         §5.1 — Primary / Display
+         ══════════════════════════════ -->
+    <div class="typeface-block">
+      <div class="typeface-meta">
+        <div>
+          <div class="typeface-name">Transducer Extended Bold</div>
+          <div class="typeface-role">§5.1 · Display / Wordmarks / Hero Headlines / Merch</div>
+        </div>
+        <div class="typeface-kit">
+          Adobe Fonts · transducer-extended · weight 700<br>
+          "The warmth of analog tech in a digital format." — James Todd
+        </div>
+      </div>
+
+      <div class="specimen-sizes">
+        <div class="specimen-row">
+          <div class="specimen-size-label">128px</div>
+          <div class="specimen-text s-display-128">GG</div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">64px · §H1</div>
+          <div class="specimen-text s-display-64">Guitargate</div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">48px · §H1 alt</div>
+          <div class="specimen-text s-display-48">Keep it in your hands.</div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">32px · §H2</div>
+          <div class="specimen-text s-display-32">You'll play more.</div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">24px · §H3</div>
+          <div class="specimen-text s-display-24">Every loop can start a friendship.</div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">16px · §H4</div>
+          <div class="specimen-text s-display-16">Practice is better with bandmates.</div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">13px · eyebrow</div>
+          <div class="specimen-text s-display-13">§ 3.0 · The Logo System · Wordmarks</div>
+        </div>
+      </div>
+
+      <div class="alphabet-row" style="margin-top: var(--sp-48); color: var(--neutral-300, #ccc);">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ
+      </div>
+      <div class="alphabet-row" style="color: var(--neutral-500);">
+        0123456789 .,:;!? () [] / — &amp;
+      </div>
+
+      <p style="margin-top: var(--sp-24); font-family: var(--font-mono); font-size: 11px; color: var(--neutral-500);">
+        NOTE: The (O) in TELEP<span style="color: var(--tp-violet-500)">(O)</span>RT and (X) in VO<span style="color: var(--vb-orange-500)">(X)</span>BOX are rendered using
+        CSS color on individual &lt;tspan&gt; elements, not different glyphs.
+      </p>
+    </div>
+
+    <!-- ══════════════════════════════
+         ARTICULAT CF
+         §5.2 — Secondary / Body
+         ══════════════════════════════ -->
+    <div class="typeface-block">
+      <div class="typeface-meta">
+        <div>
+          <div class="typeface-name">Articulat CF</div>
+          <div class="typeface-role">§5.2 · Sub-headlines / Body Copy / UI / Captions</div>
+        </div>
+        <div class="typeface-kit">
+          Adobe Fonts · articulat-cf · variable weight<br>
+          Designed by Connary Fagen · Regular 120% leading default
+        </div>
+      </div>
+
+      <div class="specimen-sizes">
+        <div class="specimen-row">
+          <div class="specimen-size-label">24px</div>
+          <div class="specimen-text s-body-24">
+            We built Guitargate so no guitarist has to do this alone.
+          </div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">20px · sub</div>
+          <div class="specimen-text s-body-20">
+            Pro lessons, a real community, and the gear that brings them home to you.
+          </div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">17px · body</div>
+          <div class="specimen-text s-body-17">
+            Our mission is to build the world's most connected guitar learning system — a place where
+            pro-level lessons and a real community come together, powered by the tools we build.
+            We teach the "why" behind the notes, not just the what, and we make the gear that carries
+            those ideas between people.
+          </div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">20px · italic</div>
+          <div class="specimen-text s-body-italic">
+            "That little voice in the back of your head — the one that says you're a musician — deserves a microphone."
+          </div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">15px · small</div>
+          <div class="specimen-text s-body-15">
+            Call players 'players' or 'members', never 'users' or 'students'. We say what we mean.
+            If something is hard, we say it's hard.
+          </div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">13px · caption</div>
+          <div class="specimen-text s-body-13">
+            Teleport 101 and a growing library of beginner courses are available to anyone at no cost
+            — because nobody should quit because they couldn't afford a teacher.
+          </div>
+        </div>
+      </div>
+
+      <div class="alphabet-row alphabet-row--body" style="margin-top: var(--sp-48);">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ
+      </div>
+      <div class="alphabet-row alphabet-row--body" style="color: var(--neutral-600);">
+        abcdefghijklmnopqrstuvwxyz · 0123456789 .,:;!? () [] / — &amp;
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         CoFo Sans (Monospace)
+         §5.3 — Annotation / Mono
+         ══════════════════════════════ -->
+    <div class="typeface-block">
+      <div class="typeface-meta">
+        <div>
+          <div class="typeface-name">CoFo Sans Mono</div>
+          <div class="typeface-role">§5.3 · Annotation Layers / Coordinate Text / Label Callouts / Technical Specs</div>
+        </div>
+        <div class="typeface-kit">
+          Adobe Fonts · cofo-sans-mono-variable<br>
+          Web fallback: "Roboto Mono", ui-monospace
+        </div>
+      </div>
+
+      <div class="specimen-sizes">
+        <div class="specimen-row">
+          <div class="specimen-size-label">16px</div>
+          <div class="specimen-text s-mono-16">
+            fig.01 · teleport · 2026 · Guitargate Brand System v0.5
+          </div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">13px</div>
+          <div class="specimen-text s-mono-13">
+            #010719 · #4476FF · #8144FF · #FF7420 · S = 24px · Cap = 4S = 96px · Symbol = 6S
+          </div>
+        </div>
+        <div class="specimen-row">
+          <div class="specimen-size-label">11px · label</div>
+          <div class="specimen-text s-mono-11">
+            § 4.3 · GUITARGATE BLUE · WCAG AA · 5.05:1 on Dark BG · Use freely
+          </div>
+        </div>
+      </div>
+
+      <div class="alphabet-row alphabet-row--mono" style="margin-top: var(--sp-48);">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
+      </div>
+      <div class="alphabet-row alphabet-row--mono">
+        0123456789 .,:;!? () [] / — &amp; # @ % + = &lt; &gt;
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         ON DARK BACKGROUNDS
+         ══════════════════════════════ -->
+    <div class="specimen-dark">
+      <p style="font-family: var(--font-mono); font-size: 11px; color: var(--neutral-600); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--sp-32);">ON DARK BACKGROUNDS</p>
+      <div class="specimen-dark-inner">
+        <div class="s-display-64">Keep it in your hands.</div>
+        <div class="s-display-48" style="color: var(--gg-blue-500);">You'll play more.</div>
+        <div class="s-body-17" style="color: var(--neutral-500); max-width: 500px;">
+          Pro lessons. A real community. The gear to play together.
+          So you'll play more — and you won't quit.
+        </div>
+        <div class="s-mono-11">Guitargate Brand System v0.5 · Transducer + Articulat CF + CoFo Sans</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         FONT SUBSTITUTION NOTE
+         ══════════════════════════════ -->
+    <div style="border: 1px solid var(--neutral-100); border-radius: var(--radius-md); padding: var(--sp-24); background: white; margin-top: var(--sp-64);">
+      <p style="font-family: var(--font-mono); font-size: 11px; color: var(--neutral-600); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--sp-12);">FONT SUBSTITUTION NOTE</p>
+      <p style="font-family: var(--font-body); font-size: 14px; color: var(--neutral-700); line-height: 1.6;">
+        All three typefaces require the <strong>Adobe Fonts kit nem7lpy</strong> to display correctly in browsers.
+        Without it, pages fall back to Inter / system-ui for display and body, and ui-monospace for annotations.
+        To test with real fonts, include
+        <code style="font-family: var(--font-mono); background: var(--neutral-100); padding: 2px 6px; border-radius: 4px; font-size: 12px;">
+          &lt;link rel="stylesheet" href="https://use.typekit.net/nem7lpy.css"&gt;
+        </code>
+        in the HTML &lt;head&gt;, or use the @import in styles.css (already included).
+      </p>
+      <p style="font-family: var(--font-body); font-size: 14px; color: var(--neutral-700); line-height: 1.6; margin-top: var(--sp-12);">
+        <strong>In Illustrator:</strong> fonts load from your installed Adobe Fonts via Creative Cloud.
+        Before sending any file to print, use <em>Type &gt; Create Outlines</em> to convert all text to paths.
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>

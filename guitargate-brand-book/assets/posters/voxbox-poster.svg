@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Voxbox Sub-brand Poster — §8.5 v0.5
+     Portrait 600×900 · Cream paper background
+     Photo placeholder: composite real Voxbox pedal photo in Photoshop (GE-09 from shot list)
+     Tagline: Vocals, made less lonely.
+     Annotation: fig.02 · voxbox · 2026
+     PAIR WITH teleport-poster.svg — parallel layout proves brand architecture
+     Lighting note: slightly warmer/dimmer than Teleport poster (evening lamp, not midday window) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="600" height="900"
+     role="img" aria-label="Voxbox sub-brand poster">
+  <defs>
+    <radialGradient id="paperGradVB" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#EDE4D8" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ── Background: warm cream paper (slightly warmer than Teleport) ── -->
+  <rect width="600" height="900" fill="#FAF9F8"/>
+  <rect width="600" height="900" fill="url(#paperGradVB)" opacity="0.3"/>
+
+  <!-- ── Top: Guitargate parent mark ── -->
+  <text x="50" y="56"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="13"
+        letter-spacing="0.15em"
+        fill="#8C8784">GUITARGATE</text>
+
+  <!-- ── Photo placeholder zone: 480×380px ── -->
+  <rect x="60" y="80" width="480" height="380" fill="#EDE4D8" rx="4"/>
+  <rect x="60" y="80" width="480" height="380" fill="none" stroke="#8C8784" stroke-width="1.5" stroke-dasharray="8 6" rx="4"/>
+  <!-- Orange accent tint on placeholder (suggests warm Voxbox coloring) -->
+  <rect x="60" y="80" width="480" height="380" fill="#FF7420" opacity="0.03" rx="4"/>
+  <text x="300" y="256" text-anchor="middle"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="13"
+        letter-spacing="0.06em"
+        fill="#8C8784">VOXBOX PEDAL PHOTO</text>
+  <text x="300" y="276" text-anchor="middle"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="11"
+        letter-spacing="0.06em"
+        fill="#8C8784">Composite in Photoshop — ref: GE-09</text>
+  <text x="300" y="296" text-anchor="middle"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="11"
+        letter-spacing="0.06em"
+        fill="#8C8784">Evening lamp light · Orange (X) emphasized</text>
+  <text x="300" y="316" text-anchor="middle"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="10"
+        letter-spacing="0.06em"
+        fill="#8C8784">Home studio / stage space context</text>
+  <!-- Crosshair marks -->
+  <line x1="288" y1="230" x2="312" y2="230" stroke="#8C8784" stroke-width="0.5" opacity="0.5"/>
+  <line x1="300" y1="218" x2="300" y2="242" stroke="#8C8784" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- ── Tagline ── -->
+  <text x="300" y="556" text-anchor="middle"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="42"
+        letter-spacing="0.03em"
+        fill="#242321">Vocals, made</text>
+  <text x="300" y="604" text-anchor="middle"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="42"
+        letter-spacing="0.03em"
+        fill="#242321">less lonely<text
+          font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+          font-weight="700"
+          font-size="42"
+          fill="#FF7420">.</text></text>
+
+  <!-- ── Monospace annotation (lower left) ── -->
+  <text x="50" y="672"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="11"
+        letter-spacing="0.08em"
+        fill="#8C8784">fig.02 · voxbox · 2026</text>
+  <text x="50" y="688"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="10"
+        letter-spacing="0.06em"
+        fill="#8C8784">Vocal Preamp Pedal · Feeds into Teleport</text>
+
+  <!-- Thin separator line -->
+  <line x1="50" y1="710" x2="550" y2="710" stroke="#E6E8DC" stroke-width="1"/>
+
+  <!-- ── VO(X)BOX wordmark + "By Guitargate" ── -->
+  <text y="752" text-anchor="start"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="40"
+        letter-spacing="0.08em">
+    <tspan x="50" fill="#242321">VO</tspan><tspan fill="#FF7420">(X)</tspan><tspan fill="#242321">BOX</tspan>
+  </text>
+
+  <!-- "By Guitargate" -->
+  <text x="550" y="760"
+        font-family="'articulat-cf', 'Articulat CF', 'Inter', system-ui, sans-serif"
+        font-size="11"
+        letter-spacing="0.06em"
+        fill="#8C8784"
+        text-anchor="end">By Guitargate.</text>
+
+  <!-- URL bottom -->
+  <text x="300" y="860" text-anchor="middle"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="11"
+        letter-spacing="0.1em"
+        fill="#8C8784">guitargate.com</text>
+
+</svg>

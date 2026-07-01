@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Guitargate Blue Palette — §4.3 v0.5
+     "Warm and electric — like the front of a pedalboard before the first song of a set."
+     5-step layout: 950 · 900 · 700 · 500 · 100
+     WCAG notes embedded per brand book guidelines -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" width="600" height="280"
+     role="img" aria-label="Guitargate Blue palette — 5 step color ramp">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+      .label-step {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 11px;
+        fill: #8C8784;
+        letter-spacing: 0.06em;
+      }
+      .label-hex {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 13px;
+        fill: #242321;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+      .label-name {
+        font-family: "articulat-cf", "Articulat CF", "Inter", system-ui, sans-serif;
+        font-size: 12px;
+        fill: #8C8784;
+      }
+      .label-wcag {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 10px;
+        fill: #8C8784;
+        letter-spacing: 0.04em;
+      }
+      .title {
+        font-family: "transducer-extended", "Transducer", "Inter", system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        fill: #242321;
+        letter-spacing: 0.12em;
+      }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="0" y="18" class="title">GUITARGATE BLUE</text>
+  <line x1="0" y1="26" x2="600" y2="26" stroke="#E6E8DC" stroke-width="1"/>
+
+  <!-- Swatch dimensions: 96px wide, 120px tall color area, bottom label area -->
+  <!-- 5 swatches × 96 + 4 gaps × 24 = 576, left margin 12px -->
+
+  <!-- ── 950 Dark BG #010719 ── -->
+  <g transform="translate(0, 36)">
+    <rect width="96" height="120" rx="6" fill="#010719"/>
+    <!-- Primary indicator star for dark BG usage -->
+    <text x="8" y="15" class="label-step" fill="#4476FF">950</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle">#010719</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Dark BG</text>
+    <text x="48" y="178" class="label-wcag" text-anchor="middle">Blue 500: 5.05:1 ✓</text>
+  </g>
+
+  <!-- ── 900 Deep Blue #0A1A4A ── -->
+  <g transform="translate(120, 36)">
+    <rect width="96" height="120" rx="6" fill="#0A1A4A"/>
+    <text x="8" y="15" class="label-step" fill="#4476FF">900</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle">#0A1A4A</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Deep Blue</text>
+  </g>
+
+  <!-- ── 700 Blue Text #1A3CBD ── -->
+  <g transform="translate(240, 36)">
+    <rect width="96" height="120" rx="6" fill="#1A3CBD"/>
+    <text x="8" y="15" class="label-step" fill="#CDDAFF">700</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle">#1A3CBD</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Blue Text</text>
+    <text x="48" y="178" class="label-wcag" text-anchor="middle">on white: 8.66:1 ✓</text>
+  </g>
+
+  <!-- ── 500 Blue Primary #4476FF ── -->
+  <g transform="translate(360, 36)">
+    <!-- Primary swatch — slightly taller -->
+    <rect width="96" height="120" rx="6" fill="#4476FF"/>
+    <!-- Star / primary marker -->
+    <circle cx="80" cy="14" r="6" fill="#010719" opacity="0.5"/>
+    <text x="80" y="18" class="label-step" fill="#FAF9F8" text-anchor="middle" font-size="9">★</text>
+    <text x="8" y="15" class="label-step" fill="#CDDAFF">500</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle" font-weight="bold">#4476FF</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Blue Primary</text>
+    <text x="48" y="178" class="label-wcag" text-anchor="middle">on 950: 5.05:1 ✓</text>
+    <text x="48" y="190" class="label-wcag" text-anchor="middle">on white: 3.98:1 UI only</text>
+  </g>
+
+  <!-- ── 100 Blue Subtle #CDDAFF ── -->
+  <g transform="translate(480, 36)">
+    <rect width="96" height="120" rx="6" fill="#CDDAFF" stroke="#E6E8DC" stroke-width="1"/>
+    <text x="8" y="15" class="label-step">100</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle">#CDDAFF</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Blue Subtle</text>
+  </g>
+
+  <!-- Footer note -->
+  <text x="0" y="268" class="label-wcag">On a blue button: use #010719 dark text, NOT white · Use Blue 700 for small text on light backgrounds</text>
+</svg>

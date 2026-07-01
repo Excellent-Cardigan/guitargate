@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Teleport Pedal Box Dieline — §8.9 v0.5
+     Finished box: 5" × 4" × 2" (width × height × depth)
+     Scale: 1" = 48px → Front: 240×192px · Sides: 96×192px · Top/Bottom: 240×96px
+     Matte near-black recycled cardboard stock
+     Face layout (cross): Top · [Left / Front / Right / Back] · Bottom
+
+     TO USE IN PRODUCTION:
+     1. Open in Illustrator — all 6 faces are marked with labels
+     2. Apply die-cut lines at the dashed boundaries
+     3. Add bleed (3mm) outside each face boundary
+     4. Replace all <text> elements with outlined paths before sending to printer -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="-20 -20 760 500"
+     width="760" height="500"
+     role="img" aria-label="Teleport pedal packaging dieline — 5 × 4 × 2 inches">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+      .face-label {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 9px;
+        fill: rgba(68,118,255,0.6);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .dim-label {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 9px;
+        fill: #8C8784;
+        letter-spacing: 0.06em;
+      }
+      .dieline { stroke: #4476FF; stroke-width: 0.75; fill: none; stroke-dasharray: 6 4; }
+      .score   { stroke: #CDDAFF; stroke-width: 0.5; fill: none; stroke-dasharray: 2 4; }
+    </style>
+    <marker id="arrowD" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 Z" fill="#8C8784"/>
+    </marker>
+    <marker id="arrowD-r" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto-start-reverse">
+      <path d="M0,3 L6,0 L6,6 Z" fill="#8C8784"/>
+    </marker>
+  </defs>
+
+  <!-- ═══════════════════════════════════
+       FACE GRID LAYOUT (cross pattern)
+       Scale: 1" = 48px
+       Depth = 2" = 96px
+       Width = 5" = 240px
+       Height = 4" = 192px
+       ═══════════════════════════════════
+       Col layout: [Left 96] [Front 240] [Right 96] [Back 240]
+       Row layout: [Top 96] [Body 192] [Bottom 96]
+       Total grid: 672 × 384px
+       With 96px left offset for Left face
+  -->
+
+  <!-- ── TOP face ── -->
+  <rect x="96" y="0" width="240" height="96" fill="#1A1917" stroke="#2A2826" stroke-width="0.5"/>
+  <rect x="96" y="0" width="240" height="96" class="dieline" rx="0"/>
+  <text x="216" y="44" class="face-label" text-anchor="middle">TOP</text>
+  <text x="216" y="58" class="face-label" text-anchor="middle">5" × 2"</text>
+  <!-- Score line -->
+  <line x1="96" y1="96" x2="336" y2="96" class="score"/>
+
+  <!-- ── LEFT face ── -->
+  <rect x="0" y="96" width="96" height="192" fill="#1A1917" stroke="#2A2826" stroke-width="0.5"/>
+  <rect x="0" y="96" width="96" height="192" class="dieline" rx="0"/>
+  <text x="48" y="188" class="face-label" text-anchor="middle">LEFT</text>
+  <text x="48" y="200" class="face-label" text-anchor="middle">2" × 4"</text>
+  <!-- Score line right edge -->
+  <line x1="96" y1="96" x2="96" y2="288" class="score"/>
+
+  <!-- ── FRONT face (hero) ── -->
+  <rect x="96" y="96" width="240" height="192" fill="#242321"/>
+  <rect x="96" y="96" width="240" height="192" class="dieline" rx="0"/>
+
+  <!-- Front face design content -->
+  <!-- TELEP(O)RT wordmark — large, centered upper area -->
+  <text y="176" text-anchor="start"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="28"
+        letter-spacing="0.08em">
+    <tspan x="106" fill="#FAF9F8">TELEP</tspan><tspan fill="#8144FF">(O)</tspan><tspan fill="#FAF9F8">RT</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="216" y="210"
+        font-family="'articulat-cf', 'Articulat CF', 'Inter', system-ui, sans-serif"
+        font-size="9"
+        text-anchor="middle"
+        fill="rgba(255,255,255,0.35)"
+        letter-spacing="0.06em">Every loop can start a friendship.</text>
+
+  <!-- (G) mark + MFG BY GUITARGATE — lower right -->
+  <text x="328" y="274"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="12"
+        fill="rgba(255,255,255,0.4)"
+        text-anchor="end"
+        letter-spacing="0.06em">(G)</text>
+  <text x="328" y="285"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="7"
+        fill="rgba(255,255,255,0.25)"
+        text-anchor="end"
+        letter-spacing="0.08em">MFG BY GUITARGATE</text>
+
+  <!-- Score lines -->
+  <line x1="336" y1="96" x2="336" y2="288" class="score"/>
+
+  <!-- ── RIGHT face ── -->
+  <rect x="336" y="96" width="96" height="192" fill="#1A1917" stroke="#2A2826" stroke-width="0.5"/>
+  <rect x="336" y="96" width="96" height="192" class="dieline" rx="0"/>
+  <!-- TELEPORT small on side panel -->
+  <text x="384" y="192"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="9"
+        fill="rgba(255,255,255,0.3)"
+        text-anchor="middle"
+        letter-spacing="0.12em"
+        transform="rotate(90 384 192)">TELEPORT</text>
+  <text x="432" y="96" width="96" height="192" class="face-label" text-anchor="middle">RIGHT</text>
+  <line x1="432" y1="96" x2="432" y2="288" class="score"/>
+
+  <!-- ── BACK face ── -->
+  <rect x="432" y="96" width="240" height="192" fill="#1A1917" stroke="#2A2826" stroke-width="0.5"/>
+  <rect x="432" y="96" width="240" height="192" class="dieline" rx="0"/>
+
+  <!-- Back face: product description + tagline + regulatory -->
+  <text x="552" y="126"
+        font-family="'articulat-cf', 'Articulat CF', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="9"
+        fill="rgba(255,255,255,0.5)"
+        text-anchor="middle"
+        letter-spacing="0.08em">TELEPORT WiFi Guitar Pedal</text>
+
+  <text x="452" y="148"
+        font-family="'articulat-cf', 'Articulat CF', 'Inter', system-ui, sans-serif"
+        font-size="7.5"
+        fill="rgba(255,255,255,0.3)"
+        letter-spacing="0.02em">Practice with anyone, anywhere.</text>
+  <text x="452" y="160"
+        font-family="'articulat-cf', 'Articulat CF', 'Inter', system-ui, sans-serif"
+        font-size="7.5"
+        fill="rgba(255,255,255,0.3)"
+        letter-spacing="0.02em">Loop, record, share — the Guitargate way.</text>
+
+  <!-- Back tagline -->
+  <text x="552" y="202"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="11"
+        fill="rgba(255,255,255,0.45)"
+        text-anchor="middle"
+        letter-spacing="0.04em">Every loop can start a friendship.</text>
+
+  <!-- Regulatory / URL placeholder -->
+  <rect x="452" y="240" width="60" height="30" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5" rx="2"/>
+  <text x="482" y="257" class="face-label" text-anchor="middle" fill="rgba(255,255,255,0.2)">CE / FCC</text>
+  <text x="552" y="275"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="7"
+        fill="rgba(255,255,255,0.2)"
+        text-anchor="middle"
+        letter-spacing="0.1em">guitargate.com</text>
+
+  <!-- ── BOTTOM face ── -->
+  <rect x="96" y="288" width="240" height="96" fill="#1A1917" stroke="#2A2826" stroke-width="0.5"/>
+  <rect x="96" y="288" width="240" height="96" class="dieline" rx="0"/>
+  <!-- Score line -->
+  <line x1="96" y1="288" x2="336" y2="288" class="score"/>
+  <!-- Barcode placeholder -->
+  <rect x="136" y="310" width="60" height="36" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+  <text x="166" y="330" class="face-label" text-anchor="middle" fill="rgba(255,255,255,0.15)">BARCODE</text>
+  <text x="216" y="370" class="face-label" text-anchor="middle" fill="rgba(255,255,255,0.15)">BOTTOM · 5" × 2"</text>
+
+  <!-- ══ DIMENSION CALLOUTS ══ -->
+  <!-- Width (5") -->
+  <line x1="96" y1="395" x2="336" y2="395" stroke="#8C8784" stroke-width="0.75"
+        marker-start="url(#arrowD-r)" marker-end="url(#arrowD)"/>
+  <text x="216" y="408" class="dim-label" text-anchor="middle">5" width</text>
+
+  <!-- Height (4") -->
+  <line x1="-10" y1="96" x2="-10" y2="288" stroke="#8C8784" stroke-width="0.75"
+        marker-start="url(#arrowD-r)" marker-end="url(#arrowD)"/>
+  <text x="-10" y="84" class="dim-label" text-anchor="middle" transform="rotate(-90 -10 192)">4" height</text>
+
+  <!-- Depth (2") -->
+  <line x1="96" y1="-8" x2="336" y2="-8" stroke="#8C8784" stroke-width="0.75"
+        marker-start="url(#arrowD-r)" marker-end="url(#arrowD)"/>
+  <text x="216" y="-14" class="dim-label" text-anchor="middle">2" depth (Top/Bottom)</text>
+
+  <!-- Title -->
+  <text x="432" y="380"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="10"
+        fill="#8C8784"
+        letter-spacing="0.06em">TELEPORT BOX DIELINE · §8.9</text>
+  <text x="432" y="394"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="9"
+        fill="#8C8784"
+        letter-spacing="0.04em">5" × 4" × 2" pedal box · Scale 1" = 48px"</text>
+  <text x="432" y="408"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="9"
+        fill="#8C8784"
+        letter-spacing="0.04em">Matte near-black recycled cardboard stock</text>
+</svg>

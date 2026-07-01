@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Signature — Guitargate</title>
+  <!--
+    EMAIL SIGNATURE TEMPLATE
+    Copy the .email-signature div below into your email client's HTML signature editor.
+
+    COMPATIBILITY NOTES:
+    - Uses only inline styles for maximum email client compatibility
+    - No web fonts — falls back to Georgia (italic support) + Arial
+    - Test in: Gmail, Apple Mail, Outlook, mobile clients before deploying
+    - The (G) mark uses a Unicode character — confirm rendering in your email client
+    - Replace [YOUR NAME] with actual name if customizing per-sender
+  -->
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    body {
+      background: #f5f5f5;
+      padding: 40px;
+      font-family: Arial, sans-serif;
+    }
+
+    .preview-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--neutral-500);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    /* Fake email window for preview context */
+    .email-preview-window {
+      background: white;
+      max-width: 680px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+    }
+
+    .email-preview-header {
+      background: #f9f9f9;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 20px 32px;
+    }
+
+    .email-preview-header p {
+      font-size: 13px;
+      color: #666;
+      margin: 3px 0;
+    }
+
+    .email-preview-body {
+      padding: 32px;
+    }
+
+    .email-preview-body p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    /* The actual separator line in email */
+    .email-sig-sep {
+      border: none;
+      border-top: 1px solid #e8e8e8;
+      margin: 28px 0 20px;
+    }
+
+    .instructions-box {
+      border: 1px solid var(--neutral-100);
+      border-radius: var(--radius-md);
+      padding: var(--sp-24);
+      background: white;
+      max-width: 680px;
+    }
+
+    .instructions-box h3 {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--neutral-600);
+      margin-bottom: var(--sp-12);
+    }
+
+    .instructions-box p,
+    .instructions-box li {
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--neutral-700);
+    }
+
+    .instructions-box ul {
+      padding-left: 1.2em;
+    }
+
+    .instructions-box li { margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+  <p class="preview-label">Email Signature Preview — Guitargate §8.8</p>
+
+  <!-- ── Email preview context ── -->
+  <div class="email-preview-window">
+    <div class="email-preview-header">
+      <p><strong>From:</strong> Michael Palmisano &lt;michael@guitargate.com&gt;</p>
+      <p><strong>To:</strong> [Member]</p>
+      <p><strong>Subject:</strong> Your practice this week</p>
+    </div>
+    <div class="email-preview-body">
+
+      <!-- Simulated email body text -->
+      <p>
+        Hey — thanks for being part of the community. Seeing what you've been working
+        on this week is exactly why we built this place.
+      </p>
+      <p>
+        If you haven't jumped into the REACTS feed yet, now's a good time.
+        There are people in there who want to hear what you're playing.
+      </p>
+
+      <!-- ════════════════════════════════
+           EMAIL SIGNATURE — copy this block
+           ════════════════════════════════ -->
+      <hr class="email-sig-sep">
+
+      <!-- SIGNATURE BLOCK: inline-styled for email client compatibility -->
+      <div class="email-signature"
+           style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #242321; line-height: 1.5; max-width: 480px;">
+
+        <!-- Trueline (display style — italic approximation since web fonts unavailable in email) -->
+        <p style="font-family: Georgia, 'Times New Roman', serif;
+                  font-size: 17px;
+                  font-style: italic;
+                  font-weight: bold;
+                  color: #242321;
+                  margin: 0 0 4px 0;
+                  letter-spacing: 0.01em;">
+          Keep it in your hands.
+        </p>
+
+        <!-- Attribution -->
+        <p style="font-family: Arial, Helvetica, sans-serif;
+                  font-size: 14px;
+                  color: #383735;
+                  margin: 0 0 16px 0;">
+          — Michael &amp; the Guitargate team
+        </p>
+
+        <!-- Logo + link row -->
+        <table cellpadding="0" cellspacing="0" border="0" style="margin-top: 4px;">
+          <tr>
+            <td style="padding-right: 10px; vertical-align: middle;">
+              <!-- (G) mark — inline text version for max compatibility -->
+              <span style="font-family: Georgia, serif;
+                           font-size: 20px;
+                           font-weight: bold;
+                           color: #8144FF;
+                           letter-spacing: -0.02em;">(G)</span>
+            </td>
+            <td style="vertical-align: middle;">
+              <a href="https://guitargate.com"
+                 style="font-family: Arial, Helvetica, sans-serif;
+                        font-size: 13px;
+                        color: #4476FF;
+                        text-decoration: none;
+                        letter-spacing: 0.02em;">guitargate.com</a>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Optional unsubscribe footer -->
+        <p style="font-family: Arial, Helvetica, sans-serif;
+                  font-size: 11px;
+                  color: #8C8784;
+                  margin: 20px 0 0 0;
+                  line-height: 1.4;">
+          You're receiving this because you're a Guitargate member.
+          <a href="#" style="color: #8C8784;">Unsubscribe</a> · <a href="#" style="color: #8C8784;">Manage preferences</a>
+          <br>Guitargate · guitargate.com
+        </p>
+
+      </div>
+      <!-- END SIGNATURE BLOCK -->
+
+    </div>
+  </div>
+
+  <!-- ── Usage instructions ── -->
+  <div class="instructions-box">
+    <h3>How to Deploy This Signature</h3>
+    <ul>
+      <li>
+        <strong>Gmail:</strong> Settings → See all settings → General → Signature → New. Paste the raw HTML using the source editor.
+      </li>
+      <li>
+        <strong>Apple Mail:</strong> Preferences → Signatures. Create new, then edit HTML via Stationery path or use a browser-to-mail copy.
+      </li>
+      <li>
+        <strong>Outlook:</strong> File → Options → Mail → Signatures. Paste as HTML.
+      </li>
+      <li>
+        The (G) logomark uses a text character (Georgia serif) — if your email client supports it, swap for an embedded PNG of the real (G) mark at 40×40px for sharper rendering.
+      </li>
+      <li>
+        The trueline "Keep it in your hands." uses Georgia italic as a web-font-safe approximation of Transducer Extended Bold italic. This is the correct choice for email (web fonts are stripped by most clients).
+      </li>
+      <li>
+        Test before deploying in: Gmail (web), Apple Mail, Outlook 365, and at least one mobile client.
+      </li>
+    </ul>
+    <p style="margin-top: var(--sp-16); font-size: 13px; color: var(--neutral-600);">
+      The email sign-off copy is from brand book §8.0:<br>
+      <em>"Keep it in your hands. — Michael &amp; the Guitargate team"</em>
+    </p>
+  </div>
+
+</body>
+</html>

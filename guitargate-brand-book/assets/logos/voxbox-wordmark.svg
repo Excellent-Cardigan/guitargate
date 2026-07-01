@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VO(X)BOX Wordmark — v0.5
+     The (X) is the central letter, enclosed in parentheses, in Voxbox Orange #FF7420.
+     Remaining letters in near-black #242321.
+     Font: Transducer Extended Bold (transducer-extended via Adobe Fonts kit nem7lpy)
+     Before final delivery: outline text in Illustrator (Type > Create Outlines)
+     NOTE: The earlier working glyph VO⋈BOX is retired. Use VO(X)BOX only. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 220" width="680" height="220"
+     role="img" aria-label="VO(X)BOX wordmark — Voxbox sub-brand">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+      .wm {
+        font-family: "transducer-extended", "Transducer", "Inter", system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 52px;
+        letter-spacing: 0.1em;
+        dominant-baseline: middle;
+        text-anchor: start;
+      }
+      .sub {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        dominant-baseline: middle;
+        text-anchor: middle;
+      }
+    </style>
+  </defs>
+
+  <!-- ── Variant 1: Cream BG · near-black letters · orange (X) ── -->
+  <rect x="0" y="0" width="680" height="110" fill="#FAF9F8"/>
+  <rect x="0" y="108" width="680" height="1" fill="#E6E8DC"/>
+  <!-- VO(X)BOX — tspan color splits; "VO(X)BOX" ≈ 430px wide; start at (680-430)/2 = 125 -->
+  <text y="55" text-rendering="optimizeLegibility">
+    <tspan class="wm" x="125" fill="#242321">VO</tspan><tspan class="wm" fill="#FF7420">(X)</tspan><tspan class="wm" fill="#242321">BOX</tspan>
+  </text>
+  <text x="340" y="90" class="sub" fill="#8C8784">Cream · Near-black + Voxbox Orange · Primary</text>
+
+  <!-- ── Variant 2: Voxbox dark BG · cream letters · orange (X) ── -->
+  <rect x="0" y="110" width="680" height="110" fill="#190B03"/>
+  <text y="165" text-rendering="optimizeLegibility">
+    <tspan class="wm" x="125" fill="#FAF9F8">VO</tspan><tspan class="wm" fill="#FF7420">(X)</tspan><tspan class="wm" fill="#FAF9F8">BOX</tspan>
+  </text>
+  <text x="340" y="200" class="sub" fill="#B84000">Voxbox Dark BG #190B03 · Cream + Orange</text>
+
+  <!-- Note: The (X) = "parentheses framing the channel — an enclosure for the voice it carries" -->
+  <!-- Voxbox is a vocal preamp that feeds into Teleport. Brand accent: Orange. -->
+  <!-- Do NOT use Channel Two green (#4FCB80) in brand marketing — product UX only. -->
+</svg>

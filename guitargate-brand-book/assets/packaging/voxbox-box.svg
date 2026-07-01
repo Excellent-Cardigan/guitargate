@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Voxbox Pedal Box Dieline — §8.10 v0.5
+     Finished box: 7" × 5" × 2" (width × height × depth — dual-channel, larger than Teleport)
+     Scale: 1" = 36px → Front: 252×180px · Sides: 72×180px · Top/Bottom: 252×72px
+     Matte near-black recycled cardboard stock · Orange (X) accent
+     Tagline (back): Vocals, made less lonely.
+
+     PAIR WITH teleport-box.svg — parallel structural treatment proves brand family -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="-20 -20 680 440"
+     width="680" height="440"
+     role="img" aria-label="Voxbox pedal packaging dieline — 7 × 5 × 2 inches">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+      .face-label {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 9px;
+        fill: rgba(255,116,32,0.6);
+        letter-spacing: 0.1em;
+      }
+      .dim-label {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 9px;
+        fill: #8C8784;
+        letter-spacing: 0.06em;
+      }
+      .dieline { stroke: #FF7420; stroke-width: 0.75; fill: none; stroke-dasharray: 6 4; }
+      .score   { stroke: #FEC784; stroke-width: 0.5; fill: none; stroke-dasharray: 2 4; }
+    </style>
+    <marker id="arrowV" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 Z" fill="#8C8784"/>
+    </marker>
+    <marker id="arrowV-r" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto-start-reverse">
+      <path d="M0,3 L6,0 L6,6 Z" fill="#8C8784"/>
+    </marker>
+  </defs>
+
+  <!-- ═══════════════════════════════════
+       FACE GRID: Scale 1" = 36px
+       Width = 7" = 252px
+       Height = 5" = 180px
+       Depth = 2" = 72px
+       ═══════════════════════════════════ -->
+
+  <!-- ── TOP face ── -->
+  <rect x="72" y="0" width="252" height="72" fill="#1A1917" stroke="#2A2826" stroke-width="0.5"/>
+  <rect x="72" y="0" width="252" height="72" class="dieline"/>
+  <text x="198" y="32" class="face-label" text-anchor="middle">TOP · 7" × 2"</text>
+  <line x1="72" y1="72" x2="324" y2="72" class="score"/>
+
+  <!-- ── LEFT face ── -->
+  <rect x="0" y="72" width="72" height="180" fill="#1A1917" stroke="#2A2826" stroke-width="0.5"/>
+  <rect x="0" y="72" width="72" height="180" class="dieline"/>
+  <text x="36" y="160" class="face-label" text-anchor="middle" transform="rotate(-90 36 160)">LEFT · 2" × 5"</text>
+  <line x1="72" y1="72" x2="72" y2="252" class="score"/>
+
+  <!-- ── FRONT face (hero) ── -->
+  <rect x="72" y="72" width="252" height="180" fill="#242321"/>
+  <rect x="72" y="72" width="252" height="180" class="dieline"/>
+
+  <!-- Front: VO(X)BOX wordmark -->
+  <text y="155" text-anchor="start"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="30"
+        letter-spacing="0.08em">
+    <tspan x="82" fill="#FAF9F8">VO</tspan><tspan fill="#FF7420">(X)</tspan><tspan fill="#FAF9F8">BOX</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="198" y="183"
+        font-family="'articulat-cf', 'Articulat CF', 'Inter', system-ui, sans-serif"
+        font-size="9"
+        text-anchor="middle"
+        fill="rgba(255,255,255,0.3)"
+        letter-spacing="0.06em">Vocals, made less lonely.</text>
+
+  <!-- (G) + MFG mark lower right -->
+  <text x="316" y="232"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="12"
+        fill="rgba(255,255,255,0.35)"
+        text-anchor="end"
+        letter-spacing="0.06em">(G)</text>
+  <text x="316" y="243"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="7"
+        fill="rgba(255,255,255,0.2)"
+        text-anchor="end"
+        letter-spacing="0.08em">MFG BY GUITARGATE</text>
+
+  <!-- Ch2 channel indicator note (not on box art — product UX only) -->
+  <!-- NOTE: Channel Two Green #4FCB80 does NOT appear on packaging per brand book §4.5 -->
+
+  <line x1="324" y1="72" x2="324" y2="252" class="score"/>
+
+  <!-- ── RIGHT face ── -->
+  <rect x="324" y="72" width="72" height="180" fill="#1A1917" stroke="#2A2826" stroke-width="0.5"/>
+  <rect x="324" y="72" width="72" height="180" class="dieline"/>
+  <text x="360" y="162" class="face-label" text-anchor="middle" transform="rotate(90 360 162)">RIGHT · 2" × 5"</text>
+  <line x1="396" y1="72" x2="396" y2="252" class="score"/>
+
+  <!-- ── BACK face ── -->
+  <rect x="396" y="72" width="252" height="180" fill="#1A1917" stroke="#2A2826" stroke-width="0.5"/>
+  <rect x="396" y="72" width="252" height="180" class="dieline"/>
+
+  <!-- Back: product description + tagline -->
+  <text x="522" y="100"
+        font-family="'articulat-cf', 'Articulat CF', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="9"
+        fill="rgba(255,255,255,0.45)"
+        text-anchor="middle"
+        letter-spacing="0.08em">VOXBOX Two-Channel Vocal Preamp</text>
+
+  <text x="406" y="120"
+        font-family="'articulat-cf', 'Articulat CF', 'Inter', system-ui, sans-serif"
+        font-size="7"
+        fill="rgba(255,255,255,0.28)"
+        letter-spacing="0.02em">XLR in · ¼" out per channel.</text>
+  <text x="406" y="132"
+        font-family="'articulat-cf', 'Articulat CF', 'Inter', system-ui, sans-serif"
+        font-size="7"
+        fill="rgba(255,255,255,0.28)"
+        letter-spacing="0.02em">Feeds directly into Teleport.</text>
+  <text x="406" y="144"
+        font-family="'articulat-cf', 'Articulat CF', 'Inter', system-ui, sans-serif"
+        font-size="7"
+        fill="rgba(255,255,255,0.28)"
+        letter-spacing="0.02em">Your voice, in the Guitargate network.</text>
+
+  <!-- Back tagline -->
+  <text x="522" y="194"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="11"
+        fill="rgba(255,116,32,0.5)"
+        text-anchor="middle"
+        letter-spacing="0.03em">Vocals, made less lonely.</text>
+
+  <!-- Regulatory -->
+  <rect x="406" y="220" width="50" height="24" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.5" rx="2"/>
+  <text x="431" y="234" class="face-label" text-anchor="middle" fill="rgba(255,255,255,0.18)">CE / FCC</text>
+  <text x="522" y="240"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="7"
+        fill="rgba(255,255,255,0.18)"
+        text-anchor="middle"
+        letter-spacing="0.1em">guitargate.com</text>
+
+  <!-- ── BOTTOM face ── -->
+  <rect x="72" y="252" width="252" height="72" fill="#1A1917" stroke="#2A2826" stroke-width="0.5"/>
+  <rect x="72" y="252" width="252" height="72" class="dieline"/>
+  <line x1="72" y1="252" x2="324" y2="252" class="score"/>
+  <rect x="112" y="268" width="50" height="28" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+  <text x="137" y="284" class="face-label" text-anchor="middle" fill="rgba(255,255,255,0.12)">BARCODE</text>
+  <text x="198" y="316" class="face-label" text-anchor="middle" fill="rgba(255,255,255,0.12)">BOTTOM · 7" × 2"</text>
+
+  <!-- ══ DIMENSION CALLOUTS ══ -->
+  <line x1="72" y1="350" x2="324" y2="350" stroke="#8C8784" stroke-width="0.75"
+        marker-start="url(#arrowV-r)" marker-end="url(#arrowV)"/>
+  <text x="198" y="364" class="dim-label" text-anchor="middle">7" width</text>
+
+  <line x1="-10" y1="72" x2="-10" y2="252" stroke="#8C8784" stroke-width="0.75"
+        marker-start="url(#arrowV-r)" marker-end="url(#arrowV)"/>
+  <text x="-10" y="60" class="dim-label" text-anchor="middle" transform="rotate(-90 -10 162)">5" height</text>
+
+  <line x1="72" y1="-8" x2="324" y2="-8" stroke="#8C8784" stroke-width="0.75"
+        marker-start="url(#arrowV-r)" marker-end="url(#arrowV)"/>
+  <text x="198" y="-14" class="dim-label" text-anchor="middle">2" depth</text>
+
+  <!-- Title -->
+  <text x="396" y="350"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="10"
+        fill="#8C8784"
+        letter-spacing="0.06em">VOXBOX BOX DIELINE · §8.10</text>
+  <text x="396" y="364"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="9"
+        fill="#8C8784"
+        letter-spacing="0.04em">7" × 5" × 2" dual-channel box · Scale 1" = 36px</text>
+  <text x="396" y="378"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="9"
+        fill="#8C8784"
+        letter-spacing="0.04em">Matte near-black recycled cardboard · Orange (X) accent</text>
+</svg>

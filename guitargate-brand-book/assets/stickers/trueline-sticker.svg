@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Trueline Sticker — Drop 01 · Rectangular die-cut
+     "Keep it in your hands." in Transducer Extended Bold
+     Near-black background · Cream text
+     Per brand book §8.1 and merch program SKU 05 (bonus 5th sticker) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 160" width="480" height="160"
+     role="img" aria-label="Keep it in your hands. rectangular sticker">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+    </style>
+    <!-- Background gradient for depth -->
+    <linearGradient id="stickerBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2D2B29"/>
+      <stop offset="100%" stop-color="#1E1C1A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Die-cut boundary (remove/set white before print) -->
+  <rect x="2" y="2" width="476" height="156" rx="12" fill="none"
+        stroke="#CDDAFF" stroke-width="0.75" stroke-dasharray="4 4" opacity="0.4"/>
+
+  <!-- ── Sticker background ── -->
+  <rect x="0" y="0" width="480" height="160" rx="10" fill="url(#stickerBg)"/>
+
+  <!-- Subtle border / perimeter ring -->
+  <rect x="0" y="0" width="480" height="160" rx="10" fill="none"
+        stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+
+  <!-- ── "Keep it in your hands." — centered, large ── -->
+  <text x="240" y="88"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="42"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        fill="#FAF9F8"
+        letter-spacing="0.04em">Keep it in your hands<tspan fill="#4476FF">.</tspan></text>
+
+  <!-- Small Guitargate attribution bottom right -->
+  <text x="454" y="140"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="9"
+        text-anchor="end"
+        fill="rgba(255,255,255,0.2)"
+        letter-spacing="0.1em">GUITARGATE</text>
+
+  <!-- Print spec:
+       Die-cut rectangle at 10px corner radius
+       Scale to ~4.5" × 1.5" for print
+       Stock: white vinyl matte · Outdoor-grade laminate
+       Colors: Near-black #242321 · Cream #FAF9F8 · Blue accent #4476FF
+       Printer: StickerMule die-cut rectangle -->
+</svg>

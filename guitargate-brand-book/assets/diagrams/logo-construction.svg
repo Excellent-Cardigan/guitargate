@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Logo Construction Diagram — §3 v0.5
+     Shows the 24px square unit S and cap-height = 4S relationship
+     Includes standalone (G) at 6S
+     Grid lines and CoFo Sans annotations
+     Reference: S = 24px · Cap height = 4S = 96px · Symbol = 6S = 144px · Clearspace = 1S = 24px -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" width="720" height="520"
+     role="img" aria-label="Logo construction diagram showing S unit system">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+      .annotation {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 11px;
+        fill: #4476FF;
+        letter-spacing: 0.06em;
+      }
+      .annotation-muted {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 10px;
+        fill: #8C8784;
+        letter-spacing: 0.04em;
+      }
+      .grid-line { stroke: #CDDAFF; stroke-width: 0.5; }
+      .measure-line { stroke: #4476FF; stroke-width: 1; }
+      .wordmark {
+        font-family: "transducer-extended", "Transducer", "Inter", system-ui, sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+      }
+      .title {
+        font-family: "transducer-extended", "Transducer", "Inter", system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        fill: #242321;
+        letter-spacing: 0.12em;
+      }
+    </style>
+
+    <!-- Arrow marker -->
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 Z" fill="#4476FF"/>
+    </marker>
+    <marker id="arrow-r" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto-start-reverse">
+      <path d="M0,3 L8,0 L8,6 Z" fill="#4476FF"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="520" fill="#FAF9F8"/>
+
+  <!-- ── Title ── -->
+  <text x="40" y="36" class="title">LOGO CONSTRUCTION · S = 24px UNIT</text>
+  <line x1="40" y1="44" x2="680" y2="44" stroke="#E6E8DC" stroke-width="1"/>
+
+  <!-- ============================================================
+       LEFT SECTION: GUITARGATE WORDMARK with S-unit grid overlay
+       ============================================================ -->
+
+  <!-- Grid: S = 24px. Show cap-height area = 4S = 96px -->
+  <!-- Wordmark placed at x=60, y=200 (baseline), cap height = 96px above = y=104 -->
+
+  <!-- 1S grid squares overlaid on wordmark cap area -->
+  <!-- 4 rows × 24px = 96px cap height -->
+  <!-- Show grid from x=40 to x=420, y=104 to y=200 -->
+
+  <!-- Horizontal grid lines (cap zone) -->
+  <line x1="40" y1="104" x2="420" y2="104" class="grid-line"/>
+  <line x1="40" y1="128" x2="420" y2="128" class="grid-line"/>
+  <line x1="40" y1="152" x2="420" y2="152" class="grid-line"/>
+  <line x1="40" y1="176" x2="420" y2="176" class="grid-line"/>
+  <line x1="40" y1="200" x2="420" y2="200" class="grid-line" stroke="#8C8784"/>
+
+  <!-- Vertical grid lines (every S = 24px) -->
+  <line x1="40" y1="80" x2="40" y2="240" class="grid-line" stroke="#8C8784"/>
+  <line x1="64" y1="80" x2="64" y2="240" class="grid-line"/>
+  <line x1="88" y1="80" x2="88" y2="240" class="grid-line"/>
+  <line x1="112" y1="80" x2="112" y2="240" class="grid-line"/>
+  <line x1="136" y1="80" x2="136" y2="240" class="grid-line"/>
+  <line x1="160" y1="80" x2="160" y2="240" class="grid-line"/>
+  <line x1="184" y1="80" x2="184" y2="240" class="grid-line"/>
+  <line x1="208" y1="80" x2="208" y2="240" class="grid-line"/>
+  <line x1="232" y1="80" x2="232" y2="240" class="grid-line"/>
+  <line x1="256" y1="80" x2="256" y2="240" class="grid-line"/>
+  <line x1="280" y1="80" x2="280" y2="240" class="grid-line"/>
+  <line x1="304" y1="80" x2="304" y2="240" class="grid-line"/>
+  <line x1="328" y1="80" x2="328" y2="240" class="grid-line"/>
+  <line x1="352" y1="80" x2="352" y2="240" class="grid-line"/>
+  <line x1="376" y1="80" x2="376" y2="240" class="grid-line"/>
+  <line x1="400" y1="80" x2="400" y2="240" class="grid-line"/>
+
+  <!-- Clearspace zone above cap: 1S = 24px -->
+  <rect x="40" y="80" width="360" height="24" fill="rgba(68,118,255,0.04)"/>
+  <!-- Clearspace zone below baseline: 1S = 24px -->
+  <rect x="40" y="200" width="360" height="24" fill="rgba(68,118,255,0.04)"/>
+
+  <!-- S unit indicator (one square) -->
+  <rect x="40" y="104" width="24" height="24" fill="rgba(68,118,255,0.1)" stroke="#4476FF" stroke-width="0.75"/>
+  <text x="52" y="119" class="annotation" text-anchor="middle" font-size="9">S</text>
+
+  <!-- GUITARGATE wordmark (text) -->
+  <text x="40" y="197" class="wordmark" font-size="78" fill="#242321" text-rendering="optimizeLegibility">GUITARGATE</text>
+
+  <!-- ── Measurement annotations ── -->
+
+  <!-- Cap height = 4S arrow (left side) -->
+  <line x1="28" y1="104" x2="28" y2="200" class="measure-line" marker-start="url(#arrow-r)" marker-end="url(#arrow)"/>
+  <text x="22" y="152" class="annotation" text-anchor="middle" transform="rotate(-90 22 152)">4S = 96px</text>
+
+  <!-- Clearspace arrow (top) -->
+  <line x1="28" y1="80" x2="28" y2="104" class="measure-line" marker-start="url(#arrow-r)" marker-end="url(#arrow)"/>
+  <text x="16" y="96" class="annotation" text-anchor="middle" transform="rotate(-90 16 96)" font-size="9">1S</text>
+
+  <!-- S unit dimension at top -->
+  <line x1="40" y1="74" x2="64" y2="74" class="measure-line" marker-start="url(#arrow-r)" marker-end="url(#arrow)"/>
+  <text x="52" y="70" class="annotation" text-anchor="middle" font-size="9">S</text>
+
+  <!-- Label -->
+  <text x="40" y="248" class="annotation-muted">GUITARGATE WORDMARK · Transducer Extended Bold · Cap height = 4S</text>
+
+  <!-- ============================================================
+       RIGHT SECTION: (G) SYMBOL at 6S
+       ============================================================ -->
+
+  <!-- Symbol box: 6S = 144px, starting at x=520 centered vertically -->
+  <!-- Position: x=520, y=100 (top of symbol), 144px tall -->
+
+  <!-- Clearspace: 1S = 24px on all sides -->
+  <rect x="496" y="76" width="192" height="192" fill="rgba(68,118,255,0.03)" stroke="#CDDAFF" stroke-width="0.75" stroke-dasharray="4 4"/>
+
+  <!-- Grid overlay on symbol (6×6 grid of S squares) -->
+  <!-- Vertical lines -->
+  <line x1="520" y1="76" x2="520" y2="268" class="grid-line" stroke="#8C8784"/>
+  <line x1="544" y1="76" x2="544" y2="268" class="grid-line"/>
+  <line x1="568" y1="76" x2="568" y2="268" class="grid-line"/>
+  <line x1="592" y1="76" x2="592" y2="268" class="grid-line"/>
+  <line x1="616" y1="76" x2="616" y2="268" class="grid-line"/>
+  <line x1="640" y1="76" x2="640" y2="268" class="grid-line"/>
+  <line x1="664" y1="76" x2="664" y2="268" class="grid-line" stroke="#8C8784"/>
+  <!-- Horizontal lines -->
+  <line x1="496" y1="100" x2="688" y2="100" class="grid-line" stroke="#8C8784"/>
+  <line x1="496" y1="124" x2="688" y2="124" class="grid-line"/>
+  <line x1="496" y1="148" x2="688" y2="148" class="grid-line"/>
+  <line x1="496" y1="172" x2="688" y2="172" class="grid-line"/>
+  <line x1="496" y1="196" x2="688" y2="196" class="grid-line"/>
+  <line x1="496" y1="220" x2="688" y2="220" class="grid-line"/>
+  <line x1="496" y1="244" x2="688" y2="244" class="grid-line" stroke="#8C8784"/>
+
+  <!-- (G) symbol -->
+  <text x="592" y="197"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="108"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        fill="#242321">(G)</text>
+
+  <!-- Symbol = 6S measurement -->
+  <line x1="674" y1="100" x2="674" y2="244" class="measure-line" marker-start="url(#arrow-r)" marker-end="url(#arrow)"/>
+  <text x="686" y="174" class="annotation" text-anchor="start" transform="rotate(90 686 174)">6S = 144px</text>
+
+  <!-- Clearspace annotation -->
+  <text x="592" y="280" class="annotation-muted" text-anchor="middle">(G) SYMBOL · Clearspace = 1S on all sides</text>
+  <text x="592" y="296" class="annotation-muted" text-anchor="middle">1.5× wordmark cap height · Used at small sizes, avatars, packaging</text>
+
+  <!-- ============================================================
+       BOTTOM: Legend + Rule
+       ============================================================ -->
+  <line x1="40" y1="330" x2="680" y2="330" stroke="#E6E8DC" stroke-width="1"/>
+
+  <text x="40" y="356" class="annotation">UNIT REFERENCE</text>
+
+  <!-- Legend boxes -->
+  <rect x="40" y="366" width="16" height="16" fill="rgba(68,118,255,0.1)" stroke="#4476FF" stroke-width="0.75"/>
+  <text x="62" y="378" class="annotation-muted">S = 24px construction unit</text>
+
+  <rect x="200" y="366" width="16" height="16" fill="rgba(68,118,255,0.04)" stroke="#CDDAFF" stroke-width="0.75"/>
+  <text x="222" y="378" class="annotation-muted">Clearspace zone (1S)</text>
+
+  <rect x="380" y="366" width="16" height="16" fill="rgba(68,118,255,0.03)" stroke="#CDDAFF" stroke-width="0.75" stroke-dasharray="4 4"/>
+  <text x="402" y="378" class="annotation-muted">Symbol total including clearspace</text>
+
+  <line x1="40" y1="395" x2="56" y2="395" class="measure-line"/>
+  <text x="62" y="399" class="annotation-muted">Measurement arrow — dimension callout</text>
+
+  <!-- Formula reference -->
+  <text x="40" y="430" class="annotation">FORMULAE</text>
+  <text x="40" y="450" class="annotation-muted">S = 24px · Cap = 4S = 96px · Symbol = 6S = 144px · Clearspace = 1S</text>
+  <text x="40" y="468" class="annotation-muted">Symbol = 1.5 × Cap height · Co-branded lockup: parent ~55% of device cap height</text>
+  <text x="40" y="486" class="annotation-muted">Minimum wordmark size: 8mm print · Minimum symbol: 5mm print</text>
+
+  <!-- Version tag -->
+  <text x="680" y="500" class="annotation-muted" text-anchor="end">Guitargate Brand System v0.5 · §3.0 Logo System</text>
+</svg>

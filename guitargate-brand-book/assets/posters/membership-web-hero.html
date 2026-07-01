@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You'll play more. — Guitargate Membership Hero</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background: var(--gg-blue-950);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Subtle atmospheric gradient */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 100% 60% at 50% 0%, rgba(68,118,255,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(10,26,74,0.6) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* ── Header ── */
+    .hero-header {
+      position: relative;
+      z-index: 10;
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-g-mark {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: calc(var(--logo-S) * 1.5);
+      letter-spacing: -0.02em;
+      color: var(--neutral-50);
+    }
+
+    .hero-nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-nav a {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--neutral-500);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-nav a:hover { color: var(--neutral-50); }
+
+    .hero-nav-cta {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--neutral-50);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-pill);
+      padding: 8px 20px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Hero Body ── */
+    .hero-body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 64px 96px;
+      gap: 32px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gg-blue-500);
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(56px, 10vw, 144px);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--neutral-50);
+      line-height: 0.92;
+      margin: 0;
+    }
+
+    .hero-headline-period {
+      color: var(--gg-blue-500);
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: clamp(16px, 2vw, 22px);
+      color: var(--neutral-500);
+      line-height: 1.5;
+      max-width: 540px;
+      margin: 8px 0 0;
+    }
+
+    .hero-sub strong {
+      color: var(--neutral-400, #A0A0A0);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .hero-btn-primary {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.02em;
+      color: var(--gg-blue-950);
+      background: var(--neutral-50);
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 16px 40px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .hero-btn-secondary {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--neutral-500);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 16px;
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: center;
+    }
+
+    .hero-stat__val {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      color: var(--neutral-50);
+    }
+
+    .hero-stat__label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--neutral-600);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── Trust strip ── */
+    .hero-trust {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 24px 64px;
+      display: flex;
+      gap: 48px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-trust-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-trust-icon {
+      font-size: 16px;
+    }
+
+    .hero-trust-text {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--neutral-600);
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 768px) {
+      .hero-body { padding: 0 24px 64px; }
+      .hero-header { padding: 24px; }
+      .hero-nav { display: none; }
+      .hero-stats { gap: 24px; }
+      .hero-trust { padding: 24px; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero-header">
+    <span class="hero-g-mark">(G)</span>
+    <nav class="hero-nav">
+      <a href="#">Lessons</a>
+      <a href="#">Community</a>
+      <a href="#">Teleport</a>
+      <a href="#">Voxbox</a>
+      <button class="hero-nav-cta">Sign in</button>
+    </nav>
+  </header>
+
+  <section class="hero-body">
+    <p class="hero-eyebrow">Guitargate Membership</p>
+
+    <h1 class="hero-headline">
+      You'll play<br>more<span class="hero-headline-period">.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Pro lessons. A real community. The gear to play together.<br>
+      So you'll play more — and you won't quit.
+    </p>
+
+    <div class="hero-cta-group">
+      <button class="hero-btn-primary">Start Free.</button>
+      <button class="hero-btn-secondary">See how it works</button>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat__val">200K+</span>
+        <span class="hero-stat__label">Members</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat__val">500+</span>
+        <span class="hero-stat__label">Lessons</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat__val">30-day</span>
+        <span class="hero-stat__label">Money back</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="hero-trust">
+    <div class="hero-trust-item">
+      <span class="hero-trust-icon">◈</span>
+      <span class="hero-trust-text">One membership, everything included</span>
+    </div>
+    <div class="hero-trust-item">
+      <span class="hero-trust-icon">◈</span>
+      <span class="hero-trust-text">Real human feedback</span>
+    </div>
+    <div class="hero-trust-item">
+      <span class="hero-trust-icon">◈</span>
+      <span class="hero-trust-text">Taught by pros</span>
+    </div>
+    <div class="hero-trust-item">
+      <span class="hero-trust-icon">◈</span>
+      <span class="hero-trust-text">Teleport 101 always free</span>
+    </div>
+  </footer>
+
+</body>
+</html>

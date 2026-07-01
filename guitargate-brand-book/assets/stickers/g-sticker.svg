@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- (G) Sticker — Drop 01 · ~3" diameter print target
+     Near-black background · Cream (G) logomark centered · ~80% size
+     Die-cut perimeter ring suggests cut edge
+     Per brand book §8.6 and merch program SKU 05 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300"
+     role="img" aria-label="Guitargate (G) circular sticker design">
+  <defs>
+    <!-- Subtle perimeter ring gradient for die-cut edge suggestion -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2A2826"/>
+      <stop offset="85%" stop-color="#242321"/>
+      <stop offset="100%" stop-color="#1A1917"/>
+    </radialGradient>
+    <!-- Outer die-cut ring -->
+    <radialGradient id="ringGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="88%" stop-color="transparent"/>
+      <stop offset="92%" stop-color="rgba(255,255,255,0.15)"/>
+      <stop offset="96%" stop-color="rgba(255,255,255,0.06)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ── Die-cut boundary circle (3" target) ── -->
+  <!-- This stroke represents the die cut line for the printer -->
+  <circle cx="150" cy="150" r="145" fill="none" stroke="#CDDAFF" stroke-width="0.75" stroke-dasharray="3 3" opacity="0.4"/>
+  <!-- Print note: remove or set to white/invisible before sending to print -->
+
+  <!-- ── Sticker background ── -->
+  <circle cx="150" cy="150" r="143" fill="url(#bgGrad)"/>
+
+  <!-- Perimeter ring — subtle edge treatment -->
+  <circle cx="150" cy="150" r="143" fill="url(#ringGrad)"/>
+
+  <!-- ── (G) symbol — cream, ~80% of 143px radius = centered ── -->
+  <text x="150" y="185"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="140"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        fill="#FAF9F8"
+        letter-spacing="-0.02em">(G)</text>
+
+  <!-- ── Small URL at base ── -->
+  <text x="150" y="250"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="10"
+        text-anchor="middle"
+        fill="rgba(255,255,255,0.25)"
+        letter-spacing="0.12em">GUITARGATE.COM</text>
+
+  <!-- Print spec comment:
+       Die-cut circle at 143px radius in this 300×300 viewBox
+       Scale to 3" for print = 900px minimum resolution
+       Stock: white vinyl matte preferred · Outdoor-grade laminate
+       Colors: Near-black #242321 · Cream #FAF9F8
+       Printer: StickerMule die-cut round sticker -->
+</svg>

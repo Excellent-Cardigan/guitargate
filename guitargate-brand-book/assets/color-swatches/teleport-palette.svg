@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Teleport Violet Palette — §4.4 v0.5
+     "Violet — for the sound that travels."
+     4-step layout: 950 · 700 · 500 · 100 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 280" width="480" height="280"
+     role="img" aria-label="Teleport Violet palette — 4 step color ramp">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+      .label-step {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 11px;
+        fill: #8C8784;
+        letter-spacing: 0.06em;
+      }
+      .label-hex {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 13px;
+        fill: #242321;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+      .label-name {
+        font-family: "articulat-cf", "Articulat CF", "Inter", system-ui, sans-serif;
+        font-size: 12px;
+        fill: #8C8784;
+      }
+      .label-wcag {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 10px;
+        fill: #8C8784;
+        letter-spacing: 0.04em;
+      }
+      .title {
+        font-family: "transducer-extended", "Transducer", "Inter", system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        fill: #242321;
+        letter-spacing: 0.12em;
+      }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="0" y="18" class="title">TELEPORT VIOLET</text>
+  <line x1="0" y1="26" x2="480" y2="26" stroke="#E6E8DC" stroke-width="1"/>
+
+  <!-- 4 swatches × 96 + 3 gaps × 24 = 456, fits in 480px -->
+
+  <!-- ── 950 Dark BG #160620 ── -->
+  <g transform="translate(0, 36)">
+    <rect width="96" height="120" rx="6" fill="#160620"/>
+    <text x="8" y="15" class="label-step" fill="#8144FF">950</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle">#160620</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Dark BG</text>
+    <text x="48" y="178" class="label-wcag" text-anchor="middle">Violet 500: 3.89:1 ⚠</text>
+    <text x="48" y="190" class="label-wcag" text-anchor="middle">Large text only</text>
+  </g>
+
+  <!-- ── 700 Violet Text #5B1FCC ── -->
+  <g transform="translate(120, 36)">
+    <rect width="96" height="120" rx="6" fill="#5B1FCC"/>
+    <text x="8" y="15" class="label-step" fill="#D8CDFF">700</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle">#5B1FCC</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Violet Text</text>
+  </g>
+
+  <!-- ── 500 Violet Primary #8144FF ── -->
+  <g transform="translate(240, 36)">
+    <rect width="96" height="120" rx="6" fill="#8144FF"/>
+    <circle cx="80" cy="14" r="6" fill="#160620" opacity="0.5"/>
+    <text x="8" y="15" class="label-step" fill="#D8CDFF">500</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle" font-weight="bold">#8144FF</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Violet Primary</text>
+    <text x="48" y="178" class="label-wcag" text-anchor="middle">on white: 4.99:1 ✓</text>
+    <text x="48" y="190" class="label-wcag" text-anchor="middle">Button text: white</text>
+  </g>
+
+  <!-- ── 100 Violet Subtle #D8CDFF ── -->
+  <g transform="translate(360, 36)">
+    <rect width="96" height="120" rx="6" fill="#D8CDFF" stroke="#E6E8DC" stroke-width="1"/>
+    <text x="8" y="15" class="label-step">100</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle">#D8CDFF</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Violet Subtle</text>
+  </g>
+
+  <!-- Footer note -->
+  <text x="0" y="268" class="label-wcag">On a violet button: white text only · For small text on dark BG: always white</text>
+</svg>

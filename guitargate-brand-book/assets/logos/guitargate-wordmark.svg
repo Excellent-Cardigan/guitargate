@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GUITARGATE Wordmark — v0.5
+     Font: Transducer Extended Bold (transducer-extended via Adobe Fonts kit nem7lpy)
+     Fallback: Inter, system-ui
+     Before final delivery: outline text in Illustrator (Type > Create Outlines) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 220" width="680" height="220"
+     role="img" aria-label="GUITARGATE wordmark — two color variants">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+      :root {
+        --neutral-900: #242321;
+        --neutral-50:  #FAF9F8;
+        --neutral-100: #E6E8DC;
+        --gg-blue-500: #4476FF;
+        --logo-S: 24px;
+      }
+      .wm {
+        font-family: "transducer-extended", "Transducer", "Inter", system-ui, sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        dominant-baseline: middle;
+        text-anchor: middle;
+      }
+      .cap { font-size: 52px; }
+      .sub { font-size: 11px; font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace; letter-spacing: 0.1em; dominant-baseline: middle; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <!-- Clear space indicator: 24px (1S) on all sides -->
+
+  <!-- ── Variant 1: Near-black on Cream ── -->
+  <rect x="0" y="0" width="680" height="110" fill="#FAF9F8"/>
+  <rect x="0" y="108" width="680" height="1" fill="#E6E8DC"/>
+  <!-- Clearspace reference lines (remove in production) -->
+  <text x="340" y="55" class="wm cap" fill="#242321" text-rendering="optimizeLegibility">GUITARGATE</text>
+  <text x="340" y="90" class="sub" fill="#8C8784">Near-black on Cream · Primary</text>
+
+  <!-- ── Variant 2: Cream on Near-black ── -->
+  <rect x="0" y="110" width="680" height="110" fill="#242321"/>
+  <text x="340" y="165" class="wm cap" fill="#FAF9F8" text-rendering="optimizeLegibility">GUITARGATE</text>
+  <text x="340" y="200" class="sub" fill="#787572">Cream on Near-black · Reversed</text>
+
+</svg>

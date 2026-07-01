@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GUITARGATE (G) Symbol — v0.5
+     Construction: 144×144px at reference scale (6S, S=24px)
+     Font: Transducer Extended Bold (transducer-extended via Adobe Fonts kit nem7lpy)
+     Before final delivery: outline text in Illustrator (Type > Create Outlines) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 210" width="420" height="210"
+     role="img" aria-label="GUITARGATE (G) symbol — two color variants">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+      .g-mark {
+        font-family: "transducer-extended", "Transducer", "Inter", system-ui, sans-serif;
+        font-weight: 700;
+        dominant-baseline: middle;
+        text-anchor: middle;
+        font-size: 96px;
+        letter-spacing: -0.02em;
+      }
+      .g-paren {
+        font-family: "articulat-cf", "Articulat CF", "Inter", system-ui, sans-serif;
+        font-weight: 400;
+        dominant-baseline: middle;
+        text-anchor: middle;
+        font-size: 80px;
+        letter-spacing: -0.02em;
+      }
+      .label {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        dominant-baseline: middle;
+        text-anchor: middle;
+      }
+    </style>
+  </defs>
+
+  <!-- ── Variant 1: Near-black on Cream (primary) ── -->
+  <!-- 144×144 symbol box, centered in a 210×210 area with clearspace -->
+  <rect x="0" y="0" width="210" height="210" fill="#FAF9F8"/>
+  <!-- Clearspace guide: 24px (1S) = 33px in scaled context -->
+  <rect x="33" y="33" width="144" height="144" fill="none" stroke="#E6E8DC" stroke-width="1" stroke-dasharray="4 4"/>
+  <!-- The (G) mark — parens in lighter weight, G in bold -->
+  <text x="105" y="105" class="g-paren" fill="#242321" text-rendering="optimizeLegibility">(G)</text>
+  <text x="105" y="188" class="label" fill="#8C8784">144 × 144 px</text>
+
+  <!-- ── Variant 2: Cream on Near-black (reversed) ── -->
+  <rect x="210" y="0" width="210" height="210" fill="#242321"/>
+  <rect x="243" y="33" width="144" height="144" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="315" y="105" class="g-paren" fill="#FAF9F8" text-rendering="optimizeLegibility">(G)</text>
+  <text x="315" y="188" class="label" fill="#787572">Cream on Near-black</text>
+
+  <!-- Construction annotation -->
+  <!-- S = 24px; symbol = 6S = 144px; cap height = 4S = 96px -->
+  <!-- Clearspace = 1S = 24px on all sides -->
+</svg>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Teleport Sub-brand Poster — §8.4 v0.5
+     Portrait 600×900 · Cream paper background
+     Photo placeholder: composite real Teleport pedal photo in Photoshop (GE-08 from shot list)
+     Tagline: Every loop can start a friendship.
+     Annotation: fig.01 · teleport · 2026
+     Pair this with voxbox-poster.svg — same layout structure, proven by family resemblance -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="600" height="900"
+     role="img" aria-label="Teleport sub-brand poster">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+      .body-font {
+        font-family: "articulat-cf", "Articulat CF", "Inter", system-ui, sans-serif;
+      }
+      .display-font {
+        font-family: "transducer-extended", "Transducer", "Inter", system-ui, sans-serif;
+        font-weight: 700;
+      }
+      .mono-font {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+      }
+    </style>
+
+    <!-- Subtle paper texture via turbulence filter -->
+    <filter id="paper" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blend"/>
+      <feComposite in="blend" in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- ── Background: warm cream paper ── -->
+  <rect width="600" height="900" fill="#FAF9F8"/>
+  <!-- Subtle warm tint at edges for paper feel -->
+  <rect width="600" height="900" fill="url(#paperGrad)" opacity="0.3"/>
+  <defs>
+    <radialGradient id="paperGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#E8E0D4" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ── Top: Guitargate parent mark ── -->
+  <text x="50" y="56"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="13"
+        letter-spacing="0.15em"
+        fill="#8C8784">GUITARGATE</text>
+
+  <!-- ── Photo placeholder zone: 480×380px, centered, upper area ── -->
+  <rect x="60" y="80" width="480" height="380" fill="#E6E8DC" rx="4"/>
+  <!-- Dashed border for placeholder clarity -->
+  <rect x="60" y="80" width="480" height="380" fill="none" stroke="#8C8784" stroke-width="1.5" stroke-dasharray="8 6" rx="4"/>
+  <!-- Placeholder label -->
+  <text x="300" y="256" text-anchor="middle"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="13"
+        letter-spacing="0.06em"
+        fill="#8C8784">TELEPORT PEDAL PHOTO</text>
+  <text x="300" y="276" text-anchor="middle"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="11"
+        letter-spacing="0.06em"
+        fill="#8C8784">Composite in Photoshop — ref: GE-08</text>
+  <text x="300" y="296" text-anchor="middle"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="11"
+        letter-spacing="0.06em"
+        fill="#8C8784">Warm lamp light · Violet LED glowing</text>
+  <!-- Crosshair marks -->
+  <line x1="288" y1="230" x2="312" y2="230" stroke="#8C8784" stroke-width="0.5" opacity="0.5"/>
+  <line x1="300" y1="218" x2="300" y2="242" stroke="#8C8784" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- ── Tagline ── -->
+  <text x="300" y="556" text-anchor="middle"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="38"
+        letter-spacing="0.04em"
+        fill="#242321">Every loop can</text>
+  <text x="300" y="600" text-anchor="middle"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="38"
+        letter-spacing="0.04em"
+        fill="#242321">start a friendship<text
+          font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+          font-weight="700"
+          font-size="38"
+          fill="#8144FF">.</text></text>
+
+  <!-- ── Monospace annotation (lower left) ── -->
+  <text x="50" y="672"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="11"
+        letter-spacing="0.08em"
+        fill="#8C8784">fig.01 · teleport · 2026</text>
+  <text x="50" y="688"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="10"
+        letter-spacing="0.06em"
+        fill="#8C8784">WiFi Guitar Pedal · Practice made communal</text>
+
+  <!-- Thin separator line -->
+  <line x1="50" y1="710" x2="550" y2="710" stroke="#E6E8DC" stroke-width="1"/>
+
+  <!-- ── TELEP(O)RT wordmark + "By Guitargate" ── -->
+  <text y="752" text-anchor="start"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="40"
+        letter-spacing="0.08em">
+    <tspan x="50" fill="#242321">TELEP</tspan><tspan fill="#8144FF">(O)</tspan><tspan fill="#242321">RT</tspan>
+  </text>
+
+  <!-- "By Guitargate" — small, right-aligned -->
+  <text x="550" y="760"
+        font-family="'articulat-cf', 'Articulat CF', 'Inter', system-ui, sans-serif"
+        font-size="11"
+        letter-spacing="0.06em"
+        fill="#8C8784"
+        text-anchor="end">By Guitargate.</text>
+
+  <!-- URL bottom -->
+  <text x="300" y="860" text-anchor="middle"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="11"
+        letter-spacing="0.1em"
+        fill="#8C8784">guitargate.com</text>
+
+  <!-- Production note (remove before print) -->
+  <!-- PRINT SPEC: 600×900px artboard · Cream paper stock recommended · Minimum 300dpi -->
+  <!-- Pair with voxbox-poster.svg — same layout ensures brand family coherence -->
+</svg>

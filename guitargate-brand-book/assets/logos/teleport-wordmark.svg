@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TELEP(O)RT Wordmark — v0.5
+     The (O) is a portal glyph in Teleport Violet #8144FF.
+     Remaining letters in near-black #242321 on cream, or cream on Teleport dark BG.
+     Font: Transducer Extended Bold (transducer-extended via Adobe Fonts kit nem7lpy)
+     Before final delivery: outline text in Illustrator (Type > Create Outlines) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 220" width="680" height="220"
+     role="img" aria-label="TELEP(O)RT wordmark — Teleport sub-brand">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+      .wm {
+        font-family: "transducer-extended", "Transducer", "Inter", system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 52px;
+        letter-spacing: 0.1em;
+        dominant-baseline: middle;
+        text-anchor: start;
+      }
+      .sub {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        dominant-baseline: middle;
+        text-anchor: middle;
+      }
+    </style>
+  </defs>
+
+  <!-- ── Variant 1: Cream BG · near-black letters · violet (O) ── -->
+  <rect x="0" y="0" width="680" height="110" fill="#FAF9F8"/>
+  <rect x="0" y="108" width="680" height="1" fill="#E6E8DC"/>
+  <!-- TELEP(O)RT — rendered with tspan color splits, x-offset to center the group -->
+  <text y="55" text-rendering="optimizeLegibility">
+    <!-- Approximate centering: full word ≈ 490px wide; start at (680-490)/2 = 95 -->
+    <tspan class="wm" x="95" fill="#242321">TELEP</tspan><tspan class="wm" fill="#8144FF">(O)</tspan><tspan class="wm" fill="#242321">RT</tspan>
+  </text>
+  <text x="340" y="90" class="sub" fill="#8C8784">Cream · Near-black + Teleport Violet · Primary</text>
+
+  <!-- ── Variant 2: Teleport dark BG · cream letters · violet (O) ── -->
+  <rect x="0" y="110" width="680" height="110" fill="#160620"/>
+  <text y="165" text-rendering="optimizeLegibility">
+    <tspan class="wm" x="95" fill="#FAF9F8">TELEP</tspan><tspan class="wm" fill="#8144FF">(O)</tspan><tspan class="wm" fill="#FAF9F8">RT</tspan>
+  </text>
+  <text x="340" y="200" class="sub" fill="#5B1FCC">Teleport Dark BG #160620 · Cream + Violet</text>
+
+  <!-- Note: The (O) represents a portal — the glyph through which sound travels -->
+</svg>

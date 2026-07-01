@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- System Descriptor Flyer — §8.2 v0.5
+     A5 portrait 420×595px · Cream paper · Corkboard mockup target
+     Two thumbtack marks at top corners — design element
+     Three centered lines + guitargate.com at bottom -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 595" width="420" height="595"
+     role="img" aria-label="Guitargate system descriptor flyer">
+  <defs>
+    <radialGradient id="paperGradFlyer" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#E8E0D4" stop-opacity="1"/>
+    </radialGradient>
+    <!-- Thumbtack gradient for 3D effect -->
+    <radialGradient id="tackGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#C0B8A8"/>
+      <stop offset="100%" stop-color="#8C8480"/>
+    </radialGradient>
+    <radialGradient id="tackHead" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#D0C8B8"/>
+      <stop offset="60%" stop-color="#A09888"/>
+      <stop offset="100%" stop-color="#706860"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ── Paper background ── -->
+  <rect width="420" height="595" fill="#FAF9F8"/>
+  <rect width="420" height="595" fill="url(#paperGradFlyer)" opacity="0.4"/>
+
+  <!-- ── Thumbtack — top left ── -->
+  <!-- Tack pin shadow -->
+  <ellipse cx="66" cy="40" rx="3" ry="6" fill="rgba(0,0,0,0.1)" transform="rotate(-15 66 40)"/>
+  <!-- Tack head -->
+  <circle cx="64" cy="36" r="9" fill="url(#tackHead)"/>
+  <!-- Tack highlight -->
+  <ellipse cx="61" cy="33" rx="3" ry="2" fill="rgba(255,255,255,0.4)" transform="rotate(-20 61 33)"/>
+  <!-- Shadow under tack -->
+  <ellipse cx="66" cy="45" rx="4" ry="2" fill="rgba(0,0,0,0.08)"/>
+
+  <!-- ── Thumbtack — top right ── -->
+  <ellipse cx="358" cy="40" rx="3" ry="6" fill="rgba(0,0,0,0.1)" transform="rotate(15 358 40)"/>
+  <circle cx="356" cy="36" r="9" fill="url(#tackHead)"/>
+  <ellipse cx="353" cy="33" rx="3" ry="2" fill="rgba(255,255,255,0.4)" transform="rotate(-20 353 33)"/>
+  <ellipse cx="358" cy="45" rx="4" ry="2" fill="rgba(0,0,0,0.08)"/>
+
+  <!-- ── Content area ── -->
+  <!-- Three descriptor lines, centered, large -->
+  <text x="210" y="210" text-anchor="middle"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="40"
+        letter-spacing="0.04em"
+        fill="#242321">Pro Lessons<text
+          font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+          font-weight="700"
+          font-size="40"
+          fill="#4476FF">.</text></text>
+
+  <text x="210" y="278" text-anchor="middle"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="40"
+        letter-spacing="0.04em"
+        fill="#242321">A Real Community<text
+          font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+          font-weight="700"
+          font-size="40"
+          fill="#4476FF">.</text></text>
+
+  <text x="210" y="346" text-anchor="middle"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="32"
+        letter-spacing="0.03em"
+        fill="#242321">The Gear to Play Together<text
+          font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+          font-weight="700"
+          font-size="32"
+          fill="#4476FF">.</text></text>
+
+  <!-- Separator -->
+  <line x1="180" y1="400" x2="240" y2="400" stroke="#E6E8DC" stroke-width="1.5"/>
+
+  <!-- URL -->
+  <text x="210" y="440" text-anchor="middle"
+        font-family="'cofo-sans-mono-variable', 'CoFo Sans', ui-monospace, monospace"
+        font-size="13"
+        letter-spacing="0.12em"
+        fill="#8C8784">guitargate.com</text>
+
+  <!-- Mantra at bottom — small, quiet -->
+  <text x="210" y="560" text-anchor="middle"
+        font-family="'transducer-extended', 'Transducer', 'Inter', system-ui, sans-serif"
+        font-weight="700"
+        font-size="11"
+        letter-spacing="0.18em"
+        fill="#E6E8DC">KEEP IT IN YOUR HANDS.</text>
+</svg>

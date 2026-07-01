@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Grid System Diagram — Layout System v0.5
+     Margin = 5% viewport width · Gutter = margin ÷ 2 · Columns in multiples of 4
+     Sample frame shown at 1440px reference width
+     CoFo Sans annotations -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560"
+     role="img" aria-label="Guitargate layout grid system diagram">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+      .annotation {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 11px;
+        fill: #4476FF;
+        letter-spacing: 0.06em;
+      }
+      .annotation-muted {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 10px;
+        fill: #8C8784;
+        letter-spacing: 0.04em;
+      }
+      .annotation-sm {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 9px;
+        fill: #8C8784;
+        letter-spacing: 0.06em;
+      }
+      .title {
+        font-family: "transducer-extended", "Transducer", "Inter", system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        fill: #242321;
+        letter-spacing: 0.12em;
+      }
+    </style>
+
+    <marker id="arrowG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 Z" fill="#4476FF"/>
+    </marker>
+    <marker id="arrowG-r" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto-start-reverse">
+      <path d="M0,3 L8,0 L8,6 Z" fill="#4476FF"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="560" fill="#FAF9F8"/>
+
+  <!-- Title -->
+  <text x="40" y="36" class="title">LAYOUT GRID SYSTEM · 1440px REFERENCE FRAME</text>
+  <line x1="40" y1="44" x2="680" y2="44" stroke="#E6E8DC" stroke-width="1"/>
+
+  <!-- ============================================================
+       MAIN FRAME: 1440px scaled to ~640px display (scale ~0.44)
+       Margin = 5% × 1440 = 72px → scaled = ~32px
+       Gutter = margin ÷ 2 = 36px → scaled = ~16px
+       12 columns
+       ============================================================ -->
+
+  <!-- Reference frame boundary -->
+  <rect x="40" y="64" width="640" height="280" fill="white" stroke="#E6E8DC" stroke-width="1.5" rx="2"/>
+
+  <!-- Margin zones -->
+  <rect x="40" y="64" width="32" height="280" fill="rgba(68,118,255,0.06)"/>
+  <rect x="648" y="64" width="32" height="280" fill="rgba(68,118,255,0.06)"/>
+
+  <!-- 12 columns with gutters -->
+  <!-- Column width = (640 - 64) / 12 + (11 × 16) / 12 = ... -->
+  <!-- Actually: total width = 640, margins = 32 each side, usable = 576px -->
+  <!-- 12 cols, 11 gutters of 16px = 176px gutters, col = (576-176)/12 = 33.3px each -->
+
+  <!-- Let's use 4 visible columns for clarity (multiples of 4) -->
+  <!-- 4 columns: each = (576 - 3×16) / 4 = (576 - 48) / 4 = 132px -->
+
+  <!-- Col 1 -->
+  <rect x="72" y="72" width="132" height="264" fill="rgba(68,118,255,0.06)" rx="1"/>
+  <!-- Gutter 1 -->
+  <rect x="204" y="72" width="16" height="264" fill="rgba(68,118,255,0.12)" rx="1"/>
+  <!-- Col 2 -->
+  <rect x="220" y="72" width="132" height="264" fill="rgba(68,118,255,0.06)" rx="1"/>
+  <!-- Gutter 2 -->
+  <rect x="352" y="72" width="16" height="264" fill="rgba(68,118,255,0.12)" rx="1"/>
+  <!-- Col 3 -->
+  <rect x="368" y="72" width="132" height="264" fill="rgba(68,118,255,0.06)" rx="1"/>
+  <!-- Gutter 3 -->
+  <rect x="500" y="72" width="16" height="264" fill="rgba(68,118,255,0.12)" rx="1"/>
+  <!-- Col 4 -->
+  <rect x="516" y="72" width="132" height="264" fill="rgba(68,118,255,0.06)" rx="1"/>
+
+  <!-- Sample content blocks -->
+  <!-- Hero text block (col 1-2) -->
+  <rect x="72" y="96" width="280" height="16" fill="#242321" rx="2" opacity="0.7"/>
+  <rect x="72" y="120" width="240" height="10" fill="#8C8784" rx="2" opacity="0.5"/>
+  <rect x="72" y="136" width="200" height="10" fill="#8C8784" rx="2" opacity="0.5"/>
+  <rect x="72" y="160" width="80" height="28" fill="#4476FF" rx="14" opacity="0.8"/>
+
+  <!-- Image block (col 3-4) -->
+  <rect x="368" y="88" width="280" height="220" fill="#E6E8DC" rx="4"/>
+  <text x="508" y="202" class="annotation-sm" text-anchor="middle">image / media</text>
+
+  <!-- ── Measurement annotations ── -->
+
+  <!-- Margin callout (left) -->
+  <line x1="40" y1="360" x2="72" y2="360" stroke="#4476FF" stroke-width="1"
+        marker-start="url(#arrowG-r)" marker-end="url(#arrowG)"/>
+  <text x="56" y="374" class="annotation" text-anchor="middle" font-size="9">Margin</text>
+  <text x="56" y="386" class="annotation-sm" text-anchor="middle">5% vw</text>
+  <text x="56" y="396" class="annotation-sm" text-anchor="middle">= 72px</text>
+
+  <!-- Column width callout -->
+  <line x1="72" y1="360" x2="204" y2="360" stroke="#4476FF" stroke-width="1"
+        marker-start="url(#arrowG-r)" marker-end="url(#arrowG)"/>
+  <text x="138" y="374" class="annotation" text-anchor="middle" font-size="9">Column</text>
+  <text x="138" y="386" class="annotation-sm" text-anchor="middle">132px</text>
+
+  <!-- Gutter callout -->
+  <line x1="204" y1="360" x2="220" y2="360" stroke="#4476FF" stroke-width="1"
+        marker-start="url(#arrowG-r)" marker-end="url(#arrowG)"/>
+  <text x="212" y="374" class="annotation" text-anchor="middle" font-size="8">Gutter</text>
+  <text x="212" y="385" class="annotation-sm" text-anchor="middle">16px</text>
+
+  <!-- Total frame width callout -->
+  <line x1="40" y1="420" x2="680" y2="420" stroke="#8C8784" stroke-width="0.75"
+        marker-start="url(#arrowG-r)" marker-end="url(#arrowG)" stroke-dasharray="4 4"/>
+  <text x="360" y="414" class="annotation-muted" text-anchor="middle">1440px reference frame (displayed at ~44% scale)</text>
+
+  <!-- ============================================================
+       BOTTOM: Grid math reference
+       ============================================================ -->
+  <line x1="40" y1="440" x2="680" y2="440" stroke="#E6E8DC" stroke-width="1"/>
+
+  <text x="40" y="462" class="annotation">GRID MATH</text>
+  <text x="40" y="480" class="annotation-muted">Margin = 5% viewport width · At 1440px: 72px margin · At 390px mobile: 19.5px margin</text>
+  <text x="40" y="496" class="annotation-muted">Gutter = margin ÷ 2 · At 1440px: 36px gutter · At 390px: ~10px gutter</text>
+  <text x="40" y="512" class="annotation-muted">Columns always in multiples of 4 · Default: 12 col (desktop) · 4 col (mobile)</text>
+  <text x="40" y="528" class="annotation-muted">Content max-width: 900px brand book · 1200px marketing site · 640px email</text>
+
+  <!-- Version tag -->
+  <text x="680" y="548" class="annotation-muted" text-anchor="end">Guitargate Brand System v0.5 · Layout System</text>
+</svg>

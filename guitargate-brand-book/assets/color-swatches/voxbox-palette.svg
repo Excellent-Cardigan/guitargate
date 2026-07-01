@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Voxbox Orange Palette — §4.5 v0.5
+     "Orange — for the voice that joins the band."
+     4-step layout: 950 · 700 · 500 · 100
+     NOTE: Channel Two Green #4FCB80 is a product-UX color ONLY — not a brand accent.
+     The Voxbox brand accent is ALWAYS orange in marketing contexts. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 280" width="480" height="280"
+     role="img" aria-label="Voxbox Orange palette — 4 step color ramp">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/nem7lpy.css");
+      .label-step {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 11px;
+        fill: #8C8784;
+        letter-spacing: 0.06em;
+      }
+      .label-hex {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 13px;
+        fill: #242321;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+      .label-name {
+        font-family: "articulat-cf", "Articulat CF", "Inter", system-ui, sans-serif;
+        font-size: 12px;
+        fill: #8C8784;
+      }
+      .label-wcag {
+        font-family: "cofo-sans-mono-variable", "CoFo Sans", ui-monospace, monospace;
+        font-size: 10px;
+        fill: #8C8784;
+        letter-spacing: 0.04em;
+      }
+      .title {
+        font-family: "transducer-extended", "Transducer", "Inter", system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        fill: #242321;
+        letter-spacing: 0.12em;
+      }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="0" y="18" class="title">VOXBOX ORANGE</text>
+  <line x1="0" y1="26" x2="480" y2="26" stroke="#E6E8DC" stroke-width="1"/>
+
+  <!-- ── 950 Dark BG #190B03 ── -->
+  <g transform="translate(0, 36)">
+    <rect width="96" height="120" rx="6" fill="#190B03"/>
+    <text x="8" y="15" class="label-step" fill="#FF7420">950</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle">#190B03</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Dark BG</text>
+    <text x="48" y="178" class="label-wcag" text-anchor="middle">Orange 500: 7.13:1 ✓</text>
+    <text x="48" y="190" class="label-wcag" text-anchor="middle">Strongest combo</text>
+  </g>
+
+  <!-- ── 700 Orange Text #B84000 ── -->
+  <g transform="translate(120, 36)">
+    <rect width="96" height="120" rx="6" fill="#B84000"/>
+    <text x="8" y="15" class="label-step" fill="#FEC784">700</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle">#B84000</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Orange Text</text>
+  </g>
+
+  <!-- ── 500 Orange Primary #FF7420 ── -->
+  <g transform="translate(240, 36)">
+    <rect width="96" height="120" rx="6" fill="#FF7420"/>
+    <circle cx="80" cy="14" r="6" fill="#190B03" opacity="0.5"/>
+    <text x="8" y="15" class="label-step" fill="#190B03">500</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle" font-weight="bold">#FF7420</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Orange Primary</text>
+    <text x="48" y="178" class="label-wcag" text-anchor="middle">on white: 2.70:1 ✗</text>
+    <text x="48" y="190" class="label-wcag" text-anchor="middle">Dark BG ONLY</text>
+  </g>
+
+  <!-- ── 100 Orange Subtle #FEC784 ── -->
+  <g transform="translate(360, 36)">
+    <rect width="96" height="120" rx="6" fill="#FEC784" stroke="#E6E8DC" stroke-width="1"/>
+    <text x="8" y="15" class="label-step">100</text>
+    <text x="48" y="148" class="label-hex" text-anchor="middle">#FEC784</text>
+    <text x="48" y="164" class="label-name" text-anchor="middle">Orange Subtle</text>
+  </g>
+
+  <!-- Footer note -->
+  <text x="0" y="258" class="label-wcag">ALWAYS use #190B03 text on orange buttons — NEVER white</text>
+  <text x="0" y="270" class="label-wcag">Channel Two Green #4FCB80 — product UX only (LED indicator, hardware) — NOT a brand accent</text>
+</svg>
