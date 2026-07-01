@@ -120,8 +120,8 @@ export function FeedCard({ item, variant = 'full', onLike, onReact, onAddPart, o
         )}
       </div>
 
-      {item.type === 'loop' && threadOpen && (
-        <ReactionThread reactions={item.reactions} onAdd={text => onReact(item.id, text)} collapsible />
+      {item.type === 'loop' && (
+        <ReactionThread reactions={item.reactions} onAdd={text => onReact(item.id, text)} collapsible open={threadOpen} />
       )}
     </StaggerItem>
   );

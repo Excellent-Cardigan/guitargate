@@ -5,8 +5,10 @@ import type { ReactionMessage } from '../types';
 interface Props {
   reactions: ReactionMessage[];
   onAdd: (text: string) => void;
-  /** When true, renders inside an AnimatePresence height-reveal (feed card). Omit for an always-open page (loop detail). */
+  /** When true, renders behind an AnimatePresence height-reveal controlled by `open` (feed card). Omit for an always-open page (loop detail). */
   collapsible?: boolean;
+  /** Only meaningful when `collapsible` — whether the thread is currently expanded. The component must stay mounted (not conditionally rendered by the parent) for the enter/exit animation to play. */
+  open?: boolean;
 }
 
 function ThreadBody({ reactions, onAdd }: Pick<Props, 'reactions' | 'onAdd'>) {
@@ -43,21 +45,23 @@ function ThreadBody({ reactions, onAdd }: Pick<Props, 'reactions' | 'onAdd'>) {
   );
 }
 
-export function ReactionThread({ reactions, onAdd, collapsible }: Props) {
+export function ReactionThread({ reactions, onAdd, collapsible, open = true }: Props) {
   if (!collapsible) return <ThreadBody reactions={reactions} onAdd={onAdd} />;
 
   return (
     <AnimatePresence initial={false}>
-      <motion.div
-        key="thread"
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: 'auto', opacity: 1 }}
-        exit={{ height: 0, opacity: 0 }}
-        transition={{ duration: 0.18 }}
-        style={{ overflow: 'hidden' }}
-      >
-        <ThreadBody reactions={reactions} onAdd={onAdd} />
-      </motion.div>
+      {open && (
+        <motion.div
+          key="thread"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: 'auto', opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.18 }}
+          style={{ overflow: 'hidden' }}
+        >
+          <ThreadBody reactions={reactions} onAdd={onAdd} />
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 }

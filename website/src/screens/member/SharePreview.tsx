@@ -1,6 +1,7 @@
-import { RiArrowLeftSLine, RiQrCodeLine, RiInstagramLine, RiMessage3Line, RiLinksLine } from '@remixicon/react';
+import { RiQrCodeLine, RiInstagramLine, RiMessage3Line, RiLinksLine } from '@remixicon/react';
 import { BottomTabBar } from '../../components/BottomTabBar';
 import { Stagger, StaggerItem } from '../../components/motion';
+import { BackHeader } from '../../components/BackHeader';
 import { SvgPattern } from '../../components/SvgPattern';
 import type { AppNav } from '../../types';
 import type { FeedStore } from '../../state/feedStore';
@@ -12,15 +13,10 @@ export function SharePreview({ nav, feed }: Props) {
 
   return (
     <Stagger className="phone-scroll">
-      <StaggerItem className="app-header">
-        <button
-          onClick={() => nav.navigate('loop-detail', { loopId: nav.params.loopId })}
-          style={{ display: 'flex', alignItems: 'center', gap: 4, color: 'var(--ink)' }}
-        >
-          <RiArrowLeftSLine size={22} />
-          <span className="app-header__title" style={{ fontSize: 18 }}>Share</span>
-        </button>
-      </StaggerItem>
+      <BackHeader
+        title="Share"
+        onBack={() => nav.navigate('loop-detail', { loopId: nav.params.loopId, from: nav.params.from })}
+      />
 
       <StaggerItem className="share-preview__card">
         <div className="share-preview__pattern">

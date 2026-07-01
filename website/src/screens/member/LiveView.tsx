@@ -1,6 +1,7 @@
-import { RiArrowLeftSLine, RiPlayFill } from '@remixicon/react';
+import { RiPlayFill } from '@remixicon/react';
 import { BottomTabBar } from '../../components/BottomTabBar';
 import { Stagger, StaggerItem } from '../../components/motion';
+import { BackHeader } from '../../components/BackHeader';
 import { LIVE_SESSIONS } from '../../data/liveSeed';
 import type { AppNav } from '../../types';
 
@@ -11,12 +12,7 @@ export function LiveView({ nav }: Props) {
 
   return (
     <Stagger className="phone-scroll">
-      <StaggerItem className="app-header">
-        <button onClick={() => nav.navigate('app-home')} style={{ display: 'flex', alignItems: 'center', gap: 4, color: 'var(--ink)' }}>
-          <RiArrowLeftSLine size={22} />
-          <span className="app-header__title" style={{ fontSize: 18 }}>Live</span>
-        </button>
-      </StaggerItem>
+      <BackHeader title="Live" onBack={() => nav.navigate('app-home')} />
 
       <StaggerItem style={{ padding: '0 20px' }}>
         <div className="waveform-placeholder" style={{ height: 220 }}>

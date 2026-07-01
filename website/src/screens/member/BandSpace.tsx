@@ -1,6 +1,6 @@
-import { RiArrowLeftSLine } from '@remixicon/react';
 import { BottomTabBar } from '../../components/BottomTabBar';
 import { Stagger, StaggerItem } from '../../components/motion';
+import { BackHeader } from '../../components/BackHeader';
 import { FeedCard } from '../../components/FeedCard';
 import { Composer } from '../../components/Composer';
 import type { AppNav, LoopItem } from '../../types';
@@ -16,20 +16,12 @@ export function BandSpace({ nav, feed }: Props) {
 
   return (
     <Stagger className="phone-scroll">
-      <StaggerItem className="app-header">
-        <button
-          onClick={() => nav.navigate('app-play')}
-          style={{ display: 'flex', alignItems: 'center', gap: 4, color: 'var(--ink)' }}
-        >
-          <RiArrowLeftSLine size={22} />
-          <span className="app-header__title" style={{ fontSize: 18 }}>{band?.name ?? 'Band'}</span>
-        </button>
-      </StaggerItem>
+      <BackHeader title={band?.name ?? 'Band'} onBack={() => nav.navigate('app-play')} />
 
       <StaggerItem className="app-section app-section--loose">
         <Composer
           placeholder="Leave a loop open for the band…"
-          onPost={title => feed.addLoop({ title, scope: 'mine', bandId: band?.id, bandName: band?.name })}
+          onPost={title => feed.addLoop({ title, scope: 'mine', bandId: nav.params.bandId, bandName: band?.name })}
         />
       </StaggerItem>
 
@@ -42,7 +34,7 @@ export function BandSpace({ nav, feed }: Props) {
             onReact={feed.addReaction}
             onAddPart={feed.toggleAddPart}
             onLoadToPedal={feed.toggleLoadedToPedal}
-            onOpenDetail={id => nav.navigate('loop-detail', { loopId: id })}
+            onOpenDetail={id => nav.navigate('loop-detail', { loopId: id, from: 'app-play' })}
             onShare={id => nav.navigate('share-preview', { loopId: id })}
           />
         ))}

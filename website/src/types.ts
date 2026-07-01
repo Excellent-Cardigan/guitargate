@@ -26,6 +26,8 @@ export interface NavParams {
   loopId?: string;
   bandId?: string;
   liveId?: string;
+  /** Screen to return to on back — lets Loop Detail (and anything it opens, like Share) round-trip to wherever it was opened from. */
+  from?: Screen;
 }
 
 export interface AppNav {

@@ -24,7 +24,7 @@ export function BandsStrip({ bands, onSelect, onCreate }: Props) {
   return (
     <>
       <DragScrollRow className="bands-strip edge-fade-x">
-        <StaggerItem className="bands-strip__tile" onClick={() => setCreating(o => !o)}>
+        <StaggerItem className="bands-strip__tile" onClick={() => { setCreating(o => !o); setDraft(''); }}>
           <div className="bands-strip__avatar bands-strip__avatar--new">
             <RiAddLine size={18} />
           </div>

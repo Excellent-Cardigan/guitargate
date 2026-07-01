@@ -56,7 +56,7 @@ export function AppPlay({ nav, feed }: Props) {
             onReact={feed.addReaction}
             onAddPart={feed.toggleAddPart}
             onLoadToPedal={feed.toggleLoadedToPedal}
-            onOpenDetail={id => nav.navigate('loop-detail', { loopId: id })}
+            onOpenDetail={id => nav.navigate('loop-detail', { loopId: id, from: 'app-play' })}
             onShare={id => nav.navigate('share-preview', { loopId: id })}
           />
         ))}

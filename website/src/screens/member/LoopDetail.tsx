@@ -1,6 +1,7 @@
-import { RiArrowLeftSLine, RiHeart3Line, RiHeartFill, RiCheckLine, RiShareLine } from '@remixicon/react';
+import { RiHeart3Line, RiHeartFill, RiCheckLine, RiShareLine } from '@remixicon/react';
 import { BottomTabBar } from '../../components/BottomTabBar';
 import { Stagger, StaggerItem } from '../../components/motion';
+import { BackHeader } from '../../components/BackHeader';
 import { ReactionThread } from '../../components/ReactionThread';
 import { Waveform } from '../../components/Waveform';
 import { AvatarStack } from '../../components/AvatarStack';
@@ -11,16 +12,12 @@ interface Props { nav: AppNav; feed: FeedStore }
 
 export function LoopDetail({ nav, feed }: Props) {
   const loop = feed.activity.find(item => item.id === nav.params.loopId && item.type === 'loop');
+  const goBack = () => nav.navigate(nav.params.from ?? 'app-play');
 
   if (!loop || loop.type !== 'loop') {
     return (
       <Stagger className="phone-scroll">
-        <StaggerItem className="app-header">
-          <button onClick={() => nav.navigate('app-play')} style={{ display: 'flex', alignItems: 'center', gap: 4, color: 'var(--ink)' }}>
-            <RiArrowLeftSLine size={22} />
-            <span className="app-header__title" style={{ fontSize: 18 }}>Loop</span>
-          </button>
-        </StaggerItem>
+        <BackHeader title="Loop" onBack={goBack} />
         <div className="empty-state">
           <div className="empty-state__title">This loop isn't open anymore.</div>
         </div>
@@ -31,12 +28,7 @@ export function LoopDetail({ nav, feed }: Props) {
 
   return (
     <Stagger className="phone-scroll">
-      <StaggerItem className="app-header">
-        <button onClick={() => nav.navigate('app-play')} style={{ display: 'flex', alignItems: 'center', gap: 4, color: 'var(--ink)' }}>
-          <RiArrowLeftSLine size={22} />
-          <span className="app-header__title" style={{ fontSize: 18 }}>{loop.user}'s loop</span>
-        </button>
-      </StaggerItem>
+      <BackHeader title={`${loop.user}'s loop`} onBack={goBack} />
 
       <StaggerItem className="loop-detail__hero">
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
@@ -83,7 +75,7 @@ export function LoopDetail({ nav, feed }: Props) {
           type="button"
           className="feed-card__loadpedal-btn"
           style={{ marginLeft: 'auto' }}
-          onClick={() => nav.navigate('share-preview', { loopId: loop.id })}
+          onClick={() => nav.navigate('share-preview', { loopId: loop.id, from: nav.params.from })}
         >
           <RiShareLine size={14} /> Share
         </button>

@@ -458,7 +458,7 @@ img, svg { display: block; }
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: #E5484D;
+  background: var(--ink);
   border: 1.5px solid var(--surface);
 }
 

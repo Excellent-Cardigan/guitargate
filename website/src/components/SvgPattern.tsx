@@ -1,29 +1,12 @@
+import { seededRandom } from '../utils/seededRandom';
+
 interface Props {
   seed: string;
   size?: number;
 }
 
-// Deterministic string hash -> seeded PRNG (mulberry32), so the same loop id
-// always renders the same placeholder pattern.
-function hashSeed(seed: string): number {
-  let h = 0;
-  for (let i = 0; i < seed.length; i++) {
-    h = Math.imul(31, h) + seed.charCodeAt(i) | 0;
-  }
-  return h >>> 0;
-}
-
-function mulberry32(a: number) {
-  return () => {
-    a |= 0; a = (a + 0x6D2B79F5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
 export function SvgPattern({ seed, size = 280 }: Props) {
-  const rand = mulberry32(hashSeed(seed));
+  const rand = seededRandom(seed);
   const shapeCount = 7 + Math.floor(rand() * 4);
   const shapes = Array.from({ length: shapeCount }, (_, i) => {
     const isLine = rand() > 0.5;

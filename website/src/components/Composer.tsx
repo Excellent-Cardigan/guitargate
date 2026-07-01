@@ -18,47 +18,54 @@ export function Composer({ placeholder, onPost }: Props) {
     setOpen(false);
   };
 
-  if (!open) {
-    return (
-      <div className="compose-bar" onClick={() => setOpen(true)}>
-        <div style={{ width: 28, height: 28, borderRadius: '50%', background: 'var(--line)', flexShrink: 0 }} />
-        <span className="compose-bar__text">{placeholder}</span>
-        <div className="compose-btn">
-          <RiAddLine size={14} color="#fff" />
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <AnimatePresence initial={false}>
-      <motion.div
-        key="composer-panel"
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: 'auto', opacity: 1 }}
-        exit={{ height: 0, opacity: 0 }}
-        transition={{ duration: 0.18 }}
-        style={{ overflow: 'hidden' }}
-      >
-        <div className="composer-panel">
-          <input
-            className="composer-panel__input"
-            placeholder="Name your loop…"
-            value={draft}
-            onChange={e => setDraft(e.target.value)}
-            autoFocus
-            onKeyDown={e => e.key === 'Enter' && submit()}
-          />
-          <div className="composer-panel__row">
-            <button type="button" className="composer-panel__cancel" onClick={() => { setOpen(false); setDraft(''); }}>
-              Cancel
-            </button>
-            <button type="button" className="composer-panel__submit" onClick={submit}>
-              Post
-            </button>
+    <AnimatePresence initial={false} mode="wait">
+      {open ? (
+        <motion.div
+          key="panel"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: 'auto', opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.18 }}
+          style={{ overflow: 'hidden' }}
+        >
+          <div className="composer-panel">
+            <input
+              className="composer-panel__input"
+              placeholder="Name your loop…"
+              value={draft}
+              onChange={e => setDraft(e.target.value)}
+              autoFocus
+              onKeyDown={e => e.key === 'Enter' && submit()}
+            />
+            <div className="composer-panel__row">
+              <button type="button" className="composer-panel__cancel" onClick={() => { setOpen(false); setDraft(''); }}>
+                Cancel
+              </button>
+              <button type="button" className="composer-panel__submit" onClick={submit}>
+                Post
+              </button>
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      ) : (
+        <motion.div
+          key="bar"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: 'auto', opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.18 }}
+          style={{ overflow: 'hidden' }}
+        >
+          <div className="compose-bar" onClick={() => setOpen(true)}>
+            <div style={{ width: 28, height: 28, borderRadius: '50%', background: 'var(--line)', flexShrink: 0 }} />
+            <span className="compose-bar__text">{placeholder}</span>
+            <div className="compose-btn">
+              <RiAddLine size={14} color="#fff" />
+            </div>
+          </div>
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 }

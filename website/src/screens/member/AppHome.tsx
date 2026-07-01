@@ -86,7 +86,7 @@ export function AppHome({ nav, feed }: Props) {
               variant="home"
               onLike={feed.toggleLike}
               onReact={feed.addReaction}
-              onOpenDetail={id => nav.navigate('loop-detail', { loopId: id })}
+              onOpenDetail={id => nav.navigate('loop-detail', { loopId: id, from: 'app-home' })}
             />
           ))}
         </StaggerItem>
