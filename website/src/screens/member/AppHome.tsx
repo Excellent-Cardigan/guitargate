@@ -7,11 +7,11 @@ import { LIVE_SESSIONS } from '../../data/liveSeed';
 import type { AppNav } from '../../types';
 import type { FeedStore } from '../../state/feedStore';
 
-interface Props { nav: AppNav; feed: FeedStore }
+interface Props { nav: AppNav; feed: FeedStore; isGuest?: boolean }
 
 const PRACTICE_STREAK_DAYS = 4;
 
-export function AppHome({ nav, feed }: Props) {
+export function AppHome({ nav, feed, isGuest }: Props) {
   const hasUnread = feed.notifications.some(n => !n.read);
 
   return (
@@ -23,7 +23,7 @@ export function AppHome({ nav, feed }: Props) {
           <NotificationBell hasUnread={hasUnread} onClick={() => nav.navigate('notifications')} />
           <button
             className="app-header__avatar"
-            onClick={() => nav.navigate('app-account')}
+            onClick={() => nav.navigate(isGuest ? 'app-signin' : 'app-account')}
           >
             <RiUser3Line size={16} color="var(--muted)" />
           </button>
@@ -103,7 +103,7 @@ export function AppHome({ nav, feed }: Props) {
         </button>
       </StaggerItem>
 
-      <BottomTabBar active="home" nav={nav} />
+      <BottomTabBar active="home" nav={nav} isGuest={isGuest} />
     </Stagger>
   );
 }

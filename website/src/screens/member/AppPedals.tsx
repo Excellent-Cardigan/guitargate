@@ -4,7 +4,7 @@ import { BottomTabBar } from '../../components/BottomTabBar';
 import { Stagger, StaggerItem } from '../../components/motion';
 import type { AppNav } from '../../types';
 
-interface Props { nav: AppNav }
+interface Props { nav: AppNav; isGuest?: boolean }
 
 const SONGS_ON_DEVICE = [
   { title: 'Cliffs of Dover', artist: 'Eric Johnson' },
@@ -12,7 +12,7 @@ const SONGS_ON_DEVICE = [
   { title: 'Europa', artist: 'Santana' },
 ];
 
-export function AppPedals({ nav }: Props) {
+export function AppPedals({ nav, isGuest }: Props) {
   const [playing, setPlaying] = useState<string | null>(null);
   const [waitlisted, setWaitlisted] = useState(false);
 
@@ -20,7 +20,7 @@ export function AppPedals({ nav }: Props) {
     <Stagger className="phone-scroll">
       <StaggerItem className="app-header">
         <span className="app-header__title">My Pedals</span>
-        <button className="app-header__avatar" onClick={() => nav.navigate('app-account')}>
+        <button className="app-header__avatar" onClick={() => nav.navigate(isGuest ? 'app-signin' : 'app-account')}>
           <RiUser3Line size={16} color="var(--muted)" />
         </button>
       </StaggerItem>
@@ -122,7 +122,7 @@ export function AppPedals({ nav }: Props) {
         <span className="row-link__chevron">›</span>
       </StaggerItem>
 
-      <BottomTabBar active="pedals" nav={nav} />
+      <BottomTabBar active="pedals" nav={nav} isGuest={isGuest} />
     </Stagger>
   );
 }

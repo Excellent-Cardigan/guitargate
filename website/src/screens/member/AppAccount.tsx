@@ -1,34 +1,34 @@
 import {
   RiUser3Line, RiBankCardLine, RiBox3Line, RiUserAddLine,
-  RiNotification3Line, RiDownloadLine, RiShieldUserLine,
+  RiNotification3Line, RiShieldUserLine,
   RiQuestionLine, RiLogoutBoxRLine,
 } from '@remixicon/react';
 import { BottomTabBar } from '../../components/BottomTabBar';
 import { Stagger, StaggerItem } from '../../components/motion';
 import type { AppNav, Screen } from '../../types';
+import type { ProfileStore } from '../../state/profileStore';
 
-interface Props { nav: AppNav }
+interface Props { nav: AppNav; profile: ProfileStore }
 
-type Row = { label: string; Icon: typeof RiBankCardLine; action: Screen | null };
+type Row = { label: string; Icon: typeof RiBankCardLine; action: Screen };
 
 const MEMBERSHIP: Row[] = [
   { label: 'Plan & billing',     Icon: RiBankCardLine, action: 'billing' },
-  { label: 'Pedal order status', Icon: RiBox3Line,     action: null },
-  { label: 'Invite a friend',    Icon: RiUserAddLine,  action: null },
+  { label: 'Pedal order status', Icon: RiBox3Line,     action: 'app-pedals' },
+  { label: 'Invite a friend',    Icon: RiUserAddLine,  action: 'loop-someone-in' },
 ];
 
 const APP_ROWS: Row[] = [
-  { label: 'Notifications',     Icon: RiNotification3Line, action: null },
-  { label: 'Download settings', Icon: RiDownloadLine,      action: null },
-  { label: 'Privacy & data',    Icon: RiShieldUserLine,    action: null },
+  { label: 'Notifications',  Icon: RiNotification3Line, action: 'notification-settings' },
+  { label: 'Privacy & data', Icon: RiShieldUserLine,     action: 'privacy-settings' },
 ];
 
-export function AppAccount({ nav }: Props) {
+export function AppAccount({ nav, profile }: Props) {
   const row = (r: Row) => (
     <StaggerItem
       key={r.label}
       className="row-link"
-      onClick={() => r.action && nav.navigate(r.action)}
+      onClick={() => nav.navigate(r.action)}
     >
       <span style={{ display: 'inline-flex', alignItems: 'center', gap: 12 }}>
         <r.Icon size={18} color="var(--muted)" />
@@ -50,10 +50,15 @@ export function AppAccount({ nav }: Props) {
           <RiUser3Line size={22} color="var(--muted)" />
         </div>
         <div style={{ flex: 1 }}>
-          <div style={{ fontWeight: 700, fontSize: 18, marginBottom: 3 }}>Robert D.</div>
+          <div style={{ fontWeight: 700, fontSize: 18, marginBottom: 3 }}>
+            {profile.profile.firstName} {profile.profile.lastName}
+          </div>
+          <div className="t-caption t-muted" style={{ marginBottom: 2 }}>@{profile.profile.username}</div>
           <div className="t-caption t-muted">Member since Jan 2025 · 3.0 Membership</div>
         </div>
-        <button className="btn btn-secondary btn-sm">Edit</button>
+        <button className="btn btn-secondary btn-sm" onClick={() => nav.navigate('edit-profile')}>
+          Edit
+        </button>
       </StaggerItem>
 
       {/* Membership group */}
@@ -70,7 +75,7 @@ export function AppAccount({ nav }: Props) {
 
       {/* Support / logout */}
       <StaggerItem className="menu-group" group style={{ marginTop: 12 }}>
-        <StaggerItem className="row-link">
+        <StaggerItem className="row-link" onClick={() => nav.navigate('help-support')}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 12 }}>
             <RiQuestionLine size={18} color="var(--muted)" />
             <span style={{ fontSize: 15 }}>Help &amp; support</span>

@@ -4,14 +4,15 @@ import { Stagger, StaggerItem } from '../../components/motion';
 import { WizardStepHeader } from '../../components/WizardStepHeader';
 import { PedalPairingDiagram } from '../../components/PedalPairingDiagram';
 import type { AppNav } from '../../types';
+import type { ProfileStore } from '../../state/profileStore';
 
-interface Props { nav: AppNav }
+interface Props { nav: AppNav; profile: ProfileStore }
 
 const TOTAL_STEPS = 6;
 const INSTRUMENTS = ['Electric guitar', 'Acoustic guitar', 'Bass'];
 const SERIAL = 'TLP-00391';
 
-export function SignupWizard({ nav }: Props) {
+export function SignupWizard({ nav, profile }: Props) {
   const [step, setStep] = useState(0);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -33,7 +34,15 @@ export function SignupWizard({ nav }: Props) {
     else setStep(s => s - 1);
   };
   const goNext = () => setStep(s => Math.min(s + 1, TOTAL_STEPS - 1));
-  const finish = () => nav.navigate('app-home');
+  const finish = () => {
+    profile.updateProfile({
+      firstName,
+      lastName,
+      username,
+      ...(instrument ? { instrument } : {}),
+    });
+    nav.navigate('app-home');
+  };
 
   const emailValid = /\S+@\S+\.\S+/.test(email);
   const passwordValid = password.length >= 6;

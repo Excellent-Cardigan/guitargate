@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { AppNav, NavParams, Screen } from './types';
 import { useFeedStore } from './state/feedStore';
+import { useProfileStore } from './state/profileStore';
 import { PhoneFrame } from './components/PhoneFrame';
 import { DesktopFrame } from './components/DesktopFrame';
 import { BrandHome } from './screens/public/BrandHome';
@@ -29,6 +30,7 @@ export default function App() {
   const [screen, setScreen] = useState<Screen>('brand-home');
   const [params, setParams] = useState<NavParams>({});
   const feed = useFeedStore();
+  const profile = useProfileStore();
 
   const navigate = (next: Screen, nextParams: NavParams = {}) => {
     setScreen(next);
@@ -55,7 +57,7 @@ export default function App() {
       case 'app-learn':   return <PhoneFrame><AppLearn nav={nav} /></PhoneFrame>;
       case 'app-play':    return <PhoneFrame><AppPlay nav={nav} feed={feed} /></PhoneFrame>;
       case 'app-pedals':  return <PhoneFrame><AppPedals nav={nav} /></PhoneFrame>;
-      case 'app-account': return <PhoneFrame><AppAccount nav={nav} /></PhoneFrame>;
+      case 'app-account': return <PhoneFrame><AppAccount nav={nav} profile={profile} /></PhoneFrame>;
       case 'lesson':      return <PhoneFrame><Lesson nav={nav} /></PhoneFrame>;
       case 'library':     return <PhoneFrame><Library nav={nav} /></PhoneFrame>;
       case 'billing':     return <PhoneFrame><Billing nav={nav} /></PhoneFrame>;

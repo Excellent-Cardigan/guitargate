@@ -23,7 +23,11 @@ export type Screen =
   | 'notifications'
   | 'signup'
   | 'login'
-  | 'forgot-password';
+  | 'forgot-password'
+  | 'edit-profile'
+  | 'notification-settings'
+  | 'privacy-settings'
+  | 'help-support';
 
 export interface NavParams {
   loopId?: string;
@@ -89,4 +93,11 @@ export interface NotificationItem {
   time: string;
   loopId?: string;
   read: boolean;
+}
+
+export interface Profile {
+  firstName: string;
+  lastName: string;
+  username: string;
+  instrument: string;
 }
