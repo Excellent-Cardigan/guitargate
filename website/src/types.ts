@@ -45,7 +45,7 @@ export interface AppNav {
 }
 
 export const PHONE_SCREENS: Screen[] = [
-  'app-home', 'app-search', 'app-learn', 'app-play', 'app-pedals', 'app-account',
+  'app-home', 'app-learn', 'app-play', 'app-pedals', 'app-account',
 ];
 
 export interface ReactionMessage {

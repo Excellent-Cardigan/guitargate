@@ -1,14 +1,13 @@
 import { motion } from 'framer-motion';
 import {
   RiHome5Line, RiHome5Fill,
-  RiSearchLine, RiSearchFill,
   RiBookOpenLine, RiBookOpenFill,
-  RiPlayCircleLine, RiPlayCircleFill,
+  RiPlayFill, RiPlayLine,
   RiBox3Line, RiBox3Fill,
 } from '@remixicon/react';
 import type { AppNav, Screen } from '../types';
 
-type TabId = 'home' | 'search' | 'learn' | 'play' | 'pedals';
+type TabId = 'home' | 'learn' | 'play' | 'pedals';
 
 interface BottomTabBarProps {
   active: TabId;
@@ -25,9 +24,8 @@ const TABS: {
   Fill: typeof RiHome5Fill;
 }[] = [
   { id: 'home',   label: 'Home',   screen: 'app-home',   Line: RiHome5Line,     Fill: RiHome5Fill },
-  { id: 'search', label: 'Search', screen: 'app-search', Line: RiSearchLine,    Fill: RiSearchFill },
   { id: 'learn',  label: 'Learn',  screen: 'app-learn',  Line: RiBookOpenLine,  Fill: RiBookOpenFill },
-  { id: 'play',   label: 'Play',   screen: 'app-play',   Line: RiPlayCircleLine, Fill: RiPlayCircleFill },
+  { id: 'play',   label: 'Play',   screen: 'app-play',   Line: RiPlayLine,      Fill: RiPlayFill },
   { id: 'pedals', label: 'Pedals', screen: 'app-pedals', Line: RiBox3Line,      Fill: RiBox3Fill },
 ];
 
@@ -38,6 +36,7 @@ export function BottomTabBar({ active, nav, isGuest }: BottomTabBarProps) {
         const isActive = tab.id === active;
         const Icon = isActive ? tab.Fill : tab.Line;
         const gated = isGuest && tab.id !== 'learn';
+        const isPlay = tab.id === 'play';
         return (
           <motion.button
             key={tab.id}
@@ -47,11 +46,11 @@ export function BottomTabBar({ active, nav, isGuest }: BottomTabBarProps) {
             transition={{ type: 'spring', stiffness: 600, damping: 26 }}
           >
             <motion.div
-              className="tab-item__icon"
+              className={`tab-item__icon${isPlay ? ' tab-item__icon--play' : ''}${isPlay && isActive ? ' tab-item__icon--play-active' : ''}`}
               animate={{ scale: isActive ? 1.06 : 1, y: isActive ? -1 : 0 }}
               transition={{ type: 'spring', stiffness: 500, damping: 24 }}
             >
-              <Icon size={22} color={isActive ? 'var(--ink)' : 'var(--muted)'} />
+              <Icon size={isPlay ? 16 : 22} color={isPlay ? (isActive ? '#fff' : 'var(--muted)') : (isActive ? 'var(--ink)' : 'var(--muted)')} />
             </motion.div>
             <span className={`tab-item__label ${isActive ? 'tab-item__label--active' : ''}`}>
               {tab.label}

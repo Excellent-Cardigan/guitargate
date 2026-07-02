@@ -498,6 +498,22 @@ img, svg { display: block; }
   justify-content: center;
 }
 
+/* Play sits centered in the tab bar as a raised, filled circle — the one
+   tab that gets a distinct button treatment rather than a plain icon swap. */
+.tab-item__icon--play {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  margin-top: -10px;
+}
+
+.tab-item__icon--play-active {
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
 .tab-item__label {
   font-size: 10px;
   font-weight: 500;

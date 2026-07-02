@@ -172,7 +172,7 @@ export function AppSearch({ nav, feed, isGuest }: Props) {
         </StaggerItem>
       )}
 
-      <BottomTabBar active="search" nav={nav} isGuest={isGuest} />
+      <BottomTabBar active="learn" nav={nav} isGuest={isGuest} />
     </Stagger>
   );
 }
