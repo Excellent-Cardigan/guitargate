@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import {
   RiHome5Line, RiHome5Fill,
+  RiSearchLine, RiSearchFill,
   RiBookOpenLine, RiBookOpenFill,
   RiPlayCircleLine, RiPlayCircleFill,
   RiBox3Line, RiBox3Fill,
 } from '@remixicon/react';
 import type { AppNav, Screen } from '../types';
 
-type TabId = 'home' | 'learn' | 'play' | 'pedals';
+type TabId = 'home' | 'search' | 'learn' | 'play' | 'pedals';
 
 interface BottomTabBarProps {
   active: TabId;
@@ -24,6 +25,7 @@ const TABS: {
   Fill: typeof RiHome5Fill;
 }[] = [
   { id: 'home',   label: 'Home',   screen: 'app-home',   Line: RiHome5Line,     Fill: RiHome5Fill },
+  { id: 'search', label: 'Search', screen: 'app-search', Line: RiSearchLine,    Fill: RiSearchFill },
   { id: 'learn',  label: 'Learn',  screen: 'app-learn',  Line: RiBookOpenLine,  Fill: RiBookOpenFill },
   { id: 'play',   label: 'Play',   screen: 'app-play',   Line: RiPlayCircleLine, Fill: RiPlayCircleFill },
   { id: 'pedals', label: 'Pedals', screen: 'app-pedals', Line: RiBox3Line,      Fill: RiBox3Fill },

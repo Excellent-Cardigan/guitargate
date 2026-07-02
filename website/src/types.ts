@@ -27,7 +27,8 @@ export type Screen =
   | 'edit-profile'
   | 'notification-settings'
   | 'privacy-settings'
-  | 'help-support';
+  | 'help-support'
+  | 'app-search';
 
 export interface NavParams {
   loopId?: string;
@@ -44,7 +45,7 @@ export interface AppNav {
 }
 
 export const PHONE_SCREENS: Screen[] = [
-  'app-home', 'app-learn', 'app-play', 'app-pedals', 'app-account',
+  'app-home', 'app-search', 'app-learn', 'app-play', 'app-pedals', 'app-account',
 ];
 
 export interface ReactionMessage {
@@ -100,4 +101,22 @@ export interface Profile {
   lastName: string;
   username: string;
   instrument: string;
+}
+
+export interface Lesson {
+  id: string;
+  title: string;
+  category: 'paths' | 'songs' | 'techniques' | 'live';
+  /** Artist/instructor for songs & techniques, "Path" for paths, replay host for live. */
+  artist: string;
+  /** Free-text level for songs/techniques/live ("Beginner"/"Intermediate"/"Advanced"/"Replay"), lesson count for paths ("12 lessons"). */
+  level: string;
+  mins: number;
+}
+
+export interface Member {
+  id: string;
+  name: string;
+  instrument: string;
+  bandId?: string;
 }

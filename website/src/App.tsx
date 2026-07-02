@@ -15,6 +15,7 @@ import { AppHome } from './screens/member/AppHome';
 import { AppLearn } from './screens/member/AppLearn';
 import { AppPlay } from './screens/member/AppPlay';
 import { AppPedals } from './screens/member/AppPedals';
+import { AppSearch } from './screens/member/AppSearch';
 import { AppAccount } from './screens/member/AppAccount';
 import { Lesson } from './screens/member/Lesson';
 import { Library } from './screens/member/Library';
@@ -57,6 +58,7 @@ export default function App() {
       case 'app-learn':   return <PhoneFrame><AppLearn nav={nav} /></PhoneFrame>;
       case 'app-play':    return <PhoneFrame><AppPlay nav={nav} feed={feed} /></PhoneFrame>;
       case 'app-pedals':  return <PhoneFrame><AppPedals nav={nav} /></PhoneFrame>;
+      case 'app-search':  return <PhoneFrame><AppSearch nav={nav} feed={feed} /></PhoneFrame>;
       case 'app-account': return <PhoneFrame><AppAccount nav={nav} profile={profile} /></PhoneFrame>;
       case 'lesson':      return <PhoneFrame><Lesson nav={nav} /></PhoneFrame>;
       case 'library':     return <PhoneFrame><Library nav={nav} /></PhoneFrame>;

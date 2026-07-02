@@ -8,6 +8,7 @@ import { AppHome } from './screens/member/AppHome';
 import { AppLearn } from './screens/member/AppLearn';
 import { AppPlay } from './screens/member/AppPlay';
 import { AppPedals } from './screens/member/AppPedals';
+import { AppSearch } from './screens/member/AppSearch';
 import { AppAccount } from './screens/member/AppAccount';
 import { AppSignIn } from './screens/member/AppSignIn';
 import { SignupWizard } from './screens/member/SignupWizard';
@@ -52,6 +53,7 @@ export default function AppOnly() {
       case 'app-learn':   return <AppLearn nav={nav} isGuest={isGuest} />;
       case 'app-play':    return <AppPlay nav={nav} feed={feed} />;
       case 'app-pedals':  return <AppPedals nav={nav} isGuest={isGuest} />;
+      case 'app-search':  return <AppSearch nav={nav} feed={feed} isGuest={isGuest} />;
       case 'app-account': return <AppAccount nav={nav} profile={profile} />;
       case 'app-signin':  return <AppSignIn nav={nav} onGuest={() => setIsGuest(true)} />;
       case 'signup':      return <SignupWizard nav={nav} profile={profile} />;

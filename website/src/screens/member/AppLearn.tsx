@@ -5,6 +5,7 @@ import { Stagger, StaggerItem, DragScrollRow } from '../../components/motion';
 import { ChipFilter } from '../../components/Segmented';
 import { PatternThumb } from '../../components/PatternThumb';
 import { GuestBanner } from '../../components/GuestBanner';
+import { LESSONS } from '../../data/lessonSeed';
 import type { AppNav } from '../../types';
 
 interface Props { nav: AppNav; isGuest?: boolean }
@@ -19,25 +20,11 @@ const PILLS: Array<{ label: string; value: Category }> = [
   { label: 'Live', value: 'live' },
 ];
 
-const COURSES = ['Blues Essentials', 'Rock Foundations', 'Fingerstyle', 'Lead Guitar'];
-
-const SONG_LESSONS = [
-  { title: 'Cliffs of Dover', artist: 'Eric Johnson', level: 'Intermediate', mins: 24 },
-  { title: 'Little Wing',     artist: 'Hendrix',      level: 'Beginner',     mins: 18 },
-  { title: 'Black Magic Woman', artist: 'Santana',    level: 'Intermediate', mins: 31 },
-  { title: 'Europa',          artist: 'Santana',      level: 'Advanced',     mins: 38 },
-];
-
-const TECHNIQUE_DRILLS = [
-  { title: 'Pentatonic Positions', artist: 'Technique', level: 'Beginner',     mins: 12 },
-  { title: 'Vibrato Technique',    artist: 'Technique', level: 'Intermediate', mins: 16 },
-  { title: 'Sweep Picking Basics', artist: 'Technique', level: 'Advanced',     mins: 27 },
-];
-
-const LIVE_SESSIONS = [
-  { title: 'Blues Jam — replay',       artist: 'Jake M.',    level: 'Replay', mins: 42 },
-  { title: 'Official Lesson — replay', artist: 'Michael P.', level: 'Replay', mins: 35 },
-];
+const COURSES = LESSONS.filter(l => l.category === 'paths');
+// Preview rows — first few of each category, matching Library's "6500+ ›" full list.
+const SONG_LESSONS = LESSONS.filter(l => l.category === 'songs').slice(0, 4);
+const TECHNIQUE_DRILLS = LESSONS.filter(l => l.category === 'techniques').slice(0, 3);
+const LIVE_SESSIONS = LESSONS.filter(l => l.category === 'live');
 
 export function AppLearn({ nav, isGuest }: Props) {
   const [activeLabel, setActiveLabel] = useState('All');
@@ -93,13 +80,13 @@ export function AppLearn({ nav, isGuest }: Props) {
           </div>
           <DragScrollRow className="edge-fade-x" style={{ display: 'flex', gap: 10, overflowX: 'auto' }}>
             {COURSES.map(c => (
-              <StaggerItem key={c} onClick={() => nav.navigate('library')} style={{
+              <StaggerItem key={c.id} onClick={() => nav.navigate('library')} style={{
                 flexShrink: 0, width: 120, cursor: 'pointer',
                 border: '1px solid var(--line)', borderRadius: 'var(--radius)', overflow: 'hidden',
               }}>
-                <PatternThumb seed={c} height={70} radius={0} style={{ border: 'none', borderBottom: '1px solid var(--line)' }} />
+                <PatternThumb seed={c.title} height={70} radius={0} style={{ border: 'none', borderBottom: '1px solid var(--line)' }} />
                 <div style={{ padding: '8px 10px' }}>
-                  <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>{c}</div>
+                  <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>{c.title}</div>
                 </div>
               </StaggerItem>
             ))}
@@ -116,7 +103,7 @@ export function AppLearn({ nav, isGuest }: Props) {
           </div>
           <StaggerItem group style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {SONG_LESSONS.map(s => (
-              <StaggerItem key={s.title} className="app-list-item">
+              <StaggerItem key={s.id} className="app-list-item">
                 <PatternThumb seed={s.title} height={40} />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--ink)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
@@ -143,7 +130,7 @@ export function AppLearn({ nav, isGuest }: Props) {
           <div className="app-section__label">Technique drills</div>
           <StaggerItem group style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {TECHNIQUE_DRILLS.map(s => (
-              <StaggerItem key={s.title} className="app-list-item">
+              <StaggerItem key={s.id} className="app-list-item">
                 <PatternThumb seed={s.title} height={40} />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--ink)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
@@ -170,7 +157,7 @@ export function AppLearn({ nav, isGuest }: Props) {
           <div className="app-section__label">Live & replays</div>
           <StaggerItem group style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {LIVE_SESSIONS.map(s => (
-              <StaggerItem key={s.title} className="app-list-item">
+              <StaggerItem key={s.id} className="app-list-item">
                 <PatternThumb seed={s.title} height={40} />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--ink)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
