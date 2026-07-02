@@ -117,7 +117,7 @@ export function AppPedals({ nav, isGuest }: Props) {
       </StaggerItem>
 
       {/* Help / docs */}
-      <StaggerItem className="row-link" onClick={() => {/* placeholder */}}>
+      <StaggerItem className="row-link" onClick={() => nav.navigate('help-support', { from: 'app-pedals' })}>
         <span style={{ fontSize: 15 }}>Pedal help &amp; docs</span>
         <span className="row-link__chevron">›</span>
       </StaggerItem>

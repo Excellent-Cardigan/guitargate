@@ -8,7 +8,7 @@ interface Props { nav: AppNav }
 export function HelpSupport({ nav }: Props) {
   return (
     <Stagger className="phone-scroll">
-      <BackHeader title="Help & support" onBack={() => nav.navigate('app-account')} />
+      <BackHeader title="Help & support" onBack={() => nav.navigate(nav.params.from ?? 'app-account')} />
 
       <StaggerItem style={{ padding: '4px 20px 16px' }}>
         <p className="t-caption t-muted">
