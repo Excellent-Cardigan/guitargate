@@ -25,7 +25,7 @@ export function BandSpace({ nav, feed }: Props) {
         />
       </StaggerItem>
 
-      <StaggerItem group style={{ flex: 1 }}>
+      <StaggerItem group style={{ flex: 1, padding: '0 20px' }}>
         {loops.map(item => (
           <FeedCard
             key={item.id}

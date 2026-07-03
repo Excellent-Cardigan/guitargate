@@ -28,13 +28,23 @@ import { LoopSomeoneIn } from './screens/member/LoopSomeoneIn';
 import { LiveView } from './screens/member/LiveView';
 import { Notifications } from './screens/member/Notifications';
 
+// `?dev` on the URL skips sign-in and drops straight into Home, signed in —
+// for testers (Michael, Matthew) who don't want to re-enter credentials on
+// every visit. No effect on the normal signed-out entry point.
+function initialScreen(): Screen {
+  if (typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('dev')) {
+    return 'app-home';
+  }
+  return 'app-signin';
+}
+
 /**
  * App-only root. Renders the member phone experience and nothing else —
  * no public website screens are imported, so they can never be reached or
  * bundled. This is the entry mounted at `/` for the dedicated app URL.
  */
 export default function AppOnly() {
-  const [screen, setScreen] = useState<Screen>('app-signin');
+  const [screen, setScreen] = useState<Screen>(initialScreen);
   const [params, setParams] = useState<NavParams>({});
   const [isGuest, setIsGuest] = useState(false);
   const feed = useFeedStore();

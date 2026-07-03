@@ -72,6 +72,7 @@ Each card represents **an open loop**:
   - **Add your part** — the join/invitation CTA (the heart of the open-loop model).
   - **Load to pedal** — pushes the loop to the device.
 - Overflow `…` → **Share** (external — see 3.7), plus minor actions (save, report) as placeholders.
+  - **Amended 2026-07-02:** built as a direct Share icon button next to Load to pedal, not behind an overflow `…` menu. Correct as built — an overflow menu whose only item is Share doesn't earn the extra tap; revisit only if "save" / "report" or other minor actions actually get built out.
 
 ### 3.6 Loop detail page
 - Tapping a card opens a **loop detail** view: the loop, **Add your part**, the **React** thread, **Like**, **Load to pedal**, and a **Share** menu. This is the "each loop's own page" referenced in decision #3.
@@ -86,8 +87,8 @@ Each card represents **an open loop**:
 - **Mine** with zero loops → friendly prompt: "You haven't opened a loop yet" + CTA to open one.
 - **Everyone** is **always seeded** with demo loops so the tab never looks dead. Even on first run, a new member dropping into Everyone sees an active community.
 
-### 3.9 Incentive teaser (decision #8 — quiet, numberless)
-- A single understated entry point (e.g. a small row/banner labeled **"Loop someone in →"**, or an item in the overflow/menu). Do **not** clutter the feed.
+### 3.9 Incentive teaser (decision #8 — numberless, but no longer "quiet")
+- **Amended 2026-07-02:** originally specced as a muted footer row below the feed. Kept its position at the bottom of the flow (above the bottom nav), but restyled with real visual contrast — bordered card, filled icon badge, bold label — instead of a low-contrast caption row. The "no numbers, no credit math" constraint still holds — only the *contrast/weight* changed, not the position or the content restraint.
 - It opens a simple **milestone ladder** page: sticker pack → picks → hat → hoodie, shown as a tangible "you earned your patch" ladder. **No counts, no credit values, no "refer & earn" language.** Caregiver framing only.
 
 ---
@@ -151,7 +152,7 @@ Test every label: would it make a shy bedroom player feel *generous*, or feel li
 - [ ] Mine / Friends / Everyone filter drives the Play feed.
 - [ ] Bands strip renders under the Play header; tapping a band opens a scoped Band space with its own composer. 2–3 seeded bands.
 - [ ] Composer posts a loop to the feed; on-register placeholder copy (no broadcast phrasing).
-- [ ] Loop card shows **Like (♥)**, **React (comments)**, **Add your part**, **Load to pedal**, and overflow `…` → Share.
+- [x] Loop card shows **Like (♥)**, **React (comments)**, **Add your part**, **Load to pedal**, and **Share** — built as a direct icon button rather than an overflow `…` menu; confirmed correct 2026-07-02 (see §3.5 note).
 - [ ] Like and React are visibly distinct behaviors (like = tap; react = comment thread). Like works without adding a part.
 - [ ] Loop detail page exists with Add-your-part, React thread, Like, Load to pedal, Share.
 - [ ] External Share opens an open-loop invitation card preview (SVG pattern placeholder + loop name + CTA + link/QR). No reward on the outward card.

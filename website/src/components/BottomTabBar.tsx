@@ -50,7 +50,7 @@ export function BottomTabBar({ active, nav, isGuest }: BottomTabBarProps) {
               animate={{ scale: isActive ? 1.06 : 1, y: isActive ? -1 : 0 }}
               transition={{ type: 'spring', stiffness: 500, damping: 24 }}
             >
-              <Icon size={isPlay ? 16 : 22} color={isPlay ? (isActive ? '#fff' : 'var(--muted)') : (isActive ? 'var(--ink)' : 'var(--muted)')} />
+              <Icon size={isPlay ? 15 : 22} color={isPlay ? (isActive ? '#fff' : 'var(--muted)') : (isActive ? 'var(--ink)' : 'var(--muted)')} />
             </motion.div>
             <span className={`tab-item__label ${isActive ? 'tab-item__label--active' : ''}`}>
               {tab.label}

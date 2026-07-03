@@ -385,6 +385,7 @@ img, svg { display: block; }
 }
 
 .phone-chrome {
+  position: relative;
   width: 390px;
   background: var(--surface);
   border-radius: 24px;
@@ -501,12 +502,12 @@ img, svg { display: block; }
 /* Play sits centered in the tab bar as a raised, filled circle — the one
    tab that gets a distinct button treatment rather than a plain icon swap. */
 .tab-item__icon--play {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 1.5px solid var(--line);
   background: var(--surface);
-  margin-top: -10px;
+  margin-top: -8px;
 }
 
 .tab-item__icon--play-active {
@@ -1125,6 +1126,7 @@ img, svg { display: block; }
 
 /* Filter chips — many options, horizontally scrollable, sliding dark thumb */
 .chip-row {
+  position: relative;
   display: flex;
   gap: 8px;
   overflow-x: auto;
@@ -1280,14 +1282,71 @@ img, svg { display: block; }
    BANDS STRIP — horizontal band tiles under Play header
    ============================================= */
 
-.bands-strip {
+.bands-strip-row {
+  position: relative;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 48px;
+  z-index: 41;
+  border-radius: var(--radius-lg);
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+}
+
+/* Expanded state reads as a card floating above the dimmed backdrop rather
+   than a row that merely happens to sit above it — solid surface + shadow,
+   not just z-index, so the spotlight edge is unmistakable. */
+.bands-strip-row--elevated {
+  background: var(--surface);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.16);
+  margin: -8px -12px;
+  padding: 8px 12px;
+}
+
+/* Full-bleed dim/blur behind the spotlighted band strip. Always rendered so
+   the blur "blooms" in via transition rather than popping — same technique
+   as the reference (backdrop-filter + a soft tint gradient, not a flat wash). */
+.bands-spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+  background: linear-gradient(180deg, rgba(36,35,33,0.30) 0%, rgba(36,35,33,0.22) 45%, rgba(36,35,33,0.30) 100%);
+  transition: opacity 0.4s ease, backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease;
+}
+
+.bands-spotlight-overlay--active {
+  opacity: 1;
+  pointer-events: auto;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.bands-strip__cluster {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 4px 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.bands-strip-scroll {
+  display: flex;
+  align-items: center;
   gap: 14px;
   overflow-x: auto;
-  padding: 4px 2px 2px;
+  flex: 1;
+  min-width: 0;
+  padding: 4px 2px;
   scrollbar-width: none;
 }
-.bands-strip::-webkit-scrollbar { display: none; }
+.bands-strip-scroll::-webkit-scrollbar { display: none; }
 
 .bands-strip__tile {
   flex-shrink: 0;
@@ -1297,6 +1356,10 @@ img, svg { display: block; }
   align-items: center;
   gap: 6px;
   cursor: pointer;
+}
+
+.bands-strip__tile--new {
+  flex-shrink: 0;
 }
 
 .bands-strip__avatar {
@@ -1313,9 +1376,31 @@ img, svg { display: block; }
   color: var(--muted);
 }
 
+.bands-strip__avatar--stacked {
+  border: 2px solid var(--surface);
+  position: relative;
+}
+
 .bands-strip__avatar--new {
   background: var(--surface);
   border-style: dashed;
+}
+
+.bands-strip__collapse-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--surface);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .bands-strip__label {
@@ -1658,18 +1743,39 @@ img, svg { display: block; }
 .milestone-ladder__item--achieved .milestone-ladder__status { color: var(--ink); }
 
 /* =============================================
-   TEASER ROW — quiet "Loop someone in" entry point
+   TEASER CARD — "Loop someone in" entry point
    ============================================= */
 
-.teaser-row {
+.teaser-card {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 14px 20px;
-  border-top: 1px solid var(--line);
+  gap: 10px;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
   cursor: pointer;
-  font-size: var(--text-caption);
-  color: var(--muted);
+  color: var(--ink);
+}
+
+.teaser-card__icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.teaser-card__label {
+  flex: 1;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 /* =============================================

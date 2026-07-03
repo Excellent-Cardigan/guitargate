@@ -7,9 +7,9 @@ import type { AppNav } from '../../types';
 interface Props { nav: AppNav; isGuest?: boolean }
 
 const SONGS_ON_DEVICE = [
-  { title: 'Cliffs of Dover', artist: 'Eric Johnson' },
-  { title: 'Little Wing', artist: 'Hendrix' },
-  { title: 'Europa', artist: 'Santana' },
+  { title: 'untitled loop', note: 'take 3 · 2 days ago' },
+  { title: 'thursday warmup thing', note: 'take 1 · 4 days ago' },
+  { title: 'chorus idea maybe', note: 'take 2 · 1 week ago' },
 ];
 
 export function AppPedals({ nav, isGuest }: Props) {
@@ -52,7 +52,7 @@ export function AppPedals({ nav, isGuest }: Props) {
                 <div style={{ width: 32, height: 32, background: 'var(--line)', borderRadius: 4, flexShrink: 0 }} />
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--ink)' }}>{s.title}</div>
-                  <div className="t-caption t-muted">{playing === s.title ? 'Playing on device…' : s.artist}</div>
+                  <div className="t-caption t-muted">{playing === s.title ? 'Playing on device…' : s.note}</div>
                 </div>
                 <button
                   style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--ink)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}

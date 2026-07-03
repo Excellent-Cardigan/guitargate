@@ -11,6 +11,10 @@ import type { PointerEvent as ReactPointerEvent, MouseEvent as ReactMouseEvent }
 
 const THUMB_SPRING = { type: 'spring', stiffness: 520, damping: 40, mass: 0.8 } as const;
 
+// Slower and softer than THUMB_SPRING — used only for the chip row's collapse/
+// expand, where a snappier spring reads as an abrupt jump rather than a glide.
+const CHIP_SPRING = { type: 'spring', stiffness: 260, damping: 32, mass: 1 } as const;
+
 interface Props {
   options: readonly string[];
   value: string;
@@ -46,7 +50,7 @@ export function SegmentedControl({ options, value, onChange, layoutId, className
   );
 }
 
-export function ChipFilter({ options, value, onChange, layoutId, className, collapseToActive }: Props) {
+export function ChipFilter({ options, value, onChange, className, collapseToActive }: Props) {
   const allValue = options[0];
   const collapsed = Boolean(collapseToActive) && value !== allValue;
   const visibleOptions = collapsed ? [value] : options;
@@ -114,7 +118,7 @@ export function ChipFilter({ options, value, onChange, layoutId, className, coll
       onPointerCancel={endDrag}
       onClickCapture={onClickCapture}
     >
-      <AnimatePresence initial={false}>
+      <AnimatePresence initial={false} mode="popLayout">
         {visibleOptions.map(opt => {
           const active = opt === value;
           return (
@@ -127,10 +131,15 @@ export function ChipFilter({ options, value, onChange, layoutId, className, coll
               initial={collapseToActive ? { opacity: 0 } : false}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
+              transition={{ layout: CHIP_SPRING, opacity: { duration: 0.25 } }}
             >
               {active && (
-                <motion.span className="chip__thumb" layoutId={layoutId} transition={THUMB_SPRING} />
+                <motion.span
+                  className="chip__thumb"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
+                />
               )}
               <span className="chip__label" style={{ color: active ? 'var(--surface)' : 'var(--muted)' }}>
                 {opt}

@@ -1,32 +1,40 @@
-import { seededRandom } from '../utils/seededRandom';
+import { hashSeed, seededRandom } from '../utils/seededRandom';
+import { PATTERNS, PATTERN_TILE_SIZE } from '../assets/patterns/patternData';
 
 interface Props {
   seed: string;
   size?: number;
 }
 
+// Soft greys between --muted (#8C8784) and --ink (#242321) — stays within
+// the existing grayscale tokens, just gives each pattern instance its own tone.
+const GREY_FILLS = ['#2B2A28', '#3D3B38', '#54514D', '#6B6763', '#8C8784'];
+
+/**
+ * Tiles one of the three brand swoosh-glyph patterns (src/assets/patterns),
+ * each instance getting its own seeded scale and grey tone so repeated
+ * placeholders don't all look identical.
+ */
 export function SvgPattern({ seed, size = 280 }: Props) {
   const rand = seededRandom(seed);
-  const shapeCount = 7 + Math.floor(rand() * 4);
-  const shapes = Array.from({ length: shapeCount }, (_, i) => {
-    const isLine = rand() > 0.5;
-    const cx = rand() * size;
-    const cy = rand() * size;
-    const stroke = rand() > 0.5 ? 'var(--ink)' : 'var(--muted)';
-    if (isLine) {
-      const angle = rand() * Math.PI * 2;
-      const len = size * (0.2 + rand() * 0.5);
-      const x2 = cx + Math.cos(angle) * len;
-      const y2 = cy + Math.sin(angle) * len;
-      return <line key={i} x1={cx} y1={cy} x2={x2} y2={y2} stroke={stroke} strokeWidth={1.5} opacity={0.6} />;
-    }
-    const r = 6 + rand() * 30;
-    return <circle key={i} cx={cx} cy={cy} r={r} stroke={stroke} strokeWidth={1.5} fill="none" opacity={0.6} />;
-  });
+  const paths = PATTERNS[Math.floor(rand() * PATTERNS.length)];
+  const scale = 0.08 + rand() * 0.1; // 0.08x – 0.18x the native tile size
+  const fill = GREY_FILLS[Math.floor(rand() * GREY_FILLS.length)];
+  const tileSize = PATTERN_TILE_SIZE * scale;
+  const patternId = `svg-pattern-${hashSeed(seed)}`;
 
   return (
     <svg width="100%" height={size} viewBox={`0 0 ${size} ${size}`} style={{ background: 'var(--bg)', display: 'block' }}>
-      {shapes}
+      <defs>
+        <pattern id={patternId} patternUnits="userSpaceOnUse" width={tileSize} height={tileSize}>
+          <svg viewBox={`0 0 ${PATTERN_TILE_SIZE} ${PATTERN_TILE_SIZE}`} width={tileSize} height={tileSize}>
+            {paths.map((d, i) => (
+              <path key={i} d={d} fill={fill} />
+            ))}
+          </svg>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill={`url(#${patternId})`} opacity={0.5} />
     </svg>
   );
 }

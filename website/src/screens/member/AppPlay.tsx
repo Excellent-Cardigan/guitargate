@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { RiUserAddLine, RiArrowRightSLine } from '@remixicon/react';
 import { BottomTabBar } from '../../components/BottomTabBar';
 import { Stagger, StaggerItem } from '../../components/motion';
 import { SegmentedControl } from '../../components/Segmented';
@@ -47,7 +48,7 @@ export function AppPlay({ nav, feed }: Props) {
       </StaggerItem>
 
       {/* Loop feed */}
-      <StaggerItem group style={{ flex: 1 }}>
+      <StaggerItem group style={{ flex: 1, padding: '0 20px' }}>
         {loops.map(item => (
           <FeedCard
             key={item.id}
@@ -73,10 +74,13 @@ export function AppPlay({ nav, feed }: Props) {
         )}
       </StaggerItem>
 
-      {/* Quiet incentive teaser */}
-      <StaggerItem className="teaser-row" onClick={() => nav.navigate('loop-someone-in')}>
-        <span>Loop someone in</span>
-        <span>→</span>
+      {/* Loop someone in — incentive teaser */}
+      <StaggerItem className="app-section app-section--loose">
+        <button type="button" className="teaser-card" onClick={() => nav.navigate('loop-someone-in')}>
+          <span className="teaser-card__icon"><RiUserAddLine size={18} /></span>
+          <span className="teaser-card__label">Loop someone in</span>
+          <RiArrowRightSLine size={18} />
+        </button>
       </StaggerItem>
 
       <BottomTabBar active="play" nav={nav} />
