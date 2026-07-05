@@ -26,6 +26,7 @@ import { BandSpace } from './screens/member/BandSpace';
 import { LoopSomeoneIn } from './screens/member/LoopSomeoneIn';
 import { LiveView } from './screens/member/LiveView';
 import { Notifications } from './screens/member/Notifications';
+import { Stats } from './screens/member/Stats';
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('brand-home');
@@ -57,7 +58,7 @@ export default function App() {
       case 'app-home':    return <PhoneFrame><AppHome nav={nav} feed={feed} /></PhoneFrame>;
       case 'app-learn':   return <PhoneFrame><AppLearn nav={nav} /></PhoneFrame>;
       case 'app-play':    return <PhoneFrame><AppPlay nav={nav} feed={feed} /></PhoneFrame>;
-      case 'app-pedals':  return <PhoneFrame><AppPedals nav={nav} /></PhoneFrame>;
+      case 'app-pedals':  return <PhoneFrame><AppPedals nav={nav} feed={feed} /></PhoneFrame>;
       case 'app-search':  return <PhoneFrame><AppSearch nav={nav} feed={feed} /></PhoneFrame>;
       case 'app-account': return <PhoneFrame><AppAccount nav={nav} profile={profile} /></PhoneFrame>;
       case 'lesson':      return <PhoneFrame><Lesson nav={nav} /></PhoneFrame>;
@@ -69,6 +70,7 @@ export default function App() {
       case 'loop-someone-in': return <PhoneFrame><LoopSomeoneIn nav={nav} /></PhoneFrame>;
       case 'live-view':   return <PhoneFrame><LiveView nav={nav} /></PhoneFrame>;
       case 'notifications': return <PhoneFrame><Notifications nav={nav} feed={feed} /></PhoneFrame>;
+      case 'stats':       return <PhoneFrame><Stats nav={nav} /></PhoneFrame>;
     }
   }
 

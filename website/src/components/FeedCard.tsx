@@ -4,7 +4,9 @@ import { StaggerItem } from './motion';
 import { ReactionThread } from './ReactionThread';
 import { Waveform } from './Waveform';
 import { AvatarStack } from './AvatarStack';
+import { InstrumentPicker } from './InstrumentPicker';
 import type { ActivityItem } from '../types';
+import { MAX_LOOP_PARTS } from '../types';
 
 interface Props {
   item: ActivityItem;
@@ -13,7 +15,7 @@ interface Props {
   variant?: 'full' | 'home';
   onLike: (id: string) => void;
   onReact: (id: string, text: string) => void;
-  onAddPart?: (id: string) => void;
+  onAddPart?: (id: string, instrument: string) => void;
   onLoadToPedal?: (id: string) => void;
   onOpenDetail?: (id: string) => void;
   onShare?: (id: string) => void;
@@ -21,9 +23,11 @@ interface Props {
 
 export function FeedCard({ item, variant = 'full', onLike, onReact, onAddPart, onLoadToPedal, onOpenDetail, onShare }: Props) {
   const [threadOpen, setThreadOpen] = useState(false);
+  const [pickerOpen, setPickerOpen] = useState(false);
 
   const stop = (e: React.MouseEvent) => e.stopPropagation();
-  const addedPart = item.type === 'loop' && item.contributors.includes('You');
+  const addedPart = item.type === 'loop' && item.parts.some(p => p.name === 'You');
+  const isFull = item.type === 'loop' && item.parts.length >= MAX_LOOP_PARTS;
 
   return (
     <StaggerItem
@@ -54,9 +58,10 @@ export function FeedCard({ item, variant = 'full', onLike, onReact, onAddPart, o
         <div className="waveform-placeholder">{item.lessonTitle}</div>
       )}
 
-      {item.type === 'loop' && item.contributors.length > 0 && (
-        <div style={{ margin: '10px 16px 0' }}>
-          <AvatarStack names={item.contributors} />
+      {item.type === 'loop' && item.parts.length > 0 && (
+        <div style={{ margin: '10px 16px 0', display: 'flex', alignItems: 'center', gap: 8 }}>
+          <AvatarStack parts={item.parts} />
+          <span className="t-caption t-muted">{item.parts.length}/{MAX_LOOP_PARTS} parts</span>
         </div>
       )}
 
@@ -80,10 +85,16 @@ export function FeedCard({ item, variant = 'full', onLike, onReact, onAddPart, o
               <>
                 <button
                   type="button"
+                  disabled={isFull && !addedPart}
                   className={`feed-card__addpart-btn${addedPart ? ' feed-card__addpart-btn--active' : ''}`}
-                  onClick={(e) => { stop(e); onAddPart?.(item.id); }}
+                  onClick={(e) => {
+                    stop(e);
+                    if (addedPart) { onAddPart?.(item.id, ''); return; }
+                    if (isFull) return;
+                    setPickerOpen(o => !o);
+                  }}
                 >
-                  {addedPart ? <><RiCheckLine size={14} /> Added</> : 'Add your part'}
+                  {addedPart ? <><RiCheckLine size={14} /> Added</> : isFull ? "Loop's full" : 'Add your part'}
                 </button>
 
                 <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 14 }}>
@@ -119,6 +130,12 @@ export function FeedCard({ item, variant = 'full', onLike, onReact, onAddPart, o
           </>
         )}
       </div>
+
+      {variant === 'full' && item.type === 'loop' && pickerOpen && !addedPart && !isFull && (
+        <div onClick={stop} style={{ padding: '0 16px 12px' }}>
+          <InstrumentPicker onPick={instrument => { onAddPart?.(item.id, instrument); setPickerOpen(false); }} />
+        </div>
+      )}
 
       {item.type === 'loop' && (
         <ReactionThread reactions={item.reactions} onAdd={text => onReact(item.id, text)} collapsible open={threadOpen} />

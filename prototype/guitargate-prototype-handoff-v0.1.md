@@ -41,6 +41,7 @@
   - Mono / annotation / the bracketed waveform labels like `[ Cliffs of Dover — take 2 ]` → **CoFo Sans** *(fallback: Roboto Mono)*
   - Teleport / Voxbox wordmarks (Pedals screen) → **Conthrax Bold** *(fallback: a wide geometric sans)*
   - Scale: H1 32 · H2 24 · H3 18 · body 16 · caption 13.
+  - **Amended 2026-07-03:** Transducer Extended and Conthrax removed from the website prototype at the user's explicit request — every display/header/wordmark use (including Teleport/Voxbox) now renders in Articulat CF, keeping the prototype to exactly two faces (Articulat CF + CoFo Sans Mono). Scope is the website prototype only; `guitargate-brand-book/`'s documented type system (which still specifies Transducer/Conthrax as locked brand faces) is untouched.
 - **One shared card component.** The activity card on Home and the loop card in Play should share a single component (variant by type) so like/react/timestamp/avatar behavior is identical everywhere.
 
 ---

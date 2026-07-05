@@ -1,4 +1,5 @@
 import { Stagger, StaggerItem } from '../../components/motion';
+import ggStackedLogo from '../../assets/logo/gg-stacked-lockup.svg';
 import type { AppNav } from '../../types';
 
 interface Props { nav: AppNav; onGuest: () => void }
@@ -13,7 +14,7 @@ export function AppSignIn({ nav, onGuest }: Props) {
     <Stagger className="phone-scroll">
       <StaggerItem group style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 28px 40px', gap: 12 }}>
         <StaggerItem style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div className="app-header__wordmark" style={{ fontSize: 28 }}>GUITARGATE</div>
+          <img src={ggStackedLogo} alt="Guitargate" style={{ height: 72, margin: '0 auto' }} />
           <div className="t-caption t-muted" style={{ marginTop: 10 }}>Keep it in your hands.</div>
         </StaggerItem>
 

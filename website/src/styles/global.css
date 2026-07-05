@@ -1,8 +1,8 @@
 /* =============================================
    FONTS — loaded via Adobe Fonts kit in index.html (nem7lpy)
-   Kit includes:
-     transducer-extended  weight 600        (display, headings)
-     articulat-cf         variable (wght)   (UI, body, labels)
+   Prototype is kept to two faces:
+     articulat-cf                variable (wght)   (display, UI, body, labels)
+     cofo-sans-mono-variable      variable (wght)   (mono / annotation)
    ============================================= */
 
 /* =============================================
@@ -16,10 +16,9 @@
   --surface: #FFFFFF;
   --bg:      #FAF9F8;
 
-  --font-display:  transducer-extended, 'Inter', system-ui, sans-serif;
+  --font-display:  articulat-cf, 'Inter', system-ui, sans-serif;
   --font-ui:       articulat-cf, 'Inter', system-ui, sans-serif;
-  --font-subbrand: transducer-extended, 'Inter', system-ui, sans-serif;
-  --font-conthrax: 'Conthrax', 'Eurostile', 'Michroma', sans-serif;
+  --font-subbrand: articulat-cf, 'Inter', system-ui, sans-serif;
   --font-mono:     "cofo-sans-mono-variable", 'Courier New', monospace;
 
   --text-h1:      32px;
@@ -406,6 +405,14 @@ img, svg { display: block; }
   scrollbar-width: none;
 }
 
+/* Once overflow isn't visible, flex children's auto min-size becomes 0 and
+   they get flex-shrunk to fit instead of the container scrolling — this
+   keeps every direct child at its natural height so tall content scrolls
+   instead of getting silently clipped. */
+.phone-scroll > * {
+  flex-shrink: 0;
+}
+
 .phone-scroll::-webkit-scrollbar { 
   display: none 
 }
@@ -450,6 +457,62 @@ img, svg { display: block; }
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
+}
+
+/* =============================================
+   STATS SCREEN — Open-style big numerals + whitespace,
+   reached from Home's quiet streak entry row
+   ============================================= */
+
+.stat-hero-row {
+  display: flex;
+  gap: 40px;
+  padding: 28px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.stat-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stat-hero__num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.stat-hero__label {
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding: 24px 20px;
+}
+
+.stat-grid__num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.stat-grid__label {
+  font-size: var(--text-caption);
+  color: var(--muted);
 }
 
 .notif-dot {
@@ -998,27 +1061,34 @@ img, svg { display: block; }
 .live-scroll {
   display: flex;
   gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 2px;
 }
 
 .live-card {
-  flex-shrink: 0;
-  width: 110px;
+  flex: 1;
+  min-width: 0;
   cursor: pointer;
 }
 
 .live-card__thumb {
-  width: 110px;
-  height: 75px;
+  width: 100%;
+  height: 168px;
   background: var(--line);
   border-radius: var(--radius);
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   margin-bottom: 8px;
   border: 1px solid var(--muted);
+}
+
+.live-card__cover-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
 }
 
 .live-card__badge {
@@ -1056,8 +1126,8 @@ img, svg { display: block; }
 }
 
 .continue-card__thumb {
-  width: 52px;
-  height: 52px;
+  width: 72px;
+  height: 72px;
   background: var(--line);
   border-radius: var(--radius);
   flex-shrink: 0;
@@ -1200,15 +1270,17 @@ img, svg { display: block; }
 .teleport-card-img {
   width: 56px;
   height: 56px;
-  background: var(--line);
-  border-radius: var(--radius-lg);
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
-  color: var(--muted);
-  font-family: var(--font-mono);
+  background: var(--line);
+  border-radius: var(--radius-lg);
+  flex-shrink: 0;
+}
+
+.teleport-card-img img {
+  width: 80%;
+  height: auto;
 }
 
 .connected-dot {
@@ -1637,6 +1709,7 @@ img, svg { display: block; }
 }
 
 .share-preview__pattern {
+  aspect-ratio: 4 / 3;
   border-bottom: 1px solid var(--line);
 }
 

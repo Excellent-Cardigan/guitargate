@@ -1,10 +1,6 @@
 import { motion } from 'framer-motion';
-import {
-  RiHome5Line, RiHome5Fill,
-  RiBookOpenLine, RiBookOpenFill,
-  RiPlayFill, RiPlayLine,
-  RiBox3Line, RiBox3Fill,
-} from '@remixicon/react';
+import { RiPlayFill, RiPlayLine } from '@remixicon/react';
+import { GgHomeIcon, GgLibraryIcon, GgPedalsIcon } from '../assets/icons';
 import type { AppNav, Screen } from '../types';
 
 type TabId = 'home' | 'learn' | 'play' | 'pedals';
@@ -20,13 +16,13 @@ const TABS: {
   id: TabId;
   label: string;
   screen: Screen;
-  Line: typeof RiHome5Line;
-  Fill: typeof RiHome5Fill;
+  Line: typeof RiPlayLine;
+  Fill: typeof RiPlayFill;
 }[] = [
-  { id: 'home',   label: 'Home',   screen: 'app-home',   Line: RiHome5Line,     Fill: RiHome5Fill },
-  { id: 'learn',  label: 'Learn',  screen: 'app-learn',  Line: RiBookOpenLine,  Fill: RiBookOpenFill },
-  { id: 'play',   label: 'Play',   screen: 'app-play',   Line: RiPlayLine,      Fill: RiPlayFill },
-  { id: 'pedals', label: 'Pedals', screen: 'app-pedals', Line: RiBox3Line,      Fill: RiBox3Fill },
+  { id: 'home',   label: 'Home',   screen: 'app-home',   Line: GgHomeIcon,    Fill: GgHomeIcon },
+  { id: 'learn',  label: 'Learn',  screen: 'app-learn',  Line: GgLibraryIcon, Fill: GgLibraryIcon },
+  { id: 'play',   label: 'Play',   screen: 'app-play',   Line: RiPlayLine,   Fill: RiPlayFill },
+  { id: 'pedals', label: 'Pedals', screen: 'app-pedals', Line: GgPedalsIcon,  Fill: GgPedalsIcon },
 ];
 
 export function BottomTabBar({ active, nav, isGuest }: BottomTabBarProps) {

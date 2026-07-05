@@ -1,20 +1,20 @@
 import { useState } from 'react';
-import { RiUser3Line, RiPlayFill, RiPauseFill, RiAddLine, RiCheckLine, RiSparkling2Line } from '@remixicon/react';
+import { RiUser3Line, RiPlayFill, RiPauseFill, RiAddLine, RiCheckLine } from '@remixicon/react';
 import { BottomTabBar } from '../../components/BottomTabBar';
 import { Stagger, StaggerItem } from '../../components/motion';
-import type { AppNav } from '../../types';
+import teleportIcon from '../../assets/logo/teleport-icon.svg';
+import voxboxIcon from '../../assets/logo/voxbox-icon.svg';
+import type { AppNav, LoopItem } from '../../types';
+import { MAX_LOOP_PARTS } from '../../types';
+import type { FeedStore } from '../../state/feedStore';
 
-interface Props { nav: AppNav; isGuest?: boolean }
+interface Props { nav: AppNav; feed: FeedStore; isGuest?: boolean }
 
-const SONGS_ON_DEVICE = [
-  { title: 'untitled loop', note: 'take 3 · 2 days ago' },
-  { title: 'thursday warmup thing', note: 'take 1 · 4 days ago' },
-  { title: 'chorus idea maybe', note: 'take 2 · 1 week ago' },
-];
-
-export function AppPedals({ nav, isGuest }: Props) {
+export function AppPedals({ nav, feed, isGuest }: Props) {
   const [playing, setPlaying] = useState<string | null>(null);
   const [waitlisted, setWaitlisted] = useState(false);
+
+  const onDevice = feed.activity.filter((item): item is LoopItem => item.type === 'loop' && item.loadedToPedal);
 
   return (
     <Stagger className="phone-scroll">
@@ -28,10 +28,12 @@ export function AppPedals({ nav, isGuest }: Props) {
       {/* Teleport card */}
       <StaggerItem style={{ margin: '16px 20px 0', border: '1px solid var(--line)', borderRadius: 'var(--radius-lg)', background: 'var(--surface)', overflow: 'hidden' }}>
         <div className="teleport-card-header">
-          <div className="teleport-card-img">img</div>
+          <div className="teleport-card-img">
+            <img src={teleportIcon} alt="Teleport" />
+          </div>
           <div style={{ flex: 1 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-              <span style={{ fontFamily: 'var(--font-conthrax)', fontWeight: 700, fontSize: 16, letterSpacing: '0.04em' }}>
+              <span style={{ fontFamily: 'var(--font-ui)', fontWeight: 700, fontSize: 16, letterSpacing: '0.04em' }}>
                 TELEPORT
               </span>
             </div>
@@ -46,24 +48,30 @@ export function AppPedals({ nav, isGuest }: Props) {
         {/* Songs on device */}
         <div style={{ padding: '12px 16px', borderBottom: '1px solid var(--line)' }}>
           <div className="app-section__label" style={{ marginBottom: 10 }}>Songs on device</div>
+          {onDevice.length === 0 && (
+            <div className="t-caption t-muted" style={{ marginBottom: 10 }}>Nothing loaded yet — load a loop from Play</div>
+          )}
           <StaggerItem group style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            {SONGS_ON_DEVICE.map(s => (
-              <StaggerItem key={s.title} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 0', borderBottom: '1px solid var(--line)' }}>
-                <div style={{ width: 32, height: 32, background: 'var(--line)', borderRadius: 4, flexShrink: 0 }} />
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--ink)' }}>{s.title}</div>
-                  <div className="t-caption t-muted">{playing === s.title ? 'Playing on device…' : s.note}</div>
-                </div>
-                <button
-                  style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--ink)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
-                  onClick={() => setPlaying(prev => prev === s.title ? null : s.title)}
-                >
-                  {playing === s.title
-                    ? <RiPauseFill size={10} color="#fff" />
-                    : <RiPlayFill size={10} color="#fff" />}
-                </button>
-              </StaggerItem>
-            ))}
+            {onDevice.map(loop => {
+              const partsSummary = `${loop.parts.length}/${MAX_LOOP_PARTS} parts${loop.parts.length ? ' · ' + loop.parts.map(p => p.instrument).join(', ') : ''}`;
+              return (
+                <StaggerItem key={loop.id} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 0', borderBottom: '1px solid var(--line)' }}>
+                  <div style={{ width: 32, height: 32, background: 'var(--line)', borderRadius: 4, flexShrink: 0 }} />
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--ink)' }}>{loop.title}</div>
+                    <div className="t-caption t-muted">{playing === loop.id ? 'Playing on device…' : partsSummary}</div>
+                  </div>
+                  <button
+                    style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--ink)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
+                    onClick={() => setPlaying(prev => prev === loop.id ? null : loop.id)}
+                  >
+                    {playing === loop.id
+                      ? <RiPauseFill size={10} color="#fff" />
+                      : <RiPlayFill size={10} color="#fff" />}
+                  </button>
+                </StaggerItem>
+              );
+            })}
             <StaggerItem
               style={{
                 display: 'flex', alignItems: 'center', gap: 10, padding: '10px 0',
@@ -96,9 +104,9 @@ export function AppPedals({ nav, isGuest }: Props) {
       {/* Voxbox slot */}
       <StaggerItem className="voxbox-slot">
         <div style={{ width: 48, height: 48, background: 'var(--line)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <RiSparkling2Line size={20} color="var(--muted)" />
+          <img src={voxboxIcon} alt="Voxbox" style={{ width: '80%', height: 'auto' }} />
         </div>
-        <div style={{ fontFamily: 'var(--font-conthrax)', fontWeight: 700, fontSize: 15, letterSpacing: '0.04em', color: 'var(--ink)' }}>
+        <div style={{ fontFamily: 'var(--font-ui)', fontWeight: 700, fontSize: 15, letterSpacing: '0.04em', color: 'var(--ink)'}}>
           VOXBOX
         </div>
         <div className="t-caption t-muted">

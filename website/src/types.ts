@@ -28,7 +28,8 @@ export type Screen =
   | 'notification-settings'
   | 'privacy-settings'
   | 'help-support'
-  | 'app-search';
+  | 'app-search'
+  | 'stats';
 
 export interface NavParams {
   loopId?: string;
@@ -59,6 +60,18 @@ export interface Band {
   memberCount: number;
 }
 
+/** One contributor's part in an open loop. `name` is the member's display name
+ *  ('You' for the current member — same convention used elsewhere). `instrument`
+ *  is a free-text tag (e.g. 'Guitar', 'Drums', 'Bass'), matching Member.instrument's
+ *  free-text convention. */
+export interface LoopPart {
+  name: string;
+  instrument: string;
+}
+
+/** A loop holds at most this many parts (mirrors the Teleport pedal's 4-track model). */
+export const MAX_LOOP_PARTS = 4;
+
 export interface LoopItem {
   id: string;
   type: 'loop';
@@ -70,8 +83,10 @@ export interface LoopItem {
   hearts: number;
   liked: boolean;
   reactions: ReactionMessage[];
-  /** Names of members who've added their own part to this open loop — "You" if the current member has. */
-  contributors: string[];
+  /** Parts contributed to this open loop so far (max MAX_LOOP_PARTS), any order.
+   *  A part named 'You' means the current member contributed it. Drums is just an
+   *  instrument tag a contributor can pick — not a reserved slot. */
+  parts: LoopPart[];
   loadedToPedal: boolean;
   scope: 'mine' | 'friends' | 'everyone';
 }

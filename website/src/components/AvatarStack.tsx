@@ -1,21 +1,24 @@
+import type { LoopPart } from '../types';
+
 interface Props {
-  names: string[];
+  parts: LoopPart[];
   size?: number;
 }
 
-/** Overlapping avatar circles showing who's added a part to an open loop. */
-export function AvatarStack({ names, size = 20 }: Props) {
-  if (names.length === 0) return null;
-  const shown = names.slice(0, 4);
-  const overflow = names.length - shown.length;
+/** Overlapping avatar circles showing who's added a part (and on what instrument) to an open loop. */
+export function AvatarStack({ parts, size = 20 }: Props) {
+  if (parts.length === 0) return null;
+  const shown = parts.slice(0, 4);
+  const overflow = parts.length - shown.length;
+  const label = (p: LoopPart) => `${p.name} (${p.instrument})`;
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
       <div style={{ display: 'flex' }}>
-        {shown.map((name, i) => (
+        {shown.map((p, i) => (
           <div
-            key={name + i}
-            title={name}
+            key={p.name + i}
+            title={label(p)}
             style={{
               width: size, height: size, borderRadius: '50%',
               background: 'var(--line)', border: '2px solid var(--surface)',
@@ -24,12 +27,14 @@ export function AvatarStack({ names, size = 20 }: Props) {
               fontSize: size * 0.4, color: 'var(--muted)', fontWeight: 600,
             }}
           >
-            {name.charAt(0)}
+            {p.name.charAt(0)}
           </div>
         ))}
       </div>
       <span className="t-caption t-muted">
-        {overflow > 0 ? `${shown.join(', ')} +${overflow} added a part` : `${names.join(', ')} added a part`}
+        {overflow > 0
+          ? `${shown.map(label).join(', ')} +${overflow} added a part`
+          : `${shown.map(label).join(', ')} added a part`}
       </span>
     </div>
   );

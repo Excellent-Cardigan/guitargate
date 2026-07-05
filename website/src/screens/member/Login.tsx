@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { RiEyeLine, RiEyeOffLine } from '@remixicon/react';
 import { Stagger, StaggerItem } from '../../components/motion';
 import { BackHeader } from '../../components/BackHeader';
+import ggStackedLogo from '../../assets/logo/gg-stacked-lockup.svg';
 import type { AppNav } from '../../types';
 
 interface Props { nav: AppNav }
@@ -23,6 +24,10 @@ export function Login({ nav }: Props) {
   return (
     <Stagger className="phone-scroll">
       <BackHeader title="Sign in" onBack={goBack} />
+
+      <StaggerItem style={{ textAlign: 'center', margin: '16px 0 0' }}>
+        <img src={ggStackedLogo} alt="Guitargate" style={{ height: 56, margin: '0 auto' }} />
+      </StaggerItem>
 
       {step === 0 && (
         <StaggerItem className="wizard-body">

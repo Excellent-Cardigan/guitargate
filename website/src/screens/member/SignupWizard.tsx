@@ -3,6 +3,7 @@ import { RiEyeLine, RiEyeOffLine, RiNotification3Line } from '@remixicon/react';
 import { Stagger, StaggerItem } from '../../components/motion';
 import { WizardStepHeader } from '../../components/WizardStepHeader';
 import { PedalPairingDiagram } from '../../components/PedalPairingDiagram';
+import ggStackedLogo from '../../assets/logo/gg-stacked-lockup.svg';
 import type { AppNav } from '../../types';
 import type { ProfileStore } from '../../state/profileStore';
 
@@ -53,6 +54,9 @@ export function SignupWizard({ nav, profile }: Props) {
       {step === 0 && (
         <>
           <WizardStepHeader section="Account" step={1} total={TOTAL_STEPS} onBack={goBack} />
+          <StaggerItem style={{ textAlign: 'center' }}>
+            <img src={ggStackedLogo} alt="Guitargate" style={{ height: 56, margin: '0 auto' }} />
+          </StaggerItem>
           <StaggerItem className="wizard-body">
             <div className="wizard-body__question">What's your email?</div>
             <input

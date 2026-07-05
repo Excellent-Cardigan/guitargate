@@ -27,6 +27,7 @@ import { BandSpace } from './screens/member/BandSpace';
 import { LoopSomeoneIn } from './screens/member/LoopSomeoneIn';
 import { LiveView } from './screens/member/LiveView';
 import { Notifications } from './screens/member/Notifications';
+import { Stats } from './screens/member/Stats';
 
 // `?dev` on the URL skips sign-in and drops straight into Home, signed in —
 // for testers (Michael, Matthew) who don't want to re-enter credentials on
@@ -62,7 +63,7 @@ export default function AppOnly() {
     switch (screen) {
       case 'app-learn':   return <AppLearn nav={nav} isGuest={isGuest} />;
       case 'app-play':    return <AppPlay nav={nav} feed={feed} />;
-      case 'app-pedals':  return <AppPedals nav={nav} isGuest={isGuest} />;
+      case 'app-pedals':  return <AppPedals nav={nav} feed={feed} isGuest={isGuest} />;
       case 'app-search':  return <AppSearch nav={nav} feed={feed} isGuest={isGuest} />;
       case 'app-account': return <AppAccount nav={nav} profile={profile} />;
       case 'app-signin':  return <AppSignIn nav={nav} onGuest={() => setIsGuest(true)} />;
@@ -82,6 +83,7 @@ export default function AppOnly() {
       case 'loop-someone-in': return <LoopSomeoneIn nav={nav} />;
       case 'live-view':   return <LiveView nav={nav} />;
       case 'notifications': return <Notifications nav={nav} feed={feed} />;
+      case 'stats':       return <Stats nav={nav} />;
       // Any public screen target (or unknown) resolves back into the app.
       case 'app-home':
       default:            return <AppHome nav={nav} feed={feed} isGuest={isGuest} />;

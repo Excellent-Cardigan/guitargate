@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import type { ActivityItem, Band, LoopItem, NotificationItem, ReactionMessage } from '../types';
+import { MAX_LOOP_PARTS } from '../types';
 import { SEED_ACTIVITY, SEED_BANDS, SEED_NOTIFICATIONS } from '../data/feedSeed';
 
 export interface NewLoopInput {
@@ -17,8 +18,9 @@ export interface FeedStore {
   addBand: (name: string) => string;
   toggleLike: (id: string) => void;
   addReaction: (id: string, text: string) => void;
-  toggleAddPart: (id: string) => void;
+  toggleAddPart: (id: string, instrument: string) => void;
   toggleLoadedToPedal: (id: string) => void;
+  sendLoopToBand: (id: string, bandId: string) => void;
   markNotificationsRead: () => void;
 }
 
@@ -47,7 +49,7 @@ export function useFeedStore(): FeedStore {
       hearts: 0,
       liked: false,
       reactions: [],
-      contributors: [],
+      parts: [],
       loadedToPedal: false,
       scope: input.scope,
     };
@@ -72,17 +74,23 @@ export function useFeedStore(): FeedStore {
     updateLoop(id, loop => ({ ...loop, reactions: [...loop.reactions, reaction] }));
   };
 
-  const toggleAddPart = (id: string) => {
-    updateLoop(id, loop => ({
-      ...loop,
-      contributors: loop.contributors.includes('You')
-        ? loop.contributors.filter(c => c !== 'You')
-        : [...loop.contributors, 'You'],
-    }));
+  const toggleAddPart = (id: string, instrument: string) => {
+    updateLoop(id, loop => {
+      const already = loop.parts.some(p => p.name === 'You');
+      if (already) return { ...loop, parts: loop.parts.filter(p => p.name !== 'You') };
+      if (loop.parts.length >= MAX_LOOP_PARTS) return loop;
+      return { ...loop, parts: [...loop.parts, { name: 'You', instrument }] };
+    });
   };
 
   const toggleLoadedToPedal = (id: string) => {
     updateLoop(id, loop => ({ ...loop, loadedToPedal: !loop.loadedToPedal }));
+  };
+
+  const sendLoopToBand = (id: string, bandId: string) => {
+    const band = bands.find(b => b.id === bandId);
+    if (!band) return;
+    updateLoop(id, loop => ({ ...loop, bandId: band.id, bandName: band.name }));
   };
 
   const markNotificationsRead = () => {
@@ -91,6 +99,6 @@ export function useFeedStore(): FeedStore {
 
   return {
     bands, activity, notifications,
-    addLoop, addBand, toggleLike, addReaction, toggleAddPart, toggleLoadedToPedal, markNotificationsRead,
+    addLoop, addBand, toggleLike, addReaction, toggleAddPart, toggleLoadedToPedal, sendLoopToBand, markNotificationsRead,
   };
 }

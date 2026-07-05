@@ -1,24 +1,25 @@
 import { RiUser3Line, RiPlayFill } from '@remixicon/react';
 import { BottomTabBar } from '../../components/BottomTabBar';
-import { Stagger, StaggerItem, DragScrollRow } from '../../components/motion';
+import { Stagger, StaggerItem } from '../../components/motion';
 import { FeedCard } from '../../components/FeedCard';
 import { NotificationBell } from '../../components/NotificationBell';
 import { LIVE_SESSIONS } from '../../data/liveSeed';
-import type { AppNav } from '../../types';
+import { DAY_STREAK } from '../../data/statsSeed';
+import ggLogo from '../../assets/logo/gg-horizontal-black.svg';
+import type { AppNav, LoopItem } from '../../types';
 import type { FeedStore } from '../../state/feedStore';
 
 interface Props { nav: AppNav; feed: FeedStore; isGuest?: boolean }
 
-const PRACTICE_STREAK_DAYS = 4;
-
 export function AppHome({ nav, feed, isGuest }: Props) {
   const hasUnread = feed.notifications.some(n => !n.read);
+  const everyoneLoops = feed.activity.filter((item): item is LoopItem => item.type === 'loop' && item.scope === 'everyone').slice(0, 3);
 
   return (
     <Stagger className="phone-scroll">
       {/* App header */}
       <StaggerItem className="app-header">
-        <span className="app-header__wordmark">GUITARGATE</span>
+        <img src={ggLogo} alt="Guitargate" style={{ height: 20 }} />
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <NotificationBell hasUnread={hasUnread} onClick={() => nav.navigate('notifications')} />
           <button
@@ -30,26 +31,30 @@ export function AppHome({ nav, feed, isGuest }: Props) {
         </div>
       </StaggerItem>
 
-      {/* Practice streak — quiet, personal, not a social/credit signal */}
-      <StaggerItem style={{ padding: '10px 20px 0' }}>
-        <span className="tag tag-outline">{PRACTICE_STREAK_DAYS}-day streak — keep it going</span>
+      {/* Practice streak — same big-numeral treatment as the Stats screen, tappable through to the full stat picture */}
+      <StaggerItem className="app-section" onClick={() => nav.navigate('stats')} style={{ cursor: 'pointer' }}>
+        <StaggerItem className="stat-hero">
+          <span className="stat-hero__num">{DAY_STREAK}</span>
+          <span className="stat-hero__label">Day streak — keep it going</span>
+        </StaggerItem>
       </StaggerItem>
 
       {/* Live now */}
       <StaggerItem className="app-section app-section--loose">
         <div className="app-section__label">Live now</div>
-        <DragScrollRow className="live-scroll edge-fade-x">
+        <StaggerItem className="live-scroll" group>
           {LIVE_SESSIONS.map(item => (
             <StaggerItem key={item.id} className="live-card" onClick={() => nav.navigate('live-view', { liveId: item.id })}>
               <div className="live-card__thumb">
                 <span className="badge badge-live live-card__badge" style={{ fontSize: 9, letterSpacing: '0.1em' }}>LIVE</span>
-                <RiPlayFill size={16} color="var(--muted)" />
+                <RiPlayFill size={20} color="var(--muted)" />
+                <span className="live-card__cover-label">Cover art</span>
               </div>
               <div className="live-card__title">{item.title}</div>
               <div className="live-card__meta">{item.host} · {item.watching} watching</div>
             </StaggerItem>
           ))}
-        </DragScrollRow>
+        </StaggerItem>
       </StaggerItem>
 
       {/* Continue */}
@@ -75,22 +80,25 @@ export function AppHome({ nav, feed, isGuest }: Props) {
         </StaggerItem>
       </StaggerItem>
 
-      {/* Community feed */}
-      <StaggerItem className="app-section app-section--loose">
-        <div className="app-section__label">What members are playing</div>
-        <StaggerItem group style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {feed.activity.map(item => (
-            <FeedCard
-              key={item.id}
-              item={item}
-              variant="home"
-              onLike={feed.toggleLike}
-              onReact={feed.addReaction}
-              onOpenDetail={id => nav.navigate('loop-detail', { loopId: id, from: 'app-home' })}
-            />
-          ))}
+      {/* What members are playing — a few Everyone-scope loops, given extra breathing room above
+          it so it reads as "keep scrolling for more" rather than competing with Live Now/Continue */}
+      {everyoneLoops.length > 0 && (
+        <StaggerItem className="app-section app-section--loose" style={{ paddingTop: 56 }}>
+          <div className="app-section__label">What members are playing</div>
+          <StaggerItem group style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {everyoneLoops.map(item => (
+              <FeedCard
+                key={item.id}
+                item={item}
+                variant="home"
+                onLike={feed.toggleLike}
+                onReact={feed.addReaction}
+                onOpenDetail={id => nav.navigate('loop-detail', { loopId: id, from: 'app-home' })}
+              />
+            ))}
+          </StaggerItem>
         </StaggerItem>
-      </StaggerItem>
+      )}
 
       {/* Go play CTA */}
       <StaggerItem style={{ padding: '16px 20px 8px' }}>

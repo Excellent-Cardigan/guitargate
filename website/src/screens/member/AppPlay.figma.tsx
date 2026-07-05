@@ -7,7 +7,7 @@ const mockNav: AppNav = { navigate: () => {}, currentScreen: 'app-play', params:
 const mockFeed: FeedStore = {
   bands: [], activity: [], notifications: [],
   addLoop: () => {}, addBand: () => '', toggleLike: () => {}, addReaction: () => {},
-  toggleAddPart: () => {}, toggleLoadedToPedal: () => {}, markNotificationsRead: () => {},
+  toggleAddPart: () => {}, toggleLoadedToPedal: () => {}, sendLoopToBand: () => {}, markNotificationsRead: () => {},
 }
 
 figma.connect(AppPlay, 'https://www.figma.com/file/p6Rw4KmetacUPTtN93Veec?node-id=41-45', {

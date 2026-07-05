@@ -84,7 +84,7 @@ export function AppLearn({ nav, isGuest }: Props) {
                 flexShrink: 0, width: 120, cursor: 'pointer',
                 border: '1px solid var(--line)', borderRadius: 'var(--radius)', overflow: 'hidden',
               }}>
-                <PatternThumb seed={c.title} height={70} radius={0} style={{ border: 'none', borderBottom: '1px solid var(--line)' }} />
+                <PatternThumb seed={c.title} height={70} width={120} radius={0} style={{ border: 'none', borderBottom: '1px solid var(--line)' }} />
                 <div style={{ padding: '8px 10px' }}>
                   <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--ink)' }}>{c.title}</div>
                 </div>

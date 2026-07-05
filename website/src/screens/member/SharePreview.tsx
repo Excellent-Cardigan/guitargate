@@ -1,4 +1,4 @@
-import { RiQrCodeLine, RiInstagramLine, RiMessage3Line, RiLinksLine } from '@remixicon/react';
+import { RiQrCodeLine, RiInstagramLine, RiMessage3Line, RiLinksLine, RiGroupLine } from '@remixicon/react';
 import { BottomTabBar } from '../../components/BottomTabBar';
 import { Stagger, StaggerItem } from '../../components/motion';
 import { BackHeader } from '../../components/BackHeader';
@@ -20,7 +20,7 @@ export function SharePreview({ nav, feed }: Props) {
 
       <StaggerItem className="share-preview__card">
         <div className="share-preview__pattern">
-          <SvgPattern seed={loop?.id ?? 'default'} size={280} />
+          <SvgPattern seed={loop?.id ?? 'default'} size={280} aspect={4 / 3} />
         </div>
         <div className="share-preview__body">
           <div className="share-preview__title">{loop?.type === 'loop' ? loop.title : 'Open loop'}</div>
@@ -40,6 +40,27 @@ export function SharePreview({ nav, feed }: Props) {
         <span className="share-preview__target-pill"><RiMessage3Line size={13} /> Messages</span>
         <span className="share-preview__target-pill"><RiLinksLine size={13} /> Copy link</span>
       </StaggerItem>
+
+      {feed.bands.length > 0 && (
+        <StaggerItem style={{ padding: '20px 20px 4px' }}>
+          <div className="app-section__label">Send to a band</div>
+          <StaggerItem group style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+            {feed.bands.map(band => (
+              <button
+                key={band.id}
+                type="button"
+                className="share-preview__target-pill"
+                onClick={() => {
+                  if (loop) feed.sendLoopToBand(loop.id, band.id);
+                  nav.navigate('band-space', { bandId: band.id });
+                }}
+              >
+                <RiGroupLine size={13} /> {band.name}
+              </button>
+            ))}
+          </StaggerItem>
+        </StaggerItem>
+      )}
 
       <BottomTabBar active="play" nav={nav} />
     </Stagger>
